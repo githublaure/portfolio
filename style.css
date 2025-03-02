@@ -478,7 +478,8 @@ hr {
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;
-  filter: blur(5px);
+  filter: blur(0px);
+  box-shadow: 0 0 10px 3px currentColor;
   animation: chakra-glow 3s infinite alternate;
   cursor: pointer;
   z-index: 10;
@@ -494,7 +495,8 @@ hr {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 8px 2px white;
 }
 
 .chakra:nth-child(1) { top: 15%; background: #FF0000; } /* Rouge - Racine */
@@ -513,7 +515,7 @@ hr {
 .tooltip {
   position: absolute;
   width: 200px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -526,6 +528,8 @@ hr {
   transform: translateY(-50%);
   text-align: left;
   border-left: 4px solid;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(0);
 }
 
 .chakra:hover .tooltip {
@@ -540,6 +544,9 @@ hr {
 .tooltip p {
   margin: 5px 0;
   font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .chakra:nth-child(1) .tooltip { border-color: #FF0000; }
