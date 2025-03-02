@@ -179,11 +179,18 @@ const initTypingEffect = () => {
     const typingElement = document.querySelector('.typing-effect');
     if (typingElement) {
         const originalText = typingElement.textContent;
-        typingElement.textContent = '';
-
-        // Animation par CSS plutôt que JS pour plus de performance
         typingElement.textContent = originalText;
-        typingElement.style.visibility = 'visible';
+        typingElement.classList.add('typing-active');
+    }
+
+    // Activer l'animation de typing pour les titres h3 dans .typewriter
+    const typewriterElement = document.querySelector('.typewriter h3');
+    if (typewriterElement) {
+        typewriterElement.style.width = '0';
+        setTimeout(() => {
+            typewriterElement.style.animation = 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite';
+            typewriterElement.style.width = '100%';
+        }, 500);
     }
 }
 
@@ -191,18 +198,18 @@ const initTypingEffect = () => {
 const initSocialAnimations = () => {
     const socialLinks = document.querySelectorAll('.social-media a');
     socialLinks.forEach(link => {
+        // Utiliser les classes CSS plutôt que des styles inline pour une meilleure performance
         link.addEventListener('mouseenter', () => {
             const icon = link.querySelector('i');
             if (icon) {
-                icon.style.transform = 'translateY(-5px) scale(1.2)';
-                icon.style.transition = 'transform 0.3s ease, color 0.3s ease';
+                icon.classList.add('hover-effect');
             }
         });
 
         link.addEventListener('mouseleave', () => {
             const icon = link.querySelector('i');
             if (icon) {
-                icon.style.transform = 'translateY(0) scale(1)';
+                icon.classList.remove('hover-effect');
             }
         });
     });
