@@ -526,13 +526,13 @@ hr {
 }
 
 /* Positionnement selon la forme d'un arbre */
-.chakra:nth-child(1) { top: 85%; left: 50%; background: #8d6e63; } /* Marron - Racine (base du tronc) */
-.chakra:nth-child(2) { top: 65%; left: 48%; background: #a1887f; } /* Marron clair - Sacré (milieu du tronc) */
-.chakra:nth-child(3) { top: 45%; left: 50%; background: #bcaaa4; } /* Beige-marron - Plexus solaire (haut du tronc) */
-.chakra:nth-child(4) { top: 35%; left: 40%; background: #d7ccc8; } /* Beige plus clair - Cœur (branche gauche) */
-.chakra:nth-child(5) { top: 35%; left: 60%; background: #efebe9; } /* Beige très clair - Gorge (branche droite) */
-.chakra:nth-child(6) { top: 22%; left: 30%; background: #795548; } /* Marron moyen - Troisième œil (feuillage gauche) */
-.chakra:nth-child(7) { top: 20%; left: 70%; background: #5d4037; } /* Marron foncé - Couronne (feuillage droit) */
+.chakra:nth-child(1) { top: 85%; left: 50%; background: #FF0000; } /* Rouge - Racine (base du tronc) */
+.chakra:nth-child(2) { top: 65%; left: 48%; background: #FFA500; } /* Orange - Sacré (milieu du tronc) */
+.chakra:nth-child(3) { top: 45%; left: 50%; background: #FFFF00; } /* Jaune - Plexus solaire (haut du tronc) */
+.chakra:nth-child(4) { top: 35%; left: 40%; background: #00FF00; } /* Vert - Cœur (branche gauche) */
+.chakra:nth-child(5) { top: 35%; left: 60%; background: #00FFFF; } /* Bleu clair - Gorge (branche droite) */
+.chakra:nth-child(6) { top: 22%; left: 30%; background: #0000FF; } /* Bleu - Troisième œil (feuillage gauche) */
+.chakra:nth-child(7) { top: 20%; left: 70%; background: #800080; } /* Violet - Couronne (feuillage droit) */
 
 @keyframes chakra-glow {
   0% { box-shadow: 0 0 5px 2px currentColor; }
@@ -575,13 +575,13 @@ hr {
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
-.chakra:nth-child(1) .tooltip { border-color: #8d6e63; background: rgba(248, 243, 233, 0.95); color: #5d4037; }
-.chakra:nth-child(2) .tooltip { border-color: #a1887f; background: rgba(248, 243, 233, 0.95); color: #5d4037; }
-.chakra:nth-child(3) .tooltip { border-color: #bcaaa4; background: rgba(248, 243, 233, 0.95); color: #5d4037; }
-.chakra:nth-child(4) .tooltip { border-color: #d7ccc8; background: rgba(248, 243, 233, 0.95); color: #5d4037; }
-.chakra:nth-child(5) .tooltip { border-color: #efebe9; background: rgba(248, 243, 233, 0.95); color: #5d4037; }
-.chakra:nth-child(6) .tooltip { border-color: #795548; background: rgba(248, 243, 233, 0.95); color: #5d4037; }
-.chakra:nth-child(7) .tooltip { border-color: #5d4037; background: rgba(248, 243, 233, 0.95); color: #5d4037; }
+.chakra:nth-child(1) .tooltip { border-color: #FF0000; }
+.chakra:nth-child(2) .tooltip { border-color: #FFA500; }
+.chakra:nth-child(3) .tooltip { border-color: #FFFF00; color: #333; background: rgba(255, 255, 255, 0.9); }
+.chakra:nth-child(4) .tooltip { border-color: #00FF00; }
+.chakra:nth-child(5) .tooltip { border-color: #00FFFF; }
+.chakra:nth-child(6) .tooltip { border-color: #0000FF; }
+.chakra:nth-child(7) .tooltip { border-color: #
 
 /* Animations de typing (effet geek) */
 .typewriter h3 {
