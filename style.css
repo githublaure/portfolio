@@ -448,8 +448,8 @@ hr {
 /* Styles pour l'arbre chakra */
 .chakra-tree-container {
   position: relative;
-  width: 300px;
-  height: 400px;
+  width: 900px; /* 3x plus grand */
+  height: 1200px; /* 3x plus grand */
   margin: 40px auto;
   overflow: visible;
   z-index: 2;
@@ -473,17 +473,16 @@ hr {
 
 .chakra {
   position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   filter: blur(0px);
-  box-shadow: 0 0 10px 3px currentColor;
+  box-shadow: 0 0 15px 5px currentColor;
   animation: chakra-glow 3s infinite alternate;
   cursor: pointer;
   z-index: 10;
   pointer-events: all;
+  transform: translate(-50%, -50%);
 }
 
 .chakra::after {
@@ -499,13 +498,14 @@ hr {
   box-shadow: 0 0 8px 2px white;
 }
 
-.chakra:nth-child(1) { top: 15%; background: #FF0000; } /* Rouge - Racine */
-.chakra:nth-child(2) { top: 25%; background: #FFA500; } /* Orange - Sacré */
-.chakra:nth-child(3) { top: 35%; background: #FFFF00; } /* Jaune - Plexus solaire */
-.chakra:nth-child(4) { top: 45%; background: #00FF00; } /* Vert - Cœur */
-.chakra:nth-child(5) { top: 55%; background: #00FFFF; } /* Bleu clair - Gorge */
-.chakra:nth-child(6) { top: 65%; background: #0000FF; } /* Bleu - Troisième œil */
-.chakra:nth-child(7) { top: 75%; background: #800080; } /* Violet - Couronne */
+/* Positionnement selon la forme d'un arbre */
+.chakra:nth-child(1) { top: 85%; left: 50%; background: #FF0000; } /* Rouge - Racine (base du tronc) */
+.chakra:nth-child(2) { top: 65%; left: 48%; background: #FFA500; } /* Orange - Sacré (milieu du tronc) */
+.chakra:nth-child(3) { top: 45%; left: 50%; background: #FFFF00; } /* Jaune - Plexus solaire (haut du tronc) */
+.chakra:nth-child(4) { top: 35%; left: 40%; background: #00FF00; } /* Vert - Cœur (branche gauche) */
+.chakra:nth-child(5) { top: 35%; left: 60%; background: #00FFFF; } /* Bleu clair - Gorge (branche droite) */
+.chakra:nth-child(6) { top: 22%; left: 30%; background: #0000FF; } /* Bleu - Troisième œil (feuillage gauche) */
+.chakra:nth-child(7) { top: 20%; left: 70%; background: #800080; } /* Violet - Couronne (feuillage droit) */
 
 @keyframes chakra-glow {
   0% { box-shadow: 0 0 5px 2px currentColor; }
@@ -514,21 +514,20 @@ hr {
 
 .tooltip {
   position: absolute;
-  width: 200px;
-  background: rgba(0, 0, 0, 0.9);
+  width: 220px;
+  background: rgba(0, 0, 0, 0.95);
   color: white;
-  padding: 10px;
+  padding: 12px;
   border-radius: 5px;
   font-size: 14px;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
   z-index: 100;
-  left: calc(100% + 20px);
   transform: translateY(-50%);
   text-align: left;
   border-left: 4px solid;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(0);
 }
 

@@ -91,18 +91,28 @@ const initChakras = () => {
         chakra.style.display = 'block';
         chakra.style.animationDelay = `${index * 0.2}s`;
         
-        // Position dynamique des tooltips en fonction de la taille de l'écran
+        // Position dynamique des tooltips en fonction de la position du chakra
         chakra.addEventListener('mouseenter', () => {
             const tooltip = chakra.querySelector('.tooltip');
             const rect = chakra.getBoundingClientRect();
             
-            // Si le chakra est trop à droite, afficher la tooltip à gauche
+            // Positionner les tooltips selon la position du chakra
             if (rect.left > window.innerWidth / 2) {
+                // Chakra à droite de l'écran
                 tooltip.style.left = 'auto';
                 tooltip.style.right = 'calc(100% + 20px)';
+                tooltip.style.top = '50%';
+            } else if (rect.top < window.innerHeight / 3) {
+                // Chakra en haut de l'arbre
+                tooltip.style.left = '50%';
+                tooltip.style.transform = 'translateX(-50%)';
+                tooltip.style.top = 'calc(100% + 20px)';
             } else {
+                // Chakra à gauche ou au centre
                 tooltip.style.left = 'calc(100% + 20px)';
                 tooltip.style.right = 'auto';
+                tooltip.style.top = '50%';
+                tooltip.style.transform = 'translateY(-50%)';
             }
         });
     });
