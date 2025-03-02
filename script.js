@@ -63,9 +63,32 @@ const scrollAppear = () => {
 // Animation des chakras
 const initChakras = () => {
     const chakras = document.querySelectorAll('.chakra');
+    const treeContainer = document.querySelector('.chakra-tree-container');
+    
+    if (treeContainer) {
+        // S'assurer que l'arbre est visible
+        treeContainer.style.display = 'block';
+        treeContainer.style.position = 'relative';
+        treeContainer.style.zIndex = '2';
+        
+        // Vérifier si l'image de l'arbre est chargée
+        const treeImg = new Image();
+        treeImg.onload = function() {
+            console.log("L'image de l'arbre est chargée");
+            document.querySelector('.chakra-tree').style.opacity = '1';
+        };
+        treeImg.onerror = function() {
+            console.error("Erreur de chargement de l'image de l'arbre");
+            // Fallback en cas d'erreur de chargement
+            document.querySelector('.chakra-tree').style.background = '#000';
+        };
+        treeImg.src = 'https://cdn.pixabay.com/photo/2022/11/29/15/52/tree-7624765_1280.png';
+    }
     
     // Animation pulse décalée pour chaque chakra
     chakras.forEach((chakra, index) => {
+        // S'assurer que les chakras sont visibles
+        chakra.style.display = 'block';
         chakra.style.animationDelay = `${index * 0.2}s`;
         
         // Position dynamique des tooltips en fonction de la taille de l'écran

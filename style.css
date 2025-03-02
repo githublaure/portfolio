@@ -102,6 +102,7 @@ a.nav-link{
     left: 0;
     right: 0;
 	opacity:.20;
+    z-index: 0;
 }  
 
 .intro {
@@ -451,6 +452,7 @@ hr {
   height: 400px;
   margin: 40px auto;
   overflow: visible;
+  z-index: 2;
 }
 
 .chakra-tree {
@@ -466,6 +468,7 @@ hr {
   -webkit-mask-size: contain;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
+  z-index: 2;
 }
 
 .chakra {
@@ -479,6 +482,7 @@ hr {
   animation: chakra-glow 3s infinite alternate;
   cursor: pointer;
   z-index: 10;
+  pointer-events: all;
 }
 
 .chakra::after {
