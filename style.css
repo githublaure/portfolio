@@ -733,6 +733,9 @@ hr {
   height: 100%;
   width: 3px;
   background-color: var(--main-decor-color);
+}
+
+.typing-active::after {
   animation: typing-cursor 0.8s infinite, retype 8s 1s infinite;
 }
 
