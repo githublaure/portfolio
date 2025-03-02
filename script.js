@@ -87,11 +87,27 @@ const initChakras = () => {
     // Animation subtile de l'arbre
     const tree = document.querySelector('.chakra-tree');
     if (tree) {
+        // Animation au mouvement de la souris
         document.addEventListener('mousemove', (e) => {
             const moveX = (e.clientX - window.innerWidth / 2) / 50;
             const moveY = (e.clientY - window.innerHeight / 2) / 50;
-            tree.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            tree.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.03)`;
         });
+        
+        // Animation de flottement léger même sans mouvement
+        let time = 0;
+        const animate = () => {
+            const floatX = Math.sin(time * 0.001) * 5;
+            const floatY = Math.cos(time * 0.002) * 3;
+            
+            if (!tree.style.transform.includes('translate')) {
+                tree.style.transform = `translate(${floatX}px, ${floatY}px)`;
+            }
+            
+            time += 1;
+            requestAnimationFrame(animate);
+        };
+        animate();
     }
 }
 

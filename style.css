@@ -458,11 +458,11 @@ hr {
   width: 100%;
   height: 100%;
   background: black;
-  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120"><path d="M50,5 C40,30 20,50 15,80 C15,100 30,110 50,115 C70,110 85,100 85,80 C80,50 60,30 50,5 Z M50,40 C45,50 40,70 50,90 C60,70 55,50 50,40 Z"/></svg>');
+  mask-image: url('https://cdn.pixabay.com/photo/2022/11/29/15/52/tree-7624765_1280.png');
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120"><path d="M50,5 C40,30 20,50 15,80 C15,100 30,110 50,115 C70,110 85,100 85,80 C80,50 60,30 50,5 Z M50,40 C45,50 40,70 50,90 C60,70 55,50 50,40 Z"/></svg>');
+  -webkit-mask-image: url('https://cdn.pixabay.com/photo/2022/11/29/15/52/tree-7624765_1280.png');
   -webkit-mask-size: contain;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
