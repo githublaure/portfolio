@@ -82,7 +82,7 @@ const initChakras = () => {
             // Fallback en cas d'erreur de chargement
             document.querySelector('.chakra-tree').style.background = '#000';
         };
-        treeImg.src = 'https://cdn.pixabay.com/photo/2022/11/29/15/52/tree-7624765_1280.png';
+        treeImg.src = 'arbre.png';
     }
     
     // Animation pulse décalée pour chaque chakra

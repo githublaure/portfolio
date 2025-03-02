@@ -460,11 +460,11 @@ hr {
   width: 100%;
   height: 100%;
   background: black;
-  mask-image: url('https://cdn.pixabay.com/photo/2022/11/29/15/52/tree-7624765_1280.png');
+  mask-image: url('arbre.png');
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  -webkit-mask-image: url('https://cdn.pixabay.com/photo/2022/11/29/15/52/tree-7624765_1280.png');
+  -webkit-mask-image: url('arbre.png');
   -webkit-mask-size: contain;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
