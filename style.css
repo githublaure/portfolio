@@ -165,7 +165,7 @@ a.nav-link{
 ──────────────────*/
 
 #projects{
-	margin-top:100px;
+	margin-top:30px;
     height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -173,6 +173,10 @@ a.nav-link{
     justify-content: center;
 	text-align:center;
 	color: var(--main-fonts-color);
+	background: var(--main-background);
+	padding-top: 20px;
+	position: relative;
+	z-index: 3;
 }
 #projects h3{
     padding-top: 70px;
