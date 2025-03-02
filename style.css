@@ -526,13 +526,63 @@ hr {
 }
 
 /* Positionnement selon la forme d'un arbre */
-.chakra:nth-child(1) { top: 85%; left: 50%; background: #FF0000; } /* Rouge - Racine (base du tronc) */
-.chakra:nth-child(2) { top: 65%; left: 48%; background: #FFA500; } /* Orange - Sacré (milieu du tronc) */
-.chakra:nth-child(3) { top: 45%; left: 50%; background: #FFFF00; } /* Jaune - Plexus solaire (haut du tronc) */
-.chakra:nth-child(4) { top: 35%; left: 40%; background: #00FF00; } /* Vert - Cœur (branche gauche) */
-.chakra:nth-child(5) { top: 35%; left: 60%; background: #00FFFF; } /* Bleu clair - Gorge (branche droite) */
-.chakra:nth-child(6) { top: 22%; left: 30%; background: #0000FF; } /* Bleu - Troisième œil (feuillage gauche) */
-.chakra:nth-child(7) { top: 20%; left: 70%; background: #800080; } /* Violet - Couronne (feuillage droit) */
+.chakra:nth-child(2) { top: 85%; left: 50%; background: #FF0000; z-index: 20; box-shadow: 0 0 20px 8px #FF0000; } /* Rouge - Racine (base du tronc) */
+.chakra:nth-child(3) { top: 65%; left: 48%; background: #FFA500; } /* Orange - Sacré (milieu du tronc) */
+.chakra:nth-child(4) { top: 45%; left: 50%; background: #FFFF00; } /* Jaune - Plexus solaire (haut du tronc) */
+.chakra:nth-child(5) { top: 35%; left: 40%; background: #00FF00; } /* Vert - Cœur (branche gauche) */
+.chakra:nth-child(6) { top: 35%; left: 60%; background: #00FFFF; } /* Bleu clair - Gorge (branche droite) */
+.chakra:nth-child(7) { top: 22%; left: 30%; background: #0000FF; } /* Bleu - Troisième œil (feuillage gauche) */
+.chakra:nth-child(8) { top: 20%; left: 70%; background: #800080; } /* Violet - Couronne (feuillage droit) */
+
+/* Légende des chakras */
+.chakra-legend {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  background: rgba(248, 243, 233, 0.95);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 30;
+  width: 200px;
+  border-left: 4px solid var(--main-decor-color);
+}
+
+.legend-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--main-fonts-color);
+  text-align: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.legend-color {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.legend-text {
+  font-size: 14px;
+  color: var(--main-fonts-color);
+}
+
+.legend-color-1 { background: #FF0000; }
+.legend-color-2 { background: #FFA500; }
+.legend-color-3 { background: #FFFF00; }
+.legend-color-4 { background: #00FF00; }
+.legend-color-5 { background: #00FFFF; }
+.legend-color-6 { background: #0000FF; }
+.legend-color-7 { background: #800080; }
 
 @keyframes chakra-glow {
   0% { box-shadow: 0 0 5px 2px currentColor; }
