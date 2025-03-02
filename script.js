@@ -228,19 +228,27 @@ const initLaureGallery = () => {
             let score = parseInt(item.getAttribute('data-score')) + 1;
             item.setAttribute('data-score', score);
             
-            // Mettre à jour l'affichage du score
-            const scoreElement = item.querySelector('.score');
-            if (scoreElement) {
-                scoreElement.textContent = score;
-            }
+            // Mettre à jour l'affichage du score pour tous les éléments avec la même image
+            const imgSrc = item.querySelector('img').src;
+            const allMatchingItems = document.querySelectorAll(`.laure-item img[src="${imgSrc}"]`);
+            
+            allMatchingItems.forEach(img => {
+                const parentItem = img.closest('.laure-item');
+                parentItem.setAttribute('data-score', score);
+                const scoreElement = parentItem.querySelector('.score');
+                if (scoreElement) {
+                    scoreElement.textContent = score;
+                }
+            });
             
             // Trier les éléments en fonction du score
             sortLaureItems();
+            sortNavbarLaureItems();
         });
     });
 };
 
-// Fonction pour trier les éléments Laure par score
+// Fonction pour trier les éléments Laure par score dans la section principale
 const sortLaureItems = () => {
     const gallery = document.querySelector('.laure-gallery');
     if (!gallery) return;
@@ -266,6 +274,35 @@ const sortLaureItems = () => {
             gallery.appendChild(item);
             item.style.opacity = '1';
         }, index * 100);
+    });
+};
+
+// Fonction pour trier les éléments Laure par score dans la navbar
+const sortNavbarLaureItems = () => {
+    const navbarGallery = document.querySelector('.navbar-laure-gallery');
+    if (!navbarGallery) return;
+    
+    // Convertir NodeList en tableau pour le tri
+    const items = Array.from(navbarGallery.querySelectorAll('.laure-item'));
+    
+    // Trier par score décroissant
+    items.sort((a, b) => {
+        const scoreA = parseInt(a.getAttribute('data-score'));
+        const scoreB = parseInt(b.getAttribute('data-score'));
+        return scoreB - scoreA;
+    });
+    
+    // Animation de tri
+    items.forEach((item, index) => {
+        // Appliquer une transition pour le déplacement
+        item.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+        item.style.opacity = '0.7';
+        
+        // Repositionner après un court délai pour permettre l'animation
+        setTimeout(() => {
+            navbarGallery.appendChild(item);
+            item.style.opacity = '1';
+        }, index * 50);
     });
 };
 
