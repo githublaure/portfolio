@@ -58,6 +58,41 @@ const scrollAppear = () => {
             element.classList.remove('appear');
         }
     });
+};
+
+// Animation des chakras
+const initChakras = () => {
+    const chakras = document.querySelectorAll('.chakra');
+    
+    // Animation pulse décalée pour chaque chakra
+    chakras.forEach((chakra, index) => {
+        chakra.style.animationDelay = `${index * 0.2}s`;
+        
+        // Position dynamique des tooltips en fonction de la taille de l'écran
+        chakra.addEventListener('mouseenter', () => {
+            const tooltip = chakra.querySelector('.tooltip');
+            const rect = chakra.getBoundingClientRect();
+            
+            // Si le chakra est trop à droite, afficher la tooltip à gauche
+            if (rect.left > window.innerWidth / 2) {
+                tooltip.style.left = 'auto';
+                tooltip.style.right = 'calc(100% + 20px)';
+            } else {
+                tooltip.style.left = 'calc(100% + 20px)';
+                tooltip.style.right = 'auto';
+            }
+        });
+    });
+    
+    // Animation subtile de l'arbre
+    const tree = document.querySelector('.chakra-tree');
+    if (tree) {
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) / 50;
+            const moveY = (e.clientY - window.innerHeight / 2) / 50;
+            tree.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    }
 }
 
 // Matrice pour l'animation "hacker"
@@ -96,6 +131,7 @@ window.onload = () => {
     navSlide();
     scrollAppear();
     matrix();
+    initChakras();
     
     // Détecter le scroll pour les animations
     window.addEventListener('scroll', scrollAppear);

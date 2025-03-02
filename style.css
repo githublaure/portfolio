@@ -242,7 +242,7 @@ a.nav-link{
 	justify-content: center;
 	color: var(--main-fonts-color);
 }
-	
+
 #contact p{
 	padding:10px;
 	text-align:center;
@@ -403,6 +403,149 @@ hr {
 	}	
 	.nav-bar li{
 
+		opacity:0;
+	}
+}
+
+.nav-active{
+	transform:translatex(0%);
+}
+
+/* Animation de chargement */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--main-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-icon {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--main-decor-color);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Styles pour l'arbre chakra */
+.chakra-tree-container {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: 40px auto;
+  overflow: visible;
+}
+
+.chakra-tree {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120"><path d="M50,5 C40,30 20,50 15,80 C15,100 30,110 50,115 C70,110 85,100 85,80 C80,50 60,30 50,5 Z M50,40 C45,50 40,70 50,90 C60,70 55,50 50,40 Z"/></svg>');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120"><path d="M50,5 C40,30 20,50 15,80 C15,100 30,110 50,115 C70,110 85,100 85,80 C80,50 60,30 50,5 Z M50,40 C45,50 40,70 50,90 C60,70 55,50 50,40 Z"/></svg>');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.chakra {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: chakra-glow 3s infinite alternate;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.chakra::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.chakra:nth-child(1) { top: 15%; background: #FF0000; } /* Rouge - Racine */
+.chakra:nth-child(2) { top: 25%; background: #FFA500; } /* Orange - Sacré */
+.chakra:nth-child(3) { top: 35%; background: #FFFF00; } /* Jaune - Plexus solaire */
+.chakra:nth-child(4) { top: 45%; background: #00FF00; } /* Vert - Cœur */
+.chakra:nth-child(5) { top: 55%; background: #00FFFF; } /* Bleu clair - Gorge */
+.chakra:nth-child(6) { top: 65%; background: #0000FF; } /* Bleu - Troisième œil */
+.chakra:nth-child(7) { top: 75%; background: #800080; } /* Violet - Couronne */
+
+@keyframes chakra-glow {
+  0% { box-shadow: 0 0 5px 2px currentColor; }
+  100% { box-shadow: 0 0 15px 5px currentColor; }
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+  left: calc(100% + 20px);
+  transform: translateY(-50%);
+  text-align: left;
+  border-left: 4px solid;
+}
+
+.chakra:hover .tooltip {
+  opacity: 1;
+}
+
+.tooltip h4 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+
+.tooltip p {
+  margin: 5px 0;
+  font-size: 12px;
+}
+
+.chakra:nth-child(1) .tooltip { border-color: #FF0000; }
+.chakra:nth-child(2) .tooltip { border-color: #FFA500; }
+.chakra:nth-child(3) .tooltip { border-color: #FFFF00; color: #333; background: rgba(255, 255, 255, 0.9); }
+.chakra:nth-child(4) .tooltip { border-color: #00FF00; }
+.chakra:nth-child(5) .tooltip { border-color: #00FFFF; }
+.chakra:nth-child(6) .tooltip { border-color: #0000FF; }
+.chakra:nth-child(7) .tooltip { border-color: #800080; }
+
 /* Animations de typing (effet geek) */
 .typewriter h3 {
   overflow: hidden;
@@ -540,12 +683,4 @@ hr {
 .fade-in.appear {
   opacity: 1;
   transform: translateY(0);
-}
-
-		opacity:0;
-	}
-}
-
-.nav-active{
-	transform:translatex(0%);
 }
