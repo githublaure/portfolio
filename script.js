@@ -126,12 +126,26 @@ const matrix = () => {
     });
 }
 
+// Effet de typing plus réaliste
+const initTypingEffect = () => {
+    const typingElement = document.querySelector('.typing-effect');
+    if (typingElement) {
+        const originalText = typingElement.textContent;
+        typingElement.textContent = '';
+        
+        // Animation par CSS plutôt que JS pour plus de performance
+        typingElement.textContent = originalText;
+        typingElement.style.visibility = 'visible';
+    }
+}
+
 // Initialisation de toutes les animations
 window.onload = () => {
     navSlide();
     scrollAppear();
     matrix();
     initChakras();
+    initTypingEffect();
     
     // Détecter le scroll pour les animations
     window.addEventListener('scroll', scrollAppear);

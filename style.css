@@ -632,6 +632,53 @@ hr {
   100% { transform: rotate(360deg); }
 }
 
+/* Effet de typing pour le dernier mot */
+.typing-effect {
+  position: relative;
+  display: inline-block;
+}
+
+.typing-effect::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--main-decor-color);
+  animation: typing-cursor 0.8s infinite, retype 8s 1s infinite;
+}
+
+@keyframes typing-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes retype {
+  0%, 20% { content: 'adipisicing'; }
+  25% { content: 'adipisicin'; }
+  30% { content: 'adipisici'; }
+  35% { content: 'adipisic'; }
+  40% { content: 'adipisi'; }
+  45% { content: 'adipis'; }
+  50% { content: 'adip'; }
+  55% { content: 'adi'; }
+  60% { content: 'ad'; }
+  65% { content: 'a'; }
+  70% { content: ''; }
+  75% { content: 'a'; }
+  80% { content: 'ad'; }
+  82% { content: 'adi'; }
+  84% { content: 'adip'; }
+  86% { content: 'adipi'; }
+  88% { content: 'adipis'; }
+  90% { content: 'adipisi'; }
+  92% { content: 'adipisic'; }
+  94% { content: 'adipisici'; }
+  96% { content: 'adipisicin'; }
+  98%, 100% { content: 'adipisicing'; }
+}
+
 /* Animation de défilement */
 .scroll-down {
   position: absolute;
