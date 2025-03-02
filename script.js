@@ -230,14 +230,20 @@ const initLaureGallery = () => {
             
             // Mettre à jour l'affichage du score pour tous les éléments avec la même image
             const imgSrc = item.querySelector('img').src;
-            const allMatchingItems = document.querySelectorAll(`.laure-item img[src="${imgSrc}"]`);
+            // Extraire le nom du fichier de l'URL complète
+            const imgFileName = imgSrc.split('/').pop();
             
-            allMatchingItems.forEach(img => {
-                const parentItem = img.closest('.laure-item');
-                parentItem.setAttribute('data-score', score);
-                const scoreElement = parentItem.querySelector('.score');
-                if (scoreElement) {
-                    scoreElement.textContent = score;
+            // Sélectionner tous les éléments avec la même image par nom de fichier
+            const allMatchingItems = document.querySelectorAll('.laure-item');
+            
+            allMatchingItems.forEach(matchItem => {
+                const matchImg = matchItem.querySelector('img');
+                if (matchImg && matchImg.src.includes(imgFileName)) {
+                    matchItem.setAttribute('data-score', score);
+                    const scoreElement = matchItem.querySelector('.score');
+                    if (scoreElement) {
+                        scoreElement.textContent = score;
+                    }
                 }
             });
             
