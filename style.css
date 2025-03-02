@@ -114,13 +114,83 @@ a.nav-link{
 	z-index: 1;
 	margin: auto;
 	padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.intro  p{
+/* Profile picture circle */
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    border: 5px solid var(--main-decor-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Laure gallery */
+.laure-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    max-width: 800px;
+}
+
+.laure-item {
+    width: 80px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.laure-item:hover {
+    transform: translateY(-5px);
+}
+
+.laure-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.laure-item:hover img {
+    border-color: var(--main-decor-color);
+}
+
+.laure-item .score {
+    background-color: var(--main-decor-color);
+    color: white;
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.intro p {
     margin: 5px;
-	font-size:1.2rem;
-	font-family: var(--main-font-family);
-	text-align:center;
+    font-size: 1.2rem;
+    font-family: var(--main-font-family);
+    text-align: center;
 }
 
  h3{

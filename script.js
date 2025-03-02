@@ -216,6 +216,59 @@ const initSocialAnimations = () => {
 }
 
 
+// Système de score et tri pour les images Laure
+const initLaureGallery = () => {
+    const laureItems = document.querySelectorAll('.laure-item');
+    if (!laureItems.length) return;
+
+    // Ajouter les événements de clic pour augmenter le score
+    laureItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Augmenter le score
+            let score = parseInt(item.getAttribute('data-score')) + 1;
+            item.setAttribute('data-score', score);
+            
+            // Mettre à jour l'affichage du score
+            const scoreElement = item.querySelector('.score');
+            if (scoreElement) {
+                scoreElement.textContent = score;
+            }
+            
+            // Trier les éléments en fonction du score
+            sortLaureItems();
+        });
+    });
+};
+
+// Fonction pour trier les éléments Laure par score
+const sortLaureItems = () => {
+    const gallery = document.querySelector('.laure-gallery');
+    if (!gallery) return;
+    
+    // Convertir NodeList en tableau pour le tri
+    const items = Array.from(gallery.querySelectorAll('.laure-item'));
+    
+    // Trier par score décroissant
+    items.sort((a, b) => {
+        const scoreA = parseInt(a.getAttribute('data-score'));
+        const scoreB = parseInt(b.getAttribute('data-score'));
+        return scoreB - scoreA;
+    });
+    
+    // Animation de tri
+    items.forEach((item, index) => {
+        // Appliquer une transition pour le déplacement
+        item.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+        item.style.opacity = '0.7';
+        
+        // Repositionner après un court délai pour permettre l'animation
+        setTimeout(() => {
+            gallery.appendChild(item);
+            item.style.opacity = '1';
+        }, index * 100);
+    });
+};
+
 // Initialisation de toutes les animations
 window.onload = () => {
     navSlide();
@@ -223,7 +276,8 @@ window.onload = () => {
     matrix();
     initChakras();
     initTypingEffect();
-    initSocialAnimations(); // Added social animation initialization
+    initSocialAnimations();
+    initLaureGallery(); // Initialiser la galerie Laure
 
     // Détecter le scroll pour les animations
     window.addEventListener('scroll', scrollAppear);
