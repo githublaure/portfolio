@@ -581,6 +581,8 @@ hr {
 		width: 100%;
 		overflow-x: hidden;
 		box-sizing: border-box;
+		margin: 0 auto;
+		padding: 0;
 	}
 	
 	#home, #projects, #contact, #chakra-section {
@@ -588,7 +590,7 @@ hr {
         width: 100%;
         box-sizing: border-box;
         margin: 0 auto;
-        padding: 0;
+        padding: 0 15px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -778,16 +780,19 @@ hr {
 	
 	/* Footer adjustments */
 	footer {
-		width: 100vw;
+		width: 100%;
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
 		overflow: hidden;
+		position: relative;
+		left: 0;
 	}
 	
 	.footer-image {
 		max-height: 200px;
 		width: 100%;
+		left: 0;
 	}
 	
 	.footer-image img {
@@ -798,6 +803,8 @@ hr {
 	.footer-text {
 		width: 100%;
 		box-sizing: border-box;
+		left: 0;
+		right: 0;
 	}
 	
 	.footer-contact {
@@ -1278,10 +1285,19 @@ hr {
   }
   
   #projects .card {
-    display: block;
+    display: block !important;
     margin: 20px auto;
-    opacity: 1;
-    visibility: visible;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: 90%;
+    max-width: 280px;
+  }
+  
+  .work {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 

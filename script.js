@@ -539,15 +539,17 @@ window.addEventListener("load", () => {
   document.querySelector(".loader").classList.add("hidden");
   
   // S'assurer que les éléments Laure sont visibles
+  document.querySelect// Ensure Laure items are visible
+document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.laure-item').forEach(item => {
     item.style.display = 'inline-block';
     item.style.opacity = '1';
     item.style.visibility = 'visible';
   });
-});
-
-// Assurer que le site prend toute la largeur sur mobile
-document.addEventListener("DOMContentLoaded", function() {
+  
+  // Navigation hamburger menu
+  navSlide();
+  
   // Forcer le recalcul du viewport sur mobile
   function adjustViewport() {
     let vh = window.innerHeight * 0.01;
@@ -555,7 +557,18 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Assurer que la largeur est correcte
     document.body.style.width = '100%';
+    document.documentElement.style.width = '100%';
+    document.querySelector('.container').style.width = '100%';
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
     document.body.style.overflowX = 'hidden';
+    
+    // Centrer le contenu
+    document.querySelectorAll('#home, #projects, #contact, #chakra-section, footer').forEach(section => {
+      section.style.width = '100%';
+      section.style.boxSizing = 'border-box';
+      section.style.margin = '0 auto';
+    });
   }
   
   // Exécuter au chargement et lors du redimensionnement
@@ -581,8 +594,49 @@ document.addEventListener("DOMContentLoaded", function() {
       el.style.opacity = '1';
       el.style.visibility = 'visible';
     });
-  };
-    setTimeout(() => {
+  }
+});
+
+// Function for navigation slide
+function navSlide() {
+  const hamburger = document.querySelector(".hamburger");
+  const navBar = document.querySelector(".nav-bar");
+  const navLinks = document.querySelectorAll(".nav-bar li");
+
+  if (hamburger) {
+    hamburger.addEventListener("click", () => {
+      // Toggle navigation
+      navBar.classList.toggle("nav-active");
+      
+      // Hamburger animation
+      hamburger.classList.toggle("toggle");
+      
+      // Animate links
+      navLinks.forEach((link, index) => {
+        if (link.style.animation) {
+          link.style.animation = "";
+        } else {
+          link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+        }
+      });
+    });
+  }
+  
+  // Close menu when a link is clicked
+  const links = document.querySelectorAll(".nav-link");
+  links.forEach(link => {
+    link.addEventListener("click", () => {
+      if (navBar.classList.contains("nav-active")) {
+        navBar.classList.remove("nav-active");
+        hamburger.classList.remove("toggle");
+        
+        navLinks.forEach(link => {
+          link.style.animation = "";
+        });
+      }
+    });
+  });
+}Timeout(() => {
       document.querySelector(".loader").style.display = "none";
     }, 500);
   }, 500);
