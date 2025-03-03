@@ -324,16 +324,16 @@ const initChakras = () => {
                 if (tooltip) {
                     const rect = chakra.getBoundingClientRect();
 
-                    // S'assurer que le tooltip est au premier plan avec un z-index élevé
-                    tooltip.style.zIndex = '1000';
+                    // S'assurer que le tooltip est au premier plan avec un z-index très élevé
+                    tooltip.style.zIndex = '9999';
 
                     // Positionner les tooltips selon la position du chakra
                     if (rect.left > window.innerWidth / 2) {
                         // Chakra à droite de l'écran
                         tooltip.style.left = 'auto';
                         tooltip.style.right = 'calc(100% + 20px)';
-                        tooltip.style.top = '50%';
-                        tooltip.style.transform = 'translateY(-50%)';
+                        tooltip.style.top = '0';
+                        tooltip.style.transform = 'translateY(0)';
                     } else if (rect.top < window.innerHeight / 3) {
                         // Chakra en haut de l'arbre
                         tooltip.style.left = '50%';
@@ -343,19 +343,20 @@ const initChakras = () => {
                         // Chakra à gauche ou au centre
                         tooltip.style.left = 'calc(100% + 20px)';
                         tooltip.style.right = 'auto';
-                        tooltip.style.top = '50%';
-                        tooltip.style.transform = 'translateY(-50%)';
+                        tooltip.style.top = '0';
+                        tooltip.style.transform = 'translateY(0)';
                     }
 
-                    // Assurer la visibilité du tooltip
+                    // Assurer la visibilité du tooltip et le positionner au-dessus de tout
                     tooltip.style.opacity = '1';
                     tooltip.style.visibility = 'visible';
                     tooltip.style.display = 'block';
-
-                    // Décaler légèrement le tooltip pour éviter le chevauchement avec le chakra
-                    const offset = 5; // pixels
-                    const currentTop = parseFloat(tooltip.style.top) || 0;
-                    tooltip.style.top = `${currentTop + offset}px`;
+                    tooltip.style.position = 'absolute';
+                    
+                    // Ajouter un style important pour s'assurer que le tooltip est visible
+                    tooltip.style.setProperty('z-index', '9999', 'important');
+                    tooltip.style.setProperty('background-color', 'rgba(255, 255, 255, 0.95)', 'important');
+                    tooltip.style.setProperty('box-shadow', '0 0 20px rgba(0, 0, 0, 0.3)', 'important');
                 }
             });
 

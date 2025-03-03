@@ -1204,28 +1204,33 @@ hr {
 .tooltip {
 	position: absolute;
 	width: 220px;
-	background: rgba(0, 0, 0, 0.95);
-	color: white;
+	background: rgba(255, 255, 255, 0.95) !important;
+	color: #333 !important;
 	padding: 12px;
 	border-radius: 5px;
 	font-size: 14px;
 	opacity: 0;
 	transition: opacity 0.3s ease;
 	pointer-events: none;
-	z-index: 100;
+	z-index: 9999; /* Z-index très élevé */
 	transform: translateY(-50%);
 	text-align: left;
 	border-left: 4px solid;
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 	backdrop-filter: blur(0);
+	left: calc(100% + 20px); /* Positionner par défaut à droite du chakra */
 }
 
 .chakra:hover .tooltip {
 	opacity: 1 !important;
 	visibility: visible !important;
 	display: block !important;
-	z-index: 1000 !important; /* Z-index beaucoup plus élevé pour s'assurer qu'il est au premier plan */
+	z-index: 9999 !important; /* Z-index encore plus élevé pour s'assurer qu'il est au premier plan */
 	pointer-events: none;
+	position: absolute !important; /* Forcer la position absolue */
+	top: 50%; /* Centrer verticalement */
+	transform: translateY(-50%) !important; /* Assurer le centrage vertical */
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3) !important; /* Ajouter une ombre pour mieux distinguer */
 }
 
 .chakra:not(:hover) .tooltip {
