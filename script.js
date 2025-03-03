@@ -74,46 +74,61 @@ const initChakras = () => {
         const treeImg = new Image();
         treeImg.onload = function() {
             console.log("L'image de l'arbre est chargée");
-            document.querySelector('.chakra-tree').style.opacity = '1';
+            const chakraTree = document.querySelector('.chakra-tree');
+            if (chakraTree) {
+                chakraTree.style.opacity = '1';
+            }
         };
         treeImg.onerror = function() {
             console.error("Erreur de chargement de l'image de l'arbre");
             // Fallback en cas d'erreur de chargement
-            document.querySelector('.chakra-tree').style.background = '#000';
+            const chakraTree = document.querySelector('.chakra-tree');
+            if (chakraTree) {
+                chakraTree.style.background = '#000';
+            }
         };
         treeImg.src = 'arbre.png';
     }
 
     // Animation pulse décalée pour chaque chakra
     chakras.forEach((chakra, index) => {
-        // S'assurer que les chakras sont visibles
-        chakra.style.display = 'block';
-        chakra.style.animationDelay = `${index * 0.2}s`;
+        // S'assurer que les chakras sont visibles (sauf le premier qui est vide)
+        if (index !== 0) { // Ignorer le premier chakra vide
+            chakra.style.display = 'block';
+            chakra.style.animationDelay = `${index * 0.2}s`;
 
-        // Position dynamique des tooltips en fonction de la position du chakra
-        chakra.addEventListener('mouseenter', () => {
-            const tooltip = chakra.querySelector('.tooltip');
-            const rect = chakra.getBoundingClientRect();
+            // Position dynamique des tooltips en fonction de la position du chakra
+            chakra.addEventListener('mouseenter', () => {
+                const tooltip = chakra.querySelector('.tooltip');
+                if (tooltip) {
+                    const rect = chakra.getBoundingClientRect();
 
-            // Positionner les tooltips selon la position du chakra
-            if (rect.left > window.innerWidth / 2) {
-                // Chakra à droite de l'écran
-                tooltip.style.left = 'auto';
-                tooltip.style.right = 'calc(100% + 20px)';
-                tooltip.style.top = '50%';
-            } else if (rect.top < window.innerHeight / 3) {
-                // Chakra en haut de l'arbre
-                tooltip.style.left = '50%';
-                tooltip.style.transform = 'translateX(-50%)';
-                tooltip.style.top = 'calc(100% + 20px)';
-            } else {
-                // Chakra à gauche ou au centre
-                tooltip.style.left = 'calc(100% + 20px)';
-                tooltip.style.right = 'auto';
-                tooltip.style.top = '50%';
-                tooltip.style.transform = 'translateY(-50%)';
-            }
-        });
+                    // Positionner les tooltips selon la position du chakra
+                    if (rect.left > window.innerWidth / 2) {
+                        // Chakra à droite de l'écran
+                        tooltip.style.left = 'auto';
+                        tooltip.style.right = 'calc(100% + 20px)';
+                        tooltip.style.top = '50%';
+                        tooltip.style.transform = 'translateY(-50%)';
+                    } else if (rect.top < window.innerHeight / 3) {
+                        // Chakra en haut de l'arbre
+                        tooltip.style.left = '50%';
+                        tooltip.style.transform = 'translateX(-50%)';
+                        tooltip.style.top = 'calc(100% + 20px)';
+                    } else {
+                        // Chakra à gauche ou au centre
+                        tooltip.style.left = 'calc(100% + 20px)';
+                        tooltip.style.right = 'auto';
+                        tooltip.style.top = '50%';
+                        tooltip.style.transform = 'translateY(-50%)';
+                    }
+                    
+                    // Assurer la visibilité du tooltip
+                    tooltip.style.opacity = '1';
+                    tooltip.style.visibility = 'visible';
+                }
+            });
+        }
     });
 
     // Animation subtile de l'arbre
