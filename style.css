@@ -664,7 +664,7 @@ hr {
 		position: relative;
 		max-width: 100vw;
 	}
-	
+
 	.container {
 		width: 100%;
 		max-width: 100vw;
@@ -673,7 +673,7 @@ hr {
 		margin: 0;
 		padding: 0;
 	}
-	
+
 	#home, #projects, #contact, #chakra-section {
         overflow-x: hidden;
         width: 100vw;
@@ -689,7 +689,7 @@ hr {
         right: 0;
         position: relative;
 	}
-	
+
 	main {
 		width: 100%;
 		max-width: 100vw;
@@ -697,7 +697,7 @@ hr {
 		padding: 0;
 		margin: 0;
 	}
-	
+
 	header {
 		background-color: var(--main-header-background);
 		height: 60px;
@@ -710,7 +710,7 @@ hr {
 		right: 0;
 		position: fixed;
 	}
-	
+
 	.navbar-laure-gallery {
 		display: flex;
 		align-items: center;
@@ -718,17 +718,17 @@ hr {
 		padding: 0 5px;
 		max-width: 70%;
 	}
-	
+
 	.logo {
 		position: absolute;
 		top: 2px;
 		left: 15px;
 	}
-	
+
 	.nav-show {
 		opacity: 1;
 	}
-	
+
 	.nav-bar {
 		position: fixed;
 		top: 0px;
@@ -745,7 +745,7 @@ hr {
 		z-index: 100;
 		box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
 	}
-	
+
 	.hamburger {
 		position: absolute;
 		top: 17px;
@@ -754,21 +754,21 @@ hr {
 		cursor: pointer;
 		z-index: 101;
 	}
-	
+
 	.nav-bar li {
 		opacity: 1;
 		width: 100%;
 		text-align: center;
 		margin: 15px 0;
 	}
-	
+
 	a.nav-link {
 		width: 100%;
 		display: block;
 		padding: 10px 0;
 		font-size: 1.1rem;
 	}
-	
+
 	/* Home section adjustments */
 	#home {
 		height: 100vh;
@@ -779,7 +779,7 @@ hr {
 		margin: 0;
 		text-align: center;
 	}
-	
+
 	#home h3 {
 		font-size: 28px;
 		text-align: center;
@@ -788,7 +788,7 @@ hr {
 		box-sizing: border-box;
 		margin: 0 auto;
 	}
-	
+
 	#home p {
 		font-size: 1rem;
 		padding: 0 10px;
@@ -797,7 +797,7 @@ hr {
 		box-sizing: border-box;
 		margin: 5px auto;
 	}
-	
+
 	.intro {
 		width: 100%;
 		padding: 15px;
@@ -805,13 +805,13 @@ hr {
 		text-align: center;
 		margin: 0 auto;
 	}
-	
+
 	.profile-picture {
 		width: 120px;
 		height: 120px;
 		margin: 0 auto 15px;
 	}
-	
+
 	/* Chakra section adjustments */
 	#chakra-section {
 		width: 100%;
@@ -826,14 +826,14 @@ hr {
 		left: 0;
 		right: 0;
 	}
-	
+
 	#chakra-section p, #chakra-section h3 {
 		width: 100%;
 		padding: 0 15px;
 		box-sizing: border-box;
 		text-align: center;
 	}
-	
+
 	.chakra-tree-container {
 		width: 100%;
 		max-width: 100vw;
@@ -848,7 +848,7 @@ hr {
 		justify-content: center;
 		align-items: center;
 	}
-	
+
 	.chakra-legend {
 		position: relative;
 		top: 0;
@@ -858,7 +858,7 @@ hr {
 		width: 90%;
 		max-width: 300px;
 	}
-	
+
 	/* Assurer que l'arbre des chakras est centré */
 	.chakra-tree {
 		position: absolute;
@@ -868,7 +868,7 @@ hr {
 		height: 100%;
 		background-position: center;
 	}
-	
+
 	/* Projects section adjustments */
 	#projects {
 		width: 100%;
@@ -880,21 +880,21 @@ hr {
 		left: 0;
 		right: 0;
 	}
-	
+
 	#projects h3, #projects p {
 		width: 100%;
 		padding: 0 15px;
 		box-sizing: border-box;
 		text-align: center;
 	}
-	
+
 	.work-box {
 		width: 100%;
 		overflow-x: hidden;
 		display: flex;
 		justify-content: center;
 	}
-	
+
 	.card {
 		width: 90%;
 		max-width: 300px;
@@ -903,7 +903,7 @@ hr {
 		opacity: 1 !important;
 		visibility: visible !important;
 	}
-	
+
 	.work {
 		padding: 10px;
 		width: 100%;
@@ -912,7 +912,7 @@ hr {
 		flex-wrap: wrap;
 		justify-content: center;
 	}
-	
+
 	/* Contact section adjustments */
 	#contact {
 		width: 100%;
@@ -925,14 +925,14 @@ hr {
 		right: 0;
 		text-align: center;
 	}
-	
+
 	#contact h3, #contact p {
 		width: 100%;
 		padding: 0 15px;
 		box-sizing: border-box;
 		text-align: center;
 	}
-	
+
 	/* Footer adjustments */
 	footer {
 		width: 100%;
@@ -945,19 +945,19 @@ hr {
 		left: 0;
 		right: 0;
 	}
-	
+
 	.footer-image {
 		max-height: 200px;
 		width: 100%;
 		left: 0;
 		right: 0;
 	}
-	
+
 	.footer-image img {
 		width: 100%;
 		object-fit: cover;
 	}
-	
+
 	.footer-text {
 		width: 100%;
 		box-sizing: border-box;
@@ -965,7 +965,7 @@ hr {
 		right: 0;
 		position: absolute;
 	}
-	
+
 	.footer-contact {
 		flex-direction: column;
 		gap: 8px;
@@ -973,22 +973,28 @@ hr {
 		box-sizing: border-box;
 		padding: 0 15px;
 		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
-	
+
 	.footer-contact p {
 		font-size: 0.9rem;
 		width: 100%;
 		text-align: center;
 		margin: 3px auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
-	
+
 	.footer-copyright {
 		width: 100%;
 		padding: 10px;
 		box-sizing: border-box;
 		text-align: center;
 	}
-	
+
 	/* S'assurer que tous les éléments sont visibles sur mobile */
 	.laure-item, .chakra, .card {
 		display: block !important;
@@ -1003,11 +1009,11 @@ hr {
 		width: 700px;
 		height: 800px;
 	}
-	
+
 	.work {
 		padding: 20px 5%;
 	}
-	
+
 	.card {
 		width: 180px;
 		height: 230px;
@@ -1452,7 +1458,7 @@ hr {
     opacity: 1;
     transform: translateY(0);
   }
-  
+
   #projects .card {
     display: block !important;
     margin: 20px auto;
@@ -1461,7 +1467,7 @@ hr {
     width: 90%;
     max-width: 280px;
   }
-  
+
   .work {
     width: 100%;
     display: flex;
@@ -1492,4 +1498,11 @@ hr {
 
 .footer-contact a:hover {
   color: var(--main-decor-color);
+}
+
+.footer-social {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
