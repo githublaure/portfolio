@@ -349,11 +349,10 @@ const initChakras = () => {
                     
                     // Correction spécifique pour le chakra jaune (index 2) et bleu clair (index 4)
                     if (index === 2 || index === 4) { // Jaune ou Bleu clair
-                        tooltip.style.top = 'auto';
-                        tooltip.style.bottom = 'calc(100% + 20px)';
-                        tooltip.style.left = '50%';
-                        tooltip.style.transform = 'translateX(-50%)';
+                        tooltip.style.left = 'calc(100% + 20px)';
                         tooltip.style.right = 'auto';
+                        tooltip.style.top = '50%';
+                        tooltip.style.transform = 'translateY(-50%)';
                     }
 
                     // Assurer la visibilité du tooltip et le positionner au-dessus de tout
