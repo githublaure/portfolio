@@ -553,48 +553,155 @@ hr {
 }
 
 
-@media only screen and (max-width: 500px) {
-
-	#home, #projects, #contact{
+@media only screen and (max-width: 768px) {
+	#home, #projects, #contact, #chakra-section {
         overflow-x: hidden;
+        width: 100%;
 	}
-	header{
+	
+	header {
 		background-color: var(--main-header-background);
+		height: 60px;
+		padding: 0 10px;
+		justify-content: space-between;
 	}
-	.logo{
-		position:absolute;
+	
+	.navbar-laure-gallery {
+		display: none; /* Hide on mobile */
+	}
+	
+	.logo {
+		position: absolute;
 		top: 2px;
-		left: 30px;
+		left: 15px;
 	}
-	.nav-show{
+	
+	.nav-show {
 		opacity: 1;
-	}	 
-	.nav-bar{
-		position:fixed;
+	}
+	
+	.nav-bar {
+		position: fixed;
 		top: 0px;
-		right:0;
-		width:60%;
+		right: 0;
+		width: 70%;
 		height: 100vh;
-		display:flex;
+		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content:space-evenly;
-		background:var(--main-header-background);
-		transform:translatex(100%);
+		justify-content: space-evenly;
+		background: var(--main-header-background);
+		transform: translatex(100%);
 		transition: transform 0.5s ease-in;
-		z-index: -1;
+		z-index: 100;
+		box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
 	}
-	.hamburger{
-		position:absolute;
+	
+	.hamburger {
+		position: absolute;
 		top: 17px;
-		right: 25%;
+		right: 20px;
 		display: block;
-		cursor:pointer;
-		z-index: 5;
-	}	
-	.nav-bar li{
+		cursor: pointer;
+		z-index: 101;
+	}
+	
+	.nav-bar li {
+		opacity: 0;
+		width: 100%;
+		text-align: center;
+		margin: 15px 0;
+	}
+	
+	a.nav-link {
+		width: 100%;
+		display: block;
+		padding: 10px 0;
+		font-size: 1.1rem;
+	}
+	
+	/* Home section adjustments */
+	#home h3 {
+		font-size: 32px;
+		text-align: center;
+		padding: 0 15px;
+	}
+	
+	#home p {
+		font-size: 1rem;
+		padding: 0 15px;
+		text-align: center;
+	}
+	
+	.intro {
+		width: 100%;
+		padding: 15px;
+	}
+	
+	.profile-picture {
+		width: 120px;
+		height: 120px;
+	}
+	
+	/* Chakra section adjustments */
+	.chakra-tree-container {
+		width: 100%;
+		height: 400px;
+		transform: scale(0.6);
+		margin-top: -100px;
+		margin-bottom: -100px;
+	}
+	
+	.chakra-legend {
+		position: relative;
+		top: 0;
+		right: 0;
+		transform: none;
+		margin: 20px auto;
+		width: 90%;
+		max-width: 300px;
+	}
+	
+	/* Projects section adjustments */
+	.card {
+		width: 90%;
+		max-width: 300px;
+		margin: 10px auto;
+	}
+	
+	.work {
+		padding: 10px;
+	}
+	
+	/* Footer adjustments */
+	.footer-image {
+		max-height: 200px;
+	}
+	
+	.footer-contact {
+		flex-direction: column;
+		gap: 8px;
+	}
+	
+	.footer-contact p {
+		font-size: 0.9rem;
+	}
+}
 
-		opacity:0;
+/* Tablet styles */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+	.chakra-tree-container {
+		width: 700px;
+		height: 800px;
+	}
+	
+	.work {
+		padding: 20px 5%;
+	}
+	
+	.card {
+		width: 180px;
+		height: 230px;
 	}
 }
 

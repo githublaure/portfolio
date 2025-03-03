@@ -107,7 +107,7 @@ const initChakras = () => {
         chakra.style.display = 'block';
         chakra.style.opacity = '1';
         chakra.style.visibility = 'visible';
-        
+
         // Configurez tous les chakras pour être sûrs qu'ils sont visibles
         if (index === 0) { // Rouge
             chakra.style.zIndex = '20'; // Z-index plus élevé pour être sûr qu'il est au-dessus
@@ -129,13 +129,13 @@ const initChakras = () => {
             chakra.style.background = '#00FFFF'; // Forcer la couleur bleu clair
             console.log("Chakra bleu clair configuré:", chakra.style.display, chakra.style.opacity, chakra.style.zIndex);
         }
-        
+
         chakra.style.animationDelay = `${index * 0.2}s`;
 
         // Récupérer les données du chakra (si disponible)
         if (index < chakraData.length) {
             const data = chakraData[index];
-            
+
             // Définir les descriptions correctes pour chaque chakra
             let title, paragraphs;
             if (index === 0) { // Rouge - Racine
@@ -455,6 +455,89 @@ const sortNavbarLaureItems = () => {
         }, index * 50);
     });
 };
+
+// JavaScript for handling mobile nav-bar
+const hamburger = document.querySelector(".hamburger");
+const navBar = document.querySelector(".nav-bar");
+const navLinks = document.querySelectorAll(".nav-link");
+
+// Toggle hamburger menu
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("toggle");
+  navBar.classList.toggle("nav-active");
+
+  // Animation for nav items
+  navLinks.forEach((link, index) => {
+    if (link.style.animation) {
+      link.style.animation = "";
+    } else {
+      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+    }
+    link.parentElement.style.opacity = "1";
+  });
+});
+
+// Close menu when clicking a nav link
+navLinks.forEach(link => link.addEventListener("click", () => {
+  hamburger.classList.remove("toggle");
+  navBar.classList.remove("nav-active");
+
+  navLinks.forEach(link => {
+    link.style.animation = "";
+  });
+}));
+
+// Hide/show header on scroll
+let lastScrollTop = 0;
+window.addEventListener("scroll", () => {
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop > lastScrollTop) {
+    // Scroll down
+    document.querySelector("header").style.top = "-70px";
+  } else {
+    // Scroll up
+    document.querySelector("header").style.top = "0";
+  }
+  lastScrollTop = scrollTop;
+});
+
+// Page loader
+window.addEventListener("load", () => {
+  document.querySelector(".loader").classList.add("hidden");
+  setTimeout(() => {
+    document.querySelector(".loader").style.display = "none";
+  }, 500);
+});
+
+// Make animations responsive on mobile
+function checkScreenSize() {
+  const chakraTreeContainer = document.querySelector(".chakra-tree-container");
+
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll(".chakra").forEach(chakra => {
+      chakra.style.width = "30px";
+      chakra.style.height = "30px";
+    });
+
+    if (chakraTreeContainer) {
+      chakraTreeContainer.style.transform = "scale(0.6)";
+    }
+  } else {
+    document.querySelectorAll(".chakra").forEach(chakra => {
+      chakra.style.width = "40px";
+      chakra.style.height = "40px";
+    });
+
+    if (chakraTreeContainer) {
+      chakraTreeContainer.style.transform = "scale(1)";
+    }
+  }
+}
+
+// Check screen size on load and resize
+window.addEventListener("load", checkScreenSize);
+window.addEventListener("resize", checkScreenSize);
 
 // Initialisation de toutes les animations
 window.onload = () => {
