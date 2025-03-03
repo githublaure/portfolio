@@ -158,10 +158,11 @@ const initChakras = () => {
         // Pour mobile, ajuster la position et la taille
         if (window.innerWidth <= 768) {
             treeContainer.style.width = '100%';
-            treeContainer.style.height = '400px';
+            treeContainer.style.height = '600px';
             treeContainer.style.left = '0';
-            treeContainer.style.transform = 'scale(0.6)';
+            treeContainer.style.transform = 'scale(0.8)';
             treeContainer.style.margin = '0 auto';
+            treeContainer.style.transformOrigin = 'center center';
         }
 
         // Vérifier si l'image de l'arbre est chargée
