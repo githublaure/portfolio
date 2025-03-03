@@ -163,8 +163,8 @@ a.nav-link{
 
 /* Profile picture circle */
 .profile-picture {
-    width: 150px;
-    height: 150px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 20px;
