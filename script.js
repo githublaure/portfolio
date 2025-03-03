@@ -510,25 +510,35 @@ function navSlide() {
   }
   
   // Close menu when clicking a nav link
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      if (navBar.classList.contains("nav-active")) {
-        navBar.classList.remove("nav-active");
-        hamburger.classList.remove("toggle");
-      }
+  if (navLinks) {
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        if (navBar && navBar.classList.contains("nav-active")) {
+          navBar.classList.remove("nav-active");
+          
+          if (hamburger) {
+            hamburger.classList.remove("toggle");
+          }
+        }
+      });
     });
-  });
+  }
 }
 
-// Close menu when clicking a nav link
-navLinks.forEach(link => link.addEventListener("click", () => {
-  hamburger.classList.remove("toggle");
-  navBar.classList.remove("nav-active");
-
-  navLinks.forEach(link => {
-    link.style.animation = "";
-  });
-}));
+// Exécuter cette fonction au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+  // S'assurer que navSlide est correctement initialisé
+  navSlide();
+  
+  // Forcer la visibilité de tous les éléments sur mobile
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.chakra, .laure-item, .card').forEach(item => {
+      item.style.display = 'block';
+      item.style.opacity = '1';
+      item.style.visibility = 'visible';
+    });
+  }
+});
 
 // Hide/show header on scroll
 let lastScrollTop = 0;

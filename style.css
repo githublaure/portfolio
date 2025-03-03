@@ -590,17 +590,18 @@ hr {
 	
 	#home, #projects, #contact, #chakra-section {
         overflow-x: hidden;
-        width: 100%;
+        width: 100vw;
         max-width: 100vw;
         box-sizing: border-box;
-        margin: 0;
-        padding: 0 15px;
+        margin: 0 auto;
+        padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
         left: 0;
         right: 0;
+        position: relative;
 	}
 	
 	main {
@@ -629,7 +630,7 @@ hr {
 		align-items: center;
 		overflow-x: auto;
 		padding: 0 5px;
-		max-width: 30%;
+		max-width: 70%;
 	}
 	
 	.logo {
@@ -669,7 +670,7 @@ hr {
 	}
 	
 	.nav-bar li {
-		opacity: 0;
+		opacity: 1;
 		width: 100%;
 		text-align: center;
 		margin: 15px 0;
@@ -740,6 +741,13 @@ hr {
 		right: 0;
 	}
 	
+	#chakra-section p, #chakra-section h3 {
+		width: 100%;
+		padding: 0 15px;
+		box-sizing: border-box;
+		text-align: center;
+	}
+	
 	.chakra-tree-container {
 		width: 100%;
 		max-width: 100vw;
@@ -747,7 +755,7 @@ hr {
 		margin: 0 auto;
 		position: relative;
 		transform-origin: center center;
-		transform: scale(0.6);
+		transform: scale(0.8);
 		left: 0;
 		right: 0;
 		display: flex;
@@ -772,6 +780,7 @@ hr {
 		transform: translateX(-50%);
 		width: 100%;
 		height: 100%;
+		background-position: center;
 	}
 	
 	/* Projects section adjustments */
@@ -784,6 +793,13 @@ hr {
 		margin: 0;
 		left: 0;
 		right: 0;
+	}
+	
+	#projects h3, #projects p {
+		width: 100%;
+		padding: 0 15px;
+		box-sizing: border-box;
+		text-align: center;
 	}
 	
 	.work-box {
@@ -821,6 +837,13 @@ hr {
 		margin: 0;
 		left: 0;
 		right: 0;
+		text-align: center;
+	}
+	
+	#contact h3, #contact p {
+		width: 100%;
+		padding: 0 15px;
+		box-sizing: border-box;
 		text-align: center;
 	}
 	
@@ -878,6 +901,13 @@ hr {
 		padding: 10px;
 		box-sizing: border-box;
 		text-align: center;
+	}
+	
+	/* S'assurer que tous les éléments sont visibles sur mobile */
+	.laure-item, .chakra, .card {
+		display: block !important;
+		opacity: 1 !important;
+		visibility: visible !important;
 	}
 }
 
