@@ -97,9 +97,40 @@ const initChakras = () => {
             chakra.style.display = 'block';
             chakra.style.animationDelay = `${index * 0.2}s`;
 
+            // Définir les positions et couleurs des tooltips pour chaque chakra
+            const tooltip = chakra.querySelector('.tooltip');
+            if (tooltip) {
+                // Corriger les positions des infobulles en fonction du chakra
+                if (index === 1) { // Chakra Racine - Rouge
+                    tooltip.style.left = 'calc(100% + 20px)';
+                    tooltip.style.top = '50%';
+                    tooltip.style.transform = 'translateY(-50%)';
+                    tooltip.style.opacity = '1';
+                    tooltip.style.visibility = 'visible';
+                    tooltip.style.display = 'block';
+                    tooltip.style.zIndex = '200';
+                    tooltip.style.background = 'rgba(255, 255, 255, 0.9)';
+                    tooltip.style.color = '#333';
+                    tooltip.style.borderColor = '#FF0000';
+                } else if (index === 2) { // Chakra Sacré - Orange
+                    tooltip.style.left = 'calc(100% + 20px)';
+                    tooltip.style.top = '50%';
+                    tooltip.style.transform = 'translateY(-50%)';
+                    tooltip.style.background = 'rgba(255, 255, 255, 0.9)';
+                    tooltip.style.color = '#333';
+                    tooltip.style.borderColor = '#FFA500';
+                } else if (index === 7) { // Chakra Couronne - Violet
+                    tooltip.style.left = '50%';
+                    tooltip.style.transform = 'translateX(-50%)';
+                    tooltip.style.top = 'calc(100% + 20px)';
+                    tooltip.style.background = 'rgba(255, 255, 255, 0.9)';
+                    tooltip.style.color = '#333';
+                    tooltip.style.borderColor = '#800080';
+                }
+            }
+
             // Position dynamique des tooltips en fonction de la position du chakra
             chakra.addEventListener('mouseenter', () => {
-                const tooltip = chakra.querySelector('.tooltip');
                 if (tooltip) {
                     const rect = chakra.getBoundingClientRect();
 
@@ -124,38 +155,6 @@ const initChakras = () => {
                     }
 
                     // Assurer la visibilité du tooltip
-                    tooltip.style.opacity = '1';
-                    tooltip.style.visibility = 'visible';
-                }
-            });
-
-            // Gestion de l'infobulle pour chaque chakra
-            const tooltip = chakra.querySelector('.tooltip');
-            
-            // Traitement spécial pour le chakra racine (rouge, index 1)
-            if (index === 1) {
-                if (tooltip) {
-                    // Assurer que le tooltip est visible pour le chakra rouge
-                    tooltip.style.opacity = '1';
-                    tooltip.style.visibility = 'visible';
-                    tooltip.style.display = 'block';
-                    tooltip.style.zIndex = '200';
-                    tooltip.style.background = 'rgba(255, 255, 255, 0.9)';
-                    tooltip.style.color = '#333';
-                }
-            }
-            
-            // Traitement spécial pour le chakra couronne (violet, index 7)
-            if (index === 7) {
-                if (tooltip) {
-                    tooltip.style.background = 'rgba(255, 255, 255, 0.9)';
-                    tooltip.style.color = '#333';
-                }
-            }
-
-            // Ajouter un événement pour afficher l'infobulle au survol
-            chakra.addEventListener('mouseenter', () => {
-                if (tooltip) {
                     tooltip.style.opacity = '1';
                     tooltip.style.visibility = 'visible';
                     tooltip.style.display = 'block';
