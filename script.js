@@ -332,8 +332,8 @@ const initChakras = () => {
                         // Chakra à droite de l'écran
                         tooltip.style.left = 'auto';
                         tooltip.style.right = 'calc(100% + 20px)';
-                        tooltip.style.top = '0';
-                        tooltip.style.transform = 'translateY(0)';
+                        tooltip.style.top = '50%';
+                        tooltip.style.transform = 'translateY(-50%)';
                     } else if (rect.top < window.innerHeight / 3) {
                         // Chakra en haut de l'arbre
                         tooltip.style.left = '50%';
@@ -343,8 +343,17 @@ const initChakras = () => {
                         // Chakra à gauche ou au centre
                         tooltip.style.left = 'calc(100% + 20px)';
                         tooltip.style.right = 'auto';
-                        tooltip.style.top = '0';
-                        tooltip.style.transform = 'translateY(0)';
+                        tooltip.style.top = '50%';
+                        tooltip.style.transform = 'translateY(-50%)';
+                    }
+                    
+                    // Correction spécifique pour le chakra jaune (index 2) et bleu clair (index 4)
+                    if (index === 2 || index === 4) { // Jaune ou Bleu clair
+                        tooltip.style.top = 'auto';
+                        tooltip.style.bottom = 'calc(100% + 20px)';
+                        tooltip.style.left = '50%';
+                        tooltip.style.transform = 'translateX(-50%)';
+                        tooltip.style.right = 'auto';
                     }
 
                     // Assurer la visibilité du tooltip et le positionner au-dessus de tout
