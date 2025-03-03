@@ -108,10 +108,14 @@ const initChakras = () => {
         chakra.style.opacity = '1';
         chakra.style.visibility = 'visible';
         
-        // Chakra rouge (premier) avec z-index supérieur
-        if (index === 0) { 
+        // Configurez tous les chakras pour être sûrs qu'ils sont visibles
+        if (index === 0) { // Rouge
             chakra.style.zIndex = '20'; // Z-index plus élevé pour être sûr qu'il est au-dessus
             console.log("Chakra rouge configuré:", chakra.style.display, chakra.style.opacity, chakra.style.zIndex);
+        } else if (index === 1) { // Orange
+            chakra.style.zIndex = '19'; // Z-index légèrement inférieur au rouge
+            chakra.style.background = '#FFA500'; // Forcer la couleur orange
+            console.log("Chakra orange configuré:", chakra.style.display, chakra.style.opacity, chakra.style.zIndex);
         }
         
         chakra.style.animationDelay = `${index * 0.2}s`;
