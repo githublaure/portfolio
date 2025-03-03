@@ -129,7 +129,7 @@ const initChakras = () => {
                 }
             });
 
-            // Gestion de l'infobulle pour le chakra rouge
+            // Gestion de l'infobulle pour chaque chakra
             const tooltip = chakra.querySelector('.tooltip');
             
             // Traitement spécial pour le chakra racine (rouge, index 1)
@@ -138,13 +138,34 @@ const initChakras = () => {
                     // Assurer que le tooltip est visible pour le chakra rouge
                     tooltip.style.opacity = '1';
                     tooltip.style.visibility = 'visible';
+                    tooltip.style.display = 'block';
                     tooltip.style.zIndex = '200';
+                    tooltip.style.background = 'rgba(255, 255, 255, 0.9)';
+                    tooltip.style.color = '#333';
+                }
+            }
+            
+            // Traitement spécial pour le chakra couronne (violet, index 7)
+            if (index === 7) {
+                if (tooltip) {
+                    tooltip.style.background = 'rgba(255, 255, 255, 0.9)';
+                    tooltip.style.color = '#333';
                 }
             }
 
-            // Ajouter un événement pour cacher l'infobulle quand on quitte le chakra
-            chakra.addEventListener('mouseleave', () => {
+            // Ajouter un événement pour afficher l'infobulle au survol
+            chakra.addEventListener('mouseenter', () => {
                 if (tooltip) {
+                    tooltip.style.opacity = '1';
+                    tooltip.style.visibility = 'visible';
+                    tooltip.style.display = 'block';
+                }
+            });
+
+            // Ajouter un événement pour cacher l'infobulle quand on quitte le chakra
+            // Sauf pour le chakra racine (rouge)
+            chakra.addEventListener('mouseleave', () => {
+                if (tooltip && index !== 1) {
                     tooltip.style.opacity = '0';
                     tooltip.style.visibility = 'hidden';
                 }
