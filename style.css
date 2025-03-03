@@ -717,7 +717,7 @@ hr {
 
 /* Positionnement selon la forme d'un arbre */
 .chakra:nth-child(1) { display: none; }
-.chakra:nth-child(2) { top: 85%; left: 50%; background: #FF0000; color: #FF0000; z-index: 20; box-shadow: 0 0 20px 8px #FF0000; display: block !important; } /* Rouge - Racine (base du tronc) */
+.chakra:nth-child(2) { top: 85%; left: 50%; background: #FF0000; color: #FF0000; z-index: 20; box-shadow: 0 0 20px 8px #FF0000; display: block !important; pointer-events: all !important; } /* Rouge - Racine (base du tronc) */
 .chakra:nth-child(3) { top: 65%; left: 50%; background: #FFA500; color: #FFA500; }  /* Orange - Sacré (bas du tronc) */
 .chakra:nth-child(4) { top: 45%; left: 50%; background: #FFFF00; color: #FFFF00; } /* Jaune - Plexus solaire (milieu du tronc) */
 .chakra:nth-child(5) { top: 35%; left: 40%; background: #00FF00; color: #00FF00; } /* Vert - Cœur (branche gauche) */
@@ -801,14 +801,23 @@ hr {
 
 .chakra:hover .tooltip {
   opacity: 1 !important;
-  visibility: visible;
-  display: block;
+  visibility: visible !important;
+  display: block !important;
+  z-index: 200;
 }
 
 .chakra:not(:hover) .tooltip {
-  opacity: 0 !important;
+  opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Exception pour le chakra rouge */
+.chakra:nth-child(2):hover .tooltip {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  z-index: 300;
 }
 
 .tooltip h4 {
@@ -825,7 +834,7 @@ hr {
 }
 
 .chakra:nth-child(1) .tooltip { border-color: #FF0000; color: #333; background: rgba(255, 255, 255, 0.9); }
-.chakra:nth-child(2) .tooltip { border-color: #FFA500; color: #333; background: rgba(255, 255, 255, 0.9); }
+.chakra:nth-child(2) .tooltip { border-color: #FF0000; color: #333; background: rgba(255, 255, 255, 0.9); z-index: 200; opacity: 1; visibility: visible; }
 .chakra:nth-child(3) .tooltip { border-color: #FFFF00; color: #333; background: rgba(255, 255, 255, 0.9); }
 .chakra:nth-child(4) .tooltip { border-color: #00FF00; color: #333; background: rgba(255, 255, 255, 0.9); }
 .chakra:nth-child(5) .tooltip { border-color: #00FFFF; color: #333; background: rgba(255, 255, 255, 0.9); }

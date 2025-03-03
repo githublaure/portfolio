@@ -131,6 +131,16 @@ const initChakras = () => {
 
             // Gestion de l'infobulle pour le chakra rouge
             const tooltip = chakra.querySelector('.tooltip');
+            
+            // Traitement spécial pour le chakra racine (rouge, index 1)
+            if (index === 1) {
+                if (tooltip) {
+                    // Assurer que le tooltip est visible pour le chakra rouge
+                    tooltip.style.opacity = '1';
+                    tooltip.style.visibility = 'visible';
+                    tooltip.style.zIndex = '200';
+                }
+            }
 
             // Ajouter un événement pour cacher l'infobulle quand on quitte le chakra
             chakra.addEventListener('mouseleave', () => {
