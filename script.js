@@ -92,7 +92,7 @@ const initChakras = () => {
 
     // Définir les couleurs et descriptions pour chaque chakra
     const chakraData = [
-        {}, // chakra vide (index 0)
+
         { color: '#FF0000', name: 'Racine - Data Engineering' }, // Rouge (index 1)
         { color: '#FFA500', name: 'Sacré - Machine Learning' }, // Orange (index 2)
         { color: '#FFFF00', name: 'Plexus Solaire - Cloud' }, // Jaune (index 3)
