@@ -804,6 +804,7 @@ hr {
   visibility: visible !important;
   display: block !important;
   z-index: 200;
+  pointer-events: none;
 }
 
 .chakra:not(:hover) .tooltip {
@@ -812,20 +813,11 @@ hr {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Exception pour le chakra rouge */
-.chakra:nth-child(2) .tooltip {
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: block !important;
-  z-index: 300;
-}
-
-/* Assurer que tous les tooltips ont une bonne visibilité */
 .tooltip {
   background: rgba(255, 255, 255, 0.9) !important;
   color: #333 !important;
-  visibility: visible;
-  display: block;
+  border-left: 4px solid;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .tooltip h4 {
