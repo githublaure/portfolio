@@ -854,7 +854,7 @@ hr {
 		top: 0;
 		right: 0;
 		transform: none;
-		margin: 20px auto;
+		margin: 30px auto 20px;
 		width: 90%;
 		max-width: 300px;
 	}
@@ -1149,9 +1149,9 @@ hr {
 /* Légende des chakras */
 .chakra-legend {
 	position: absolute;
-	top: 50%;
-	right: 5%;
-	transform: translateY(-50%);
+	top: 65%;
+	right: 2%;
+	transform: translateY(0);
 	background: rgba(248, 243, 233, 0.95);
 	padding: 15px;
 	border-radius: 10px;
