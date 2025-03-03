@@ -1224,7 +1224,7 @@ hr {
   opacity: 1 !important;
   visibility: visible !important;
   display: block !important;
-  z-index: 200;
+  z-index: 1000 !important; /* Z-index beaucoup plus élevé pour s'assurer qu'il est au premier plan */
   pointer-events: none;
 }
 
@@ -1255,13 +1255,13 @@ hr {
 }
 
 
-.chakra:nth-child(1) .tooltip { border-color: #FF0000; color: #333; background: rgba(255, 255, 255, 0.9);  }
-.chakra:nth-child(2) .tooltip { border-color: #FFA500; color: #333; background: rgba(255, 255, 255, 0.9); }
-.chakra:nth-child(3) .tooltip { border-color: #FFFF00; color: #333; background: rgba(255, 255, 255, 0.9); }
-.chakra:nth-child(4) .tooltip { border-color: #00FF00; color: #333; background: rgba(255, 255, 255, 0.9); }
-.chakra:nth-child(5) .tooltip { border-color: #00FFFF; color: #333; background: rgba(255, 255, 255, 0.9); }
-.chakra:nth-child(6) .tooltip { border-color: #0000FF; color: #333; background: rgba(255, 255, 255, 0.9); }
-.chakra:nth-child(7) .tooltip { border-color: #800080; color: #333; background: rgba(255, 255, 255, 0.9); }
+.chakra:nth-child(1) .tooltip { border-color: #FF0000; color: #333; background: rgba(255, 255, 255, 0.95); box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); }
+.chakra:nth-child(2) .tooltip { border-color: #FFA500; color: #333; background: rgba(255, 255, 255, 0.95); box-shadow: 0 0 15px rgba(255, 165, 0, 0.4); }
+.chakra:nth-child(3) .tooltip { border-color: #FFFF00; color: #333; background: rgba(255, 255, 255, 0.95); box-shadow: 0 0 15px rgba(255, 255, 0, 0.4); }
+.chakra:nth-child(4) .tooltip { border-color: #00FF00; color: #333; background: rgba(255, 255, 255, 0.95); box-shadow: 0 0 15px rgba(0, 255, 0, 0.4); }
+.chakra:nth-child(5) .tooltip { border-color: #00FFFF; color: #333; background: rgba(255, 255, 255, 0.95); box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); }
+.chakra:nth-child(6) .tooltip { border-color: #0000FF; color: #333; background: rgba(255, 255, 255, 0.95); box-shadow: 0 0 15px rgba(0, 0, 255, 0.4); }
+.chakra:nth-child(7) .tooltip { border-color: #800080; color: #333; background: rgba(255, 255, 255, 0.95); box-shadow: 0 0 15px rgba(128, 0, 128, 0.4); }
 /* Animations de typing (effet geek) */
 .typewriter h3 {
   overflow: hidden;

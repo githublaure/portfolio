@@ -324,6 +324,9 @@ const initChakras = () => {
                 if (tooltip) {
                     const rect = chakra.getBoundingClientRect();
 
+                    // S'assurer que le tooltip est au premier plan avec un z-index élevé
+                    tooltip.style.zIndex = '1000';
+                    
                     // Positionner les tooltips selon la position du chakra
                     if (rect.left > window.innerWidth / 2) {
                         // Chakra à droite de l'écran
@@ -348,6 +351,11 @@ const initChakras = () => {
                     tooltip.style.opacity = '1';
                     tooltip.style.visibility = 'visible';
                     tooltip.style.display = 'block';
+                    
+                    // Décaler légèrement le tooltip pour éviter le chevauchement avec le chakra
+                    const offset = 5; // pixels
+                    const currentTop = parseFloat(tooltip.style.top) || 0;
+                    tooltip.style.top = `${currentTop + offset}px`;
                 }
             });
 
