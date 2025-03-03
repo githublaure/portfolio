@@ -725,6 +725,10 @@ hr {
 .chakra:nth-child(7) { top: 25%; left: 50%; background: #0000FF; color: #0000FF; } /* Bleu foncé - Troisième œil (haut milieu) */
 .chakra:nth-child(8) { top: 15%; left: 50%; background: #800080; color: #800080; } /* Violet - Couronne (tout en haut) */
 
+/* Fix pour l'affichage des chakras (s'assure que tous les chakras ont la bonne couleur) */
+.chakra:nth-child(7), .chakra:nth-child(7)::after { background: #0000FF; color: #0000FF; box-shadow: 0 0 15px 5px #0000FF; }
+.chakra:nth-child(8), .chakra:nth-child(8)::after { background: #800080; color: #800080; box-shadow: 0 0 15px 5px #800080; }
+
 /* Légende des chakras */
 .chakra-legend {
   position: absolute;

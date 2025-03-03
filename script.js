@@ -126,8 +126,19 @@ const initChakras = () => {
                     // Assurer la visibilité du tooltip
                     tooltip.style.opacity = '1';
                     tooltip.style.visibility = 'visible';
+                    tooltip.style.display = 'block';
+                    tooltip.style.zIndex = '100';
                 }
             });
+            
+            // S'assurer que l'infobulle reste visible après le chargement initial
+            const tooltip = chakra.querySelector('.tooltip');
+            if (tooltip && index === 1) { // Pour le chakra rouge (index 1 après le chakra vide)
+                tooltip.style.opacity = '1';
+                tooltip.style.visibility = 'visible';
+                tooltip.style.display = 'block';
+                tooltip.style.zIndex = '100';
+            }
         }
     });
 
