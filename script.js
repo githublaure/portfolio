@@ -43,6 +43,15 @@ window.addEventListener("load", function() {
 // Animation au défilement
 const scrollAppear = () => {
     const fadeInElements = document.querySelectorAll('.fade-in');
+    
+    // Si on est sur mobile, rendre tous les éléments visibles immédiatement
+    if (window.innerWidth <= 768) {
+        fadeInElements.forEach(element => {
+            element.classList.add('appear');
+        });
+        return;
+    }
+    
     fadeInElements.forEach(element => {
         // Position de l'élément par rapport au haut de la fenêtre
         const elementPosition = element.getBoundingClientRect().top;
@@ -70,6 +79,15 @@ const initChakras = () => {
         treeContainer.style.position = 'relative';
         treeContainer.style.zIndex = '2';
 
+        // Pour mobile, ajuster la position et la taille
+        if (window.innerWidth <= 768) {
+            treeContainer.style.width = '100%';
+            treeContainer.style.height = '400px';
+            treeContainer.style.left = '0';
+            treeContainer.style.transform = 'scale(0.6)';
+            treeContainer.style.margin = '0 auto';
+        }
+
         // Vérifier si l'image de l'arbre est chargée
         const treeImg = new Image();
         treeImg.onload = function() {
@@ -78,6 +96,13 @@ const initChakras = () => {
             if (chakraTree) {
                 chakraTree.style.opacity = '1';
             }
+            
+            // S'assurer que tous les chakras sont bien affichés
+            chakras.forEach(chakra => {
+                chakra.style.display = 'block';
+                chakra.style.visibility = 'visible';
+                chakra.style.opacity = '1';
+            });
         };
         treeImg.onerror = function() {
             console.error("Erreur de chargement de l'image de l'arbre");
@@ -521,9 +546,14 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Exécuter au chargement et lors du redimensionnement
   adjustViewport();
-  window.addEventListener('resize', adjustViewport);dd("hidden");
+  window.addEventListener('resize', adjustViewport);
+  
+  // Animation du loader
   setTimeout(() => {
-    document.querySelector(".loader").style.display = "none";
+    document.querySelector(".loader").classList.add("hidden");
+    setTimeout(() => {
+      document.querySelector(".loader").style.display = "none";
+    }, 500);
   }, 500);
 });
 

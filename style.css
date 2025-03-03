@@ -591,7 +591,11 @@ hr {
 	}
 	
 	.navbar-laure-gallery {
-		display: none; /* Hide on mobile */
+		display: flex;
+		align-items: center;
+		overflow-x: auto;
+		padding: 0 5px;
+		max-width: 30%;
 	}
 	
 	.logo {
@@ -688,14 +692,12 @@ hr {
 	}
 	
 	.chakra-tree-container {
-		width: 100vw;
+		width: 100%;
 		height: 400px;
-		transform: scale(0.6);
-		margin-top: -100px;
-		margin-bottom: -100px;
+		margin: 0 auto;
 		position: relative;
-		left: 50%;
-		transform: translateX(-50%) scale(0.6);
+		transform: scale(0.6);
+		left: 0;
 	}
 	
 	.chakra-legend {
@@ -919,14 +921,14 @@ hr {
   box-shadow: 0 0 8px 2px white;
 }
 
-/* Positionnement selon la forme d'un arbre */
-.chakra-tree-container .chakra:nth-of-type(1) { top: 120%; left: 0%; background: #FF0000; color: #FF0000; display: block !important; z-index: 20; } /* Rouge - Racine (base du tronc) */
-.chakra-tree-container .chakra:nth-of-type(2) { top: 65%; left: 90%; background: #FFA500; color: #FFA500; display: block !important; z-index: 19; } /* Orange - Sacré (bas du tronc) */
-.chakra-tree-container .chakra:nth-of-type(3) { top: 45%; left: 50%; background: #FFFF00; color: #FFFF00; display: block !important; } /* Jaune - Plexus solaire (milieu du tronc) */
-.chakra-tree-container .chakra:nth-of-type(4) { top: 35%; left: 40%; background: #00FF00; color: #00FF00; display: block !important; } /* Vert - Cœur (branche gauche) */
-.chakra-tree-container .chakra:nth-of-type(5) { top: 35%; left: 60%; background: #00FFFF; color: #00FFFF; display: block !important; } /* Bleu clair - Gorge (branche droite) */
-.chakra-tree-container .chakra:nth-of-type(6) { top: 25%; left: 50%; background: #0000FF; color: #0000FF; display: block !important; } /* Bleu foncé - Troisième œil (haut milieu) */
-.chakra-tree-container .chakra:nth-of-type(7) { top: 15%; left: 50%; background: #800080; color: #800080; display: block !important; } /* Violet - Couronne (sommet) */
+/* Positionnement selon la forme d'un arbre - Positions fixes pour assurer la visibilité */
+.chakra-tree-container .chakra:nth-of-type(1) { top: 85%; left: 48%; background: #FF0000; color: #FF0000; display: block !important; z-index: 20; } /* Rouge - Racine (base du tronc) */
+.chakra-tree-container .chakra:nth-of-type(2) { top: 75%; left: 28%; background: #FFA500; color: #FFA500; display: block !important; z-index: 19; } /* Orange - Sacré (bas du tronc gauche) */
+.chakra-tree-container .chakra:nth-of-type(3) { top: 65%; left: 48%; background: #FFFF00; color: #FFFF00; display: block !important; z-index: 18; } /* Jaune - Plexus solaire (milieu du tronc) */
+.chakra-tree-container .chakra:nth-of-type(4) { top: 55%; left: 68%; background: #00FF00; color: #00FF00; display: block !important; z-index: 17; } /* Vert - Cœur (branche droite) */
+.chakra-tree-container .chakra:nth-of-type(5) { top: 45%; left: 48%; background: #00FFFF; color: #00FFFF; display: block !important; z-index: 16; } /* Bleu clair - Gorge (milieu haut) */
+.chakra-tree-container .chakra:nth-of-type(6) { top: 35%; left: 28%; background: #0000FF; color: #0000FF; display: block !important; z-index: 15; } /* Bleu foncé - Troisième œil (branche gauche haut) */
+.chakra-tree-container .chakra:nth-of-type(7) { top: 25%; left: 48%; background: #800080; color: #800080; display: block !important; z-index: 14; } /* Violet - Couronne (sommet) */
 
 /* Légende des chakras */
 .chakra-legend {
@@ -1231,6 +1233,21 @@ hr {
 .fade-in.appear {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Assurer que les projets sont toujours visibles sur mobile */
+@media only screen and (max-width: 768px) {
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  #projects .card {
+    display: block;
+    margin: 20px auto;
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .footer-contact {
