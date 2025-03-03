@@ -142,6 +142,22 @@ const initChakras = () => {
                     tooltip.style.zIndex = '200';
                     tooltip.style.background = 'rgba(255, 255, 255, 0.9)';
                     tooltip.style.color = '#333';
+                    tooltip.style.left = 'calc(100% + 20px)';
+                    tooltip.style.top = '50%';
+                    tooltip.style.transform = 'translateY(-50%)';
+                    tooltip.style.borderColor = '#FF0000';
+                }
+            }
+            
+            // Traitement spécial pour le chakra sacré (orange, index 2)
+            if (index === 2) {
+                if (tooltip) {
+                    tooltip.style.left = 'calc(100% + 20px)';
+                    tooltip.style.top = '50%';
+                    tooltip.style.transform = 'translateY(-50%)';
+                    tooltip.style.background = 'rgba(255, 255, 255, 0.9)';
+                    tooltip.style.color = '#333';
+                    tooltip.style.borderColor = '#FFA500';
                 }
             }
             

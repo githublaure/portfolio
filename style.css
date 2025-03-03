@@ -813,11 +813,19 @@ hr {
 }
 
 /* Exception pour le chakra rouge */
-.chakra:nth-child(2):hover .tooltip {
+.chakra:nth-child(2) .tooltip {
   opacity: 1 !important;
   visibility: visible !important;
   display: block !important;
   z-index: 300;
+}
+
+/* Assurer que tous les tooltips ont une bonne visibilité */
+.tooltip {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #333 !important;
+  visibility: visible;
+  display: block;
 }
 
 .tooltip h4 {
