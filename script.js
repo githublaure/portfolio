@@ -98,6 +98,7 @@ const initChakras = () => {
         { color: '#00FF00', name: 'Cœur - Programmation' }, // Vert (index 3)
         { color: '#00FFFF', name: 'Gorge - Visualisation' }, // Bleu ciel (index 4)
         { color: '#0000FF', name: '3ème Œil - IA' }, // Bleu foncé (index 5)
+        { color: '#800080', name: 'Couronne - Leadership' }, // Violet (index 6)
     ];
 
     // Animation pulse décalée pour chaque chakra
@@ -160,6 +161,13 @@ const initChakras = () => {
                     "• Réseaux de neurones avancés",
                     "• TensorFlow, PyTorch, Keras",
                     "• Contributeur open source: HuggingFace"
+                ];
+            } else if (index === 6) { // Violet - Couronne
+                title = "Chakra Couronne - Leadership";
+                paragraphs = [
+                    "• Direction stratégique des projets data",
+                    "• Gestion d'équipes multidisciplinaires",
+                    "• Vision produit et innovation"
                 ];
             }
 
