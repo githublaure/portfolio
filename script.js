@@ -120,6 +120,10 @@ const initChakras = () => {
             chakra.style.zIndex = '18'; // Z-index légèrement inférieur à l'orange
             chakra.style.background = '#FFFF00'; // Forcer la couleur jaune
             console.log("Chakra jaune configuré:", chakra.style.display, chakra.style.opacity, chakra.style.zIndex);
+        } else if (index === 3) { // Vert
+            chakra.style.zIndex = '17'; // Z-index légèrement inférieur au jaune
+            chakra.style.background = '#00FF00'; // Forcer la couleur verte
+            console.log("Chakra vert configuré:", chakra.style.display, chakra.style.opacity, chakra.style.zIndex);
         }
         
         chakra.style.animationDelay = `${index * 0.2}s`;
