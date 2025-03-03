@@ -1,35 +1,35 @@
 // header scrolling effect
 $(window).on('scroll', function(){
-	if($(window).scrollTop()){
+    if($(window).scrollTop()){
       $('header').addClass('nav-show');
 
-	} 
-	else{
-		$('header').removeClass('nav-show');
-	}
+    } 
+    else{
+        $('header').removeClass('nav-show');
+    }
 
 })
 
 //hamburger
 const navSlide = () => {
-	 const hamburger = document.querySelector(".hamburger");
-	 const navbar = document.querySelector(".nav-bar");
-	 const navLinks = document.querySelectorAll(".nav-bar li");
+     const hamburger = document.querySelector(".hamburger");
+     const navbar = document.querySelector(".nav-bar");
+     const navLinks = document.querySelectorAll(".nav-bar li");
 
      hamburger.onclick = () => {
 
-	 navbar.classList.toggle("nav-active");
+     navbar.classList.toggle("nav-active");
 
       //Animation links
-	 navLinks.forEach((link, index) => {
-		if (link.style.animation) {
-			link.style.animation = "";
-		} else {
-			link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7+1}s`;
-		   }
-		});
-	  //hamburger animation
-	 hamburger.classList.toggle("toggle");
+     navLinks.forEach((link, index) => {
+        if (link.style.animation) {
+            link.style.animation = "";
+        } else {
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7+1}s`;
+           }
+        });
+      //hamburger animation
+     hamburger.classList.toggle("toggle");
     }
 
 }
@@ -38,7 +38,7 @@ const navSlide = () => {
 window.addEventListener("load", function() {
     const loader = document.querySelector(".loader");
     loader.className += " hidden";
-    
+
     // Effet hackerEffect pour l'image de profil
     const profilePic = document.querySelector(".profile-picture");
     if (profilePic) {
@@ -57,28 +57,28 @@ window.addEventListener("load", function() {
                 canvas.style.borderRadius = '50%';
                 canvas.style.pointerEvents = 'none';
                 profilePic.appendChild(canvas);
-                
+
                 // Initialiser l'effet de pluie de code
                 const ctx = canvas.getContext('2d');
                 const characters = "01アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン";
                 const columns = Math.floor(canvas.width / 10);
                 const drops = [];
-                
+
                 // Initialiser les positions de départ des caractères
                 for (let i = 0; i < columns; i++) {
                     drops[i] = Math.random() * -100;
                 }
-                
+
                 // Fonction pour dessiner l'effet de matrice
                 function drawMatrix() {
                     // Ajouter un fond semi-transparent pour créer un effet de traînée
                     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
                     ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    
+
                     // Définir le style pour les caractères
                     ctx.fillStyle = "#0F0";
                     ctx.font = "10px monospace";
-                    
+
                     // Dessiner les caractères
                     for (let i = 0; i < drops.length; i++) {
                         // Caractère aléatoire
@@ -87,23 +87,23 @@ window.addEventListener("load", function() {
                         const x = i * 10;
                         // Position y dépend de la valeur dans le tableau drops
                         const y = drops[i] * 10;
-                        
+
                         // Dessiner le caractère
                         ctx.fillText(text, x, y);
-                        
+
                         // Réinitialiser quand le caractère sort de l'écran ou aléatoirement
                         if (y > canvas.height || Math.random() > 0.98) {
                             drops[i] = 0;
                         }
-                        
+
                         // Déplacer le caractère vers le bas
                         drops[i]++;
                     }
                 }
-                
+
                 // ID de l'animation pour pouvoir l'arrêter plus tard
                 const matrixInterval = setInterval(drawMatrix, 50);
-                
+
                 // Arrêter l'animation quand la souris quitte l'image
                 profilePic.addEventListener("mouseleave", function() {
                     clearInterval(matrixInterval);
@@ -119,7 +119,7 @@ window.addEventListener("load", function() {
 // Animation au défilement
 const scrollAppear = () => {
     const fadeInElements = document.querySelectorAll('.fade-in');
-    
+
     // Si on est sur mobile, rendre tous les éléments visibles immédiatement
     if (window.innerWidth <= 768) {
         fadeInElements.forEach(element => {
@@ -127,7 +127,7 @@ const scrollAppear = () => {
         });
         return;
     }
-    
+
     fadeInElements.forEach(element => {
         // Position de l'élément par rapport au haut de la fenêtre
         const elementPosition = element.getBoundingClientRect().top;
@@ -172,7 +172,7 @@ const initChakras = () => {
             if (chakraTree) {
                 chakraTree.style.opacity = '1';
             }
-            
+
             // S'assurer que tous les chakras sont bien affichés
             chakras.forEach(chakra => {
                 chakra.style.display = 'block';
@@ -326,7 +326,7 @@ const initChakras = () => {
 
                     // S'assurer que le tooltip est au premier plan avec un z-index élevé
                     tooltip.style.zIndex = '1000';
-                    
+
                     // Positionner les tooltips selon la position du chakra
                     if (rect.left > window.innerWidth / 2) {
                         // Chakra à droite de l'écran
@@ -351,7 +351,7 @@ const initChakras = () => {
                     tooltip.style.opacity = '1';
                     tooltip.style.visibility = 'visible';
                     tooltip.style.display = 'block';
-                    
+
                     // Décaler légèrement le tooltip pour éviter le chevauchement avec le chakra
                     const offset = 5; // pixels
                     const currentTop = parseFloat(tooltip.style.top) || 0;
@@ -571,7 +571,7 @@ const sortNavbarLaureItems = () => {
 document.addEventListener('DOMContentLoaded', function() {
   // S'assurer que navSlide est correctement initialisé
   navSlide();
-  
+
   // Forcer la visibilité de tous les éléments sur mobile
   if (window.innerWidth <= 768) {
     document.querySelectorAll('.chakra, .laure-item, .card').forEach(item => {
@@ -600,7 +600,7 @@ window.addEventListener("scroll", () => {
 // Page loader
 window.addEventListener("load", () => {
   document.querySelector(".loader").classList.add("hidden");
-  
+
   // S'assurer que les éléments Laure sont visibles
   // Ensure Laure items are visible
 document.addEventListener('DOMContentLoaded', function() {
@@ -609,15 +609,15 @@ document.addEventListener('DOMContentLoaded', function() {
     item.style.opacity = '1';
     item.style.visibility = 'visible';
   });
-  
+
   // Navigation hamburger menu
   navSlide();
-  
+
   // Forcer le recalcul du viewport sur mobile
   function adjustViewport() {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    
+
     // Assurer que la largeur est correcte
     document.body.style.width = '100%';
     document.documentElement.style.width = '100%';
@@ -625,7 +625,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.margin = '0';
     document.body.style.padding = '0';
     document.body.style.overflowX = 'hidden';
-    
+
     // Centrer le contenu
     document.querySelectorAll('#home, #projects, #contact, #chakra-section, footer').forEach(section => {
       section.style.width = '100%';
@@ -633,17 +633,17 @@ document.addEventListener('DOMContentLoaded', function() {
       section.style.margin = '0 auto';
     });
   }
-  
+
   // Exécuter au chargement et lors du redimensionnement
   adjustViewport();
   window.addEventListener('resize', adjustViewport);
-  
+
   // Animation du loader
   setTimeout(() => {
     document.querySelector(".loader").classList.add("hidden");
     document.querySelector(".loader").style.display = "none";
   }, 500);
-  
+
   // S'assurer que tous les éléments sont visibles sur mobile
   if (window.innerWidth <= 768) {
     document.querySelectorAll('.chakra').forEach(function(el) {
@@ -651,7 +651,7 @@ document.addEventListener('DOMContentLoaded', function() {
       el.style.opacity = '1';
       el.style.visibility = 'visible';
     });
-    
+
     document.querySelectorAll('.card, .laure-item').forEach(function(el) {
       el.style.display = 'block';
       el.style.opacity = '1';
@@ -670,10 +670,10 @@ function navSlide() {
     hamburger.addEventListener("click", () => {
       // Toggle navigation
       navBar.classList.toggle("nav-active");
-      
+
       // Hamburger animation
       hamburger.classList.toggle("toggle");
-      
+
       // Animate links
       navLinks.forEach((link, index) => {
         if (link.style.animation) {
@@ -684,7 +684,7 @@ function navSlide() {
       });
     });
   }
-  
+
   // Close menu when a link is clicked
   const links = document.querySelectorAll(".nav-link");
   links.forEach(link => {
@@ -692,7 +692,7 @@ function navSlide() {
       if (navBar.classList.contains("nav-active")) {
         navBar.classList.remove("nav-active");
         hamburger.classList.remove("toggle");
-        
+
         navLinks.forEach(link => {
           link.style.animation = "";
         });
