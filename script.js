@@ -106,55 +106,69 @@ const initChakras = () => {
         chakra.style.display = 'block';
         chakra.style.animationDelay = `${index * 0.2}s`;
 
-        // Récupérer les données du chakra (si disponible)
-        if (index < chakraData.length) {
-            const data = chakraData[index];
-            
-            // Définir les descriptions correctes pour chaque chakra
-            let title, paragraphs;
-            if (index === 0) { // Rouge - Racine
-                title = "Chakra Racine - Data Engineering";
-                paragraphs = [
-                    "• Expert ETL/ELT: 8 ans d'expérience",
-                    "• Hadoop, Spark, Airflow maîtrisés",
-                    "• Conception de data lakes à grande échelle"
-                ];
-            } else if (index === 1) { // Orange - Sacré
-                title = "Chakra Sacré - Machine Learning";
-                paragraphs = [
-                    "• Modèles prédictifs et classifications",
-                    "• Scikit-learn, pandas, NumPy expert",
-                    "• Optimisation d'algorithmes ML"
-                ];
-            } else if (index === 2) { // Jaune - Plexus Solaire
-                title = "Chakra Plexus Solaire - Cloud";
-                paragraphs = [
-                    "• AWS Solutions Architect certifié",
-                    "• GCP & Azure: déploiement multi-cloud",
-                    "• Kubernetes, Terraform, DevOps CI/CD"
-                ];
-            } else if (index === 3) { // Vert - Cœur
-                title = "Chakra Cœur - Programmation";
-                paragraphs = [
-                    "• Python, JavaScript, SQL, Scala, R",
-                    "• Backend: Flask, Django, Node.js, Express",
-                    "• Mentor pour 15+ juniors devs"
-                ];
-            } else if (index === 4) { // Bleu ciel - Gorge
-                title = "Chakra Gorge - Data Visualization";
-                paragraphs = [
-                    "• Tableau, Power BI, D3.js",
-                    "• Dashboards interactifs primés",
-                    "• Formation en design d'expérience utilisateur"
-                ];
-            } else if (index === 5) { // Bleu foncé - 3ème œil
-                title = "Chakra Troisième Œil - IA";
-                paragraphs = [
-                    "• Réseaux de neurones avancés",
-                    "• TensorFlow, PyTorch, Keras",
-                    "• Contributeur open source: HuggingFace"
-                ];
-            }
+        // Les données des chakras doivent correspondre exactement à l'ordre des éléments dans le DOM
+        // Aligner correctement les infobulles avec les couleurs des chakras
+        
+        // Définir les descriptions correctes pour chaque chakra
+        let title, paragraphs;
+        
+        // Association directe des descriptions en fonction de la position visible des chakras
+        if (index === 0) { // Rouge - Racine (premier chakra)
+            title = "Chakra Racine - Data Engineering";
+            paragraphs = [
+                "• Expert ETL/ELT: 8 ans d'expérience",
+                "• Hadoop, Spark, Airflow maîtrisés",
+                "• Conception de data lakes à grande échelle"
+            ];
+            // S'assurer que le chakra rouge est visible
+            chakra.style.background = "#FF0000";
+            chakra.style.color = "#FF0000";
+        } else if (index === 1) { // Orange - Sacré (deuxième chakra)
+            title = "Chakra Sacré - Machine Learning";
+            paragraphs = [
+                "• Modèles prédictifs et classifications",
+                "• Scikit-learn, pandas, NumPy expert",
+                "• Optimisation d'algorithmes ML"
+            ];
+            chakra.style.background = "#FFA500";
+            chakra.style.color = "#FFA500";
+        } else if (index === 2) { // Jaune - Plexus Solaire (troisième chakra)
+            title = "Chakra Plexus Solaire - Cloud";
+            paragraphs = [
+                "• AWS Solutions Architect certifié",
+                "• GCP & Azure: déploiement multi-cloud",
+                "• Kubernetes, Terraform, DevOps CI/CD"
+            ];
+            chakra.style.background = "#FFFF00";
+            chakra.style.color = "#FFFF00";
+        } else if (index === 3) { // Vert - Cœur (quatrième chakra)
+            title = "Chakra Cœur - Programmation";
+            paragraphs = [
+                "• Python, JavaScript, SQL, Scala, R",
+                "• Backend: Flask, Django, Node.js, Express",
+                "• Mentor pour 15+ juniors devs"
+            ];
+            chakra.style.background = "#00FF00";
+            chakra.style.color = "#00FF00";
+        } else if (index === 4) { // Bleu ciel - Gorge (cinquième chakra)
+            title = "Chakra Gorge - Data Visualization";
+            paragraphs = [
+                "• Tableau, Power BI, D3.js",
+                "• Dashboards interactifs primés",
+                "• Formation en design d'expérience utilisateur"
+            ];
+            chakra.style.background = "#00FFFF";
+            chakra.style.color = "#00FFFF";
+        } else if (index === 5) { // Bleu foncé - 3ème œil (sixième chakra)
+            title = "Chakra Troisième Œil - IA";
+            paragraphs = [
+                "• Réseaux de neurones avancés",
+                "• TensorFlow, PyTorch, Keras",
+                "• Contributeur open source: HuggingFace"
+            ];
+            chakra.style.background = "#0000FF";
+            chakra.style.color = "#0000FF";
+        }
 
             // Gestion de l'infobulle pour chaque chakra
             const tooltip = chakra.querySelector('.tooltip');
@@ -181,7 +195,7 @@ const initChakras = () => {
                 // Appliquer les styles communs pour tous les tooltips
                 tooltip.style.background = 'rgba(255, 255, 255, 0.9)';
                 tooltip.style.color = '#333';
-                tooltip.style.borderColor = data.color;
+                tooltip.style.borderColor = chakra.style.color; // Utiliser la couleur du chakra
                 tooltip.style.zIndex = '200';
             }
 
@@ -222,8 +236,16 @@ const initChakras = () => {
                 if (tooltip) {
                     tooltip.style.opacity = '0';
                     tooltip.style.visibility = 'hidden';
+                    tooltip.style.display = 'none';
                 }
             });
+            
+            // S'assurer que l'infobulle est initialement cachée
+            if (tooltip) {
+                tooltip.style.opacity = '0';
+                tooltip.style.visibility = 'hidden';
+                tooltip.style.display = 'none';
+            }
         }
     });
 
