@@ -716,8 +716,8 @@ hr {
 }
 
 /* Positionnement selon la forme d'un arbre */
-.chakra-tree-container .chakra:nth-of-type(1) { top: 80%; left: 30%; background: #FF0000; color: #FF0000; display: block !important; z-index: 20; } /* Rouge - Racine (base du tronc) */
-.chakra-tree-container .chakra:nth-of-type(2) { top: 65%; left: 30%; background: #FFA500; color: #FFA500; display: block !important; z-index: 19; } /* Orange - Sacré (bas du tronc) */
+.chakra-tree-container .chakra:nth-of-type(1) { top: 120%; left: 0%; background: #FF0000; color: #FF0000; display: block !important; z-index: 20; } /* Rouge - Racine (base du tronc) */
+.chakra-tree-container .chakra:nth-of-type(2) { top: 65%; left: 90%; background: #FFA500; color: #FFA500; display: block !important; z-index: 19; } /* Orange - Sacré (bas du tronc) */
 .chakra-tree-container .chakra:nth-of-type(3) { top: 45%; left: 50%; background: #FFFF00; color: #FFFF00; display: block !important; } /* Jaune - Plexus solaire (milieu du tronc) */
 .chakra-tree-container .chakra:nth-of-type(4) { top: 35%; left: 40%; background: #00FF00; color: #00FF00; display: block !important; } /* Vert - Cœur (branche gauche) */
 .chakra-tree-container .chakra:nth-of-type(5) { top: 35%; left: 60%; background: #00FFFF; color: #00FFFF; display: block !important; } /* Bleu clair - Gorge (branche droite) */
