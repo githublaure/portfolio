@@ -346,14 +346,14 @@ const initChakras = () => {
                         tooltip.style.top = '50%';
                         tooltip.style.transform = 'translateY(-50%)';
                     }
-                    
+
                     // Correction spécifique pour les chakras jaune (index 2), vert (index 3) et bleu clair (index 4)
                     if (index === 2) { // Jaune
-                        tooltip.style.left = '0';
+                        tooltip.style.left = '50%';
                         tooltip.style.right = 'auto';
                         tooltip.style.top = 'auto';
                         tooltip.style.bottom = 'calc(100% + 5px)';
-                        tooltip.style.transform = 'translateX(0)';
+                        tooltip.style.transform = 'translateX(-50%)';
                     } else if (index === 3) { // Vert
                         tooltip.style.left = 'auto';
                         tooltip.style.right = 'calc(100% + 10px)';
@@ -371,7 +371,7 @@ const initChakras = () => {
                     tooltip.style.visibility = 'visible';
                     tooltip.style.display = 'block';
                     tooltip.style.position = 'absolute';
-                    
+
                     // Ajouter un style important pour s'assurer que le tooltip est visible
                     tooltip.style.setProperty('z-index', '9999', 'important');
                     tooltip.style.setProperty('background-color', 'rgba(255, 255, 255, 0.95)', 'important');
@@ -585,7 +585,6 @@ const sortNavbarLaureItems = () => {
     });
 };
 
-// This function is already declared above - removing duplicate declaration
 
 // Exécuter cette fonction au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
