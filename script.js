@@ -481,49 +481,7 @@ const sortNavbarLaureItems = () => {
     });
 };
 
-// JavaScript for handling mobile nav-bar
-function navSlide() {
-  const hamburger = document.querySelector(".hamburger");
-  const navBar = document.querySelector(".nav-bar");
-  const navLinks = document.querySelectorAll(".nav-bar li");
-
-  if (hamburger) {
-    hamburger.addEventListener("click", () => {
-      // Toggle navigation
-      navBar.classList.toggle("nav-active");
-
-      // Animation for nav items
-      navLinks.forEach((link, index) => {
-        if (link.style.animation) {
-          link.style.animation = "";
-        } else {
-          link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-        }
-        link.style.opacity = "1";
-        link.style.visibility = "visible";
-        link.style.display = "block";
-      });
-
-      // Toggle hamburger animation
-      hamburger.classList.toggle("toggle");
-    });
-  }
-  
-  // Close menu when clicking a nav link
-  if (navLinks) {
-    navLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        if (navBar && navBar.classList.contains("nav-active")) {
-          navBar.classList.remove("nav-active");
-          
-          if (hamburger) {
-            hamburger.classList.remove("toggle");
-          }
-        }
-      });
-    });
-  }
-}
+// This function is already declared above - removing duplicate declaration
 
 // Exécuter cette fonction au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
@@ -560,7 +518,7 @@ window.addEventListener("load", () => {
   document.querySelector(".loader").classList.add("hidden");
   
   // S'assurer que les éléments Laure sont visibles
-  document.querySelect// Ensure Laure items are visible
+  // Ensure Laure items are visible
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.laure-item').forEach(item => {
     item.style.display = 'inline-block';
@@ -657,9 +615,8 @@ function navSlide() {
       }
     });
   });
-}Timeout(() => {
-      document.querySelector(".loader").style.display = "none";
-    }, 500);
+}setTimeout(() => {
+    document.querySelector(".loader").style.display = "none";
   }, 500);
 });
 
