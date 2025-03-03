@@ -505,6 +505,23 @@ window.addEventListener("scroll", () => {
 // Page loader
 window.addEventListener("load", () => {
   document.querySelector(".loader").classList.add("hidden");
+});
+
+// Assurer que le site prend toute la largeur sur mobile
+document.addEventListener("DOMContentLoaded", function() {
+  // Forcer le recalcul du viewport sur mobile
+  function adjustViewport() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    
+    // Assurer que la largeur est correcte
+    document.body.style.width = '100%';
+    document.body.style.overflowX = 'hidden';
+  }
+  
+  // Exécuter au chargement et lors du redimensionnement
+  adjustViewport();
+  window.addEventListener('resize', adjustViewport);dd("hidden");
   setTimeout(() => {
     document.querySelector(".loader").style.display = "none";
   }, 500);

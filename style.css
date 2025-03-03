@@ -554,9 +554,30 @@ hr {
 
 
 @media only screen and (max-width: 768px) {
+	body, html {
+		width: 100%;
+		overflow-x: hidden;
+		margin: 0;
+		padding: 0;
+	}
+	
+	.container {
+		width: 100%;
+		overflow-x: hidden;
+		box-sizing: border-box;
+	}
+	
 	#home, #projects, #contact, #chakra-section {
         overflow-x: hidden;
-        width: 100%;
+        width: 100vw;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0 10px;
+	}
+	
+	main {
+		width: 100%;
+		overflow-x: hidden;
 	}
 	
 	header {
@@ -564,6 +585,9 @@ hr {
 		height: 60px;
 		padding: 0 10px;
 		justify-content: space-between;
+		width: 100%;
+		box-sizing: border-box;
+		left: 0;
 	}
 	
 	.navbar-laure-gallery {
@@ -621,21 +645,33 @@ hr {
 	}
 	
 	/* Home section adjustments */
+	#home {
+		height: 100vh;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0;
+	}
+	
 	#home h3 {
-		font-size: 32px;
+		font-size: 28px;
 		text-align: center;
-		padding: 0 15px;
+		padding: 0 10px;
+		width: 100%;
+		box-sizing: border-box;
 	}
 	
 	#home p {
 		font-size: 1rem;
-		padding: 0 15px;
+		padding: 0 10px;
 		text-align: center;
+		width: 100%;
+		box-sizing: border-box;
 	}
 	
 	.intro {
 		width: 100%;
 		padding: 15px;
+		box-sizing: border-box;
 	}
 	
 	.profile-picture {
@@ -644,12 +680,22 @@ hr {
 	}
 	
 	/* Chakra section adjustments */
-	.chakra-tree-container {
+	#chakra-section {
 		width: 100%;
+		box-sizing: border-box;
+		padding: 40px 0;
+		overflow: hidden;
+	}
+	
+	.chakra-tree-container {
+		width: 100vw;
 		height: 400px;
 		transform: scale(0.6);
 		margin-top: -100px;
 		margin-bottom: -100px;
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%) scale(0.6);
 	}
 	
 	.chakra-legend {
@@ -663,6 +709,17 @@ hr {
 	}
 	
 	/* Projects section adjustments */
+	#projects {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 40px 0;
+	}
+	
+	.work-box {
+		width: 100%;
+		overflow-x: hidden;
+	}
+	
 	.card {
 		width: 90%;
 		max-width: 300px;
@@ -671,20 +728,60 @@ hr {
 	
 	.work {
 		padding: 10px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	
+	/* Contact section adjustments */
+	#contact {
+		width: 100%;
+		height: auto;
+		padding: 40px 0;
+		box-sizing: border-box;
 	}
 	
 	/* Footer adjustments */
+	footer {
+		width: 100vw;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		overflow: hidden;
+	}
+	
 	.footer-image {
 		max-height: 200px;
+		width: 100%;
+	}
+	
+	.footer-image img {
+		width: 100%;
+		object-fit: cover;
+	}
+	
+	.footer-text {
+		width: 100%;
+		box-sizing: border-box;
 	}
 	
 	.footer-contact {
 		flex-direction: column;
 		gap: 8px;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0 15px;
 	}
 	
 	.footer-contact p {
 		font-size: 0.9rem;
+		width: 100%;
+		text-align: center;
+	}
+	
+	.footer-copyright {
+		width: 100%;
+		padding: 10px;
+		box-sizing: border-box;
 	}
 }
 
