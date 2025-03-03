@@ -352,7 +352,7 @@ const initChakras = () => {
                         tooltip.style.left = '0';
                         tooltip.style.right = 'auto';
                         tooltip.style.top = 'auto';
-                        tooltip.style.bottom = 'calc(100% + 10px)';
+                        tooltip.style.bottom = 'calc(100% + 5px)';
                         tooltip.style.transform = 'translateX(0)';
                     } else if (index === 3) { // Vert
                         tooltip.style.left = 'auto';
