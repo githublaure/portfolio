@@ -92,36 +92,90 @@ const initChakras = () => {
 
     // Définir les couleurs et descriptions pour chaque chakra
     const chakraData = [
-
-        { color: '#FF0000', name: 'Racine - Data Engineering' }, // Rouge (index 1)
-        { color: '#FFA500', name: 'Sacré - Machine Learning' }, // Orange (index 2)
-        { color: '#FFFF00', name: 'Plexus Solaire - Cloud' }, // Jaune (index 3)
-        { color: '#00FF00', name: 'Cœur - Programmation' }, // Vert (index 4)
-        { color: '#00FFFF', name: 'Gorge - Visualisation' }, // Bleu ciel (index 5)
-        { color: '#0000FF', name: '3ème Œil - IA' }, // Bleu foncé (index 6)
-        { color: '#800080', name: 'Couronne - Leadership' }, // Violet (index 7)
+        { color: '#FF0000', name: 'Racine - Data Engineering' }, // Rouge (index 0)
+        { color: '#FFA500', name: 'Sacré - Machine Learning' }, // Orange (index 1)
+        { color: '#FFFF00', name: 'Plexus Solaire - Cloud' }, // Jaune (index 2)
+        { color: '#00FF00', name: 'Cœur - Programmation' }, // Vert (index 3)
+        { color: '#00FFFF', name: 'Gorge - Visualisation' }, // Bleu ciel (index 4)
+        { color: '#0000FF', name: '3ème Œil - IA' }, // Bleu foncé (index 5)
     ];
 
     // Animation pulse décalée pour chaque chakra
     chakras.forEach((chakra, index) => {
-        // S'assurer que les chakras sont visibles (sauf le premier qui est vide)
-        if (index !== 0) { // Ignorer le premier chakra vide
-            chakra.style.display = 'block';
-            chakra.style.animationDelay = `${index * 0.2}s`;
+        // S'assurer que les chakras sont visibles
+        chakra.style.display = 'block';
+        chakra.style.animationDelay = `${index * 0.2}s`;
 
-            // Récupérer les données du chakra
+        // Récupérer les données du chakra (si disponible)
+        if (index < chakraData.length) {
             const data = chakraData[index];
+            
+            // Définir les descriptions correctes pour chaque chakra
+            let title, paragraphs;
+            if (index === 0) { // Rouge - Racine
+                title = "Chakra Racine - Data Engineering";
+                paragraphs = [
+                    "• Expert ETL/ELT: 8 ans d'expérience",
+                    "• Hadoop, Spark, Airflow maîtrisés",
+                    "• Conception de data lakes à grande échelle"
+                ];
+            } else if (index === 1) { // Orange - Sacré
+                title = "Chakra Sacré - Machine Learning";
+                paragraphs = [
+                    "• Modèles prédictifs et classifications",
+                    "• Scikit-learn, pandas, NumPy expert",
+                    "• Optimisation d'algorithmes ML"
+                ];
+            } else if (index === 2) { // Jaune - Plexus Solaire
+                title = "Chakra Plexus Solaire - Cloud";
+                paragraphs = [
+                    "• AWS Solutions Architect certifié",
+                    "• GCP & Azure: déploiement multi-cloud",
+                    "• Kubernetes, Terraform, DevOps CI/CD"
+                ];
+            } else if (index === 3) { // Vert - Cœur
+                title = "Chakra Cœur - Programmation";
+                paragraphs = [
+                    "• Python, JavaScript, SQL, Scala, R",
+                    "• Backend: Flask, Django, Node.js, Express",
+                    "• Mentor pour 15+ juniors devs"
+                ];
+            } else if (index === 4) { // Bleu ciel - Gorge
+                title = "Chakra Gorge - Data Visualization";
+                paragraphs = [
+                    "• Tableau, Power BI, D3.js",
+                    "• Dashboards interactifs primés",
+                    "• Formation en design d'expérience utilisateur"
+                ];
+            } else if (index === 5) { // Bleu foncé - 3ème œil
+                title = "Chakra Troisième Œil - IA";
+                paragraphs = [
+                    "• Réseaux de neurones avancés",
+                    "• TensorFlow, PyTorch, Keras",
+                    "• Contributeur open source: HuggingFace"
+                ];
+            }
 
             // Gestion de l'infobulle pour chaque chakra
             const tooltip = chakra.querySelector('.tooltip');
 
             if (tooltip) {
-                // Mettre à jour le titre pour correspondre au chakra
-                const title = tooltip.querySelector('h4');
-                if (title && data.name) {
-                    const chakraType = data.name.split(' - ')[0];
-                    const skillType = data.name.split(' - ')[1];
-                    title.textContent = `Chakra ${chakraType} - ${skillType}`;
+                // Mettre à jour le titre du tooltip
+                const titleElement = tooltip.querySelector('h4');
+                if (titleElement && title) {
+                    titleElement.textContent = title;
+                }
+
+                // Mettre à jour les paragraphes si nécessaire
+                if (paragraphs) {
+                    const paragraphElements = tooltip.querySelectorAll('p');
+                    if (paragraphElements.length >= paragraphs.length) {
+                        paragraphs.forEach((text, i) => {
+                            if (paragraphElements[i]) {
+                                paragraphElements[i].textContent = text;
+                            }
+                        });
+                    }
                 }
 
                 // Appliquer les styles communs pour tous les tooltips

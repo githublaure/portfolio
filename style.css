@@ -716,13 +716,12 @@ hr {
 }
 
 /* Positionnement selon la forme d'un arbre */
-.chakra:nth-child(1) { top: 80%; left: 30%; background: #FF0000 color: #FF0000; } /* Rouge - Racine (base du tronc) */
-.chakra:nth-child(2) { top: 65%; left: 30%; background: #FFA500; color: #FFA500; }  /* Orange - Sacré (bas du tronc) */
+.chakra:nth-child(1) { top: 80%; left: 30%; background: #FF0000; color: #FF0000; } /* Rouge - Racine (base du tronc) */
+.chakra:nth-child(2) { top: 65%; left: 30%; background: #FFA500; color: #FFA500; } /* Orange - Sacré (bas du tronc) */
 .chakra:nth-child(3) { top: 45%; left: 50%; background: #FFFF00; color: #FFFF00; } /* Jaune - Plexus solaire (milieu du tronc) */
 .chakra:nth-child(4) { top: 35%; left: 40%; background: #00FF00; color: #00FF00; } /* Vert - Cœur (branche gauche) */
 .chakra:nth-child(5) { top: 35%; left: 60%; background: #00FFFF; color: #00FFFF; } /* Bleu clair - Gorge (branche droite) */
 .chakra:nth-child(6) { top: 25%; left: 50%; background: #0000FF; color: #0000FF; } /* Bleu foncé - Troisième œil (haut milieu) */
-.chakra:nth-child(7) { top: 15%; left: 50%; background: #800080; color: #800080; } /* Violet - Couronne (tout en haut) */
 
 /* Légende des chakras */
 .chakra-legend {
@@ -772,7 +771,6 @@ hr {
 .legend-color-4 { background: #00FF00; box-shadow: 0 0 8px 2px rgba(0, 255, 0, 0.6); }
 .legend-color-5 { background: #00FFFF; box-shadow: 0 0 8px 2px rgba(0, 255, 255, 0.6); }
 .legend-color-6 { background: #0000FF; box-shadow: 0 0 8px 2px rgba(0, 0, 255, 0.6); }
-.legend-color-7 { background: #800080; box-shadow: 0 0 8px 2px rgba(128, 0, 128, 0.6); }
 
 @keyframes chakra-glow {
   0% { box-shadow: 0 0 5px 2px currentColor; }
