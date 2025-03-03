@@ -199,6 +199,9 @@ a.nav-link{
     cursor: pointer;
     transition: transform 0.3s ease;
     position: relative;
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .laure-item:hover {
@@ -569,10 +572,13 @@ hr {
 	
 	#home, #projects, #contact, #chakra-section {
         overflow-x: hidden;
-        width: 100vw;
+        width: 100%;
         box-sizing: border-box;
-        margin: 0;
-        padding: 0 10px;
+        margin: 0 auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 	}
 	
 	main {
@@ -689,15 +695,21 @@ hr {
 		box-sizing: border-box;
 		padding: 40px 0;
 		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	
 	.chakra-tree-container {
-		width: 100%;
+		width: 300px;
 		height: 400px;
 		margin: 0 auto;
 		position: relative;
 		transform: scale(0.6);
 		left: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	
 	.chakra-legend {
@@ -715,23 +727,32 @@ hr {
 		width: 100%;
 		box-sizing: border-box;
 		padding: 40px 0;
+		text-align: center;
 	}
 	
 	.work-box {
 		width: 100%;
 		overflow-x: hidden;
+		display: flex;
+		justify-content: center;
 	}
 	
 	.card {
 		width: 90%;
 		max-width: 300px;
 		margin: 10px auto;
+		display: block !important;
+		opacity: 1 !important;
+		visibility: visible !important;
 	}
 	
 	.work {
 		padding: 10px;
 		width: 100%;
 		box-sizing: border-box;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 	
 	/* Contact section adjustments */
@@ -1052,7 +1073,8 @@ hr {
   border-right: .15em solid var(--main-decor-color);
   white-space: nowrap;
   margin: 0 auto;
-  width: 0;
+  width: auto;
+  display: inline-block;
 }
 
 @keyframes typing {

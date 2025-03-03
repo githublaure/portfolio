@@ -551,6 +551,23 @@ document.addEventListener("DOMContentLoaded", function() {
   // Animation du loader
   setTimeout(() => {
     document.querySelector(".loader").classList.add("hidden");
+    document.querySelector(".loader").style.display = "none";
+  }, 500);
+  
+  // S'assurer que tous les éléments sont visibles sur mobile
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.chakra').forEach(function(el) {
+      el.style.display = 'block';
+      el.style.opacity = '1';
+      el.style.visibility = 'visible';
+    });
+    
+    document.querySelectorAll('.card, .laure-item').forEach(function(el) {
+      el.style.display = 'block';
+      el.style.opacity = '1';
+      el.style.visibility = 'visible';
+    });
+  };
     setTimeout(() => {
       document.querySelector(".loader").style.display = "none";
     }, 500);
