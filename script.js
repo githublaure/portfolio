@@ -103,15 +103,17 @@ const initChakras = () => {
 
     // Animation pulse décalée pour chaque chakra
     chakras.forEach((chakra, index) => {
-        // S'assurer que les chakras sont visibles, sauf le chakra beige qui ne devrait pas être affiché
-        if (index === 0) { // Chakra rouge
-            chakra.style.display = 'block';
-            chakra.style.opacity = '1';
-            chakra.style.visibility = 'visible';
-            chakra.style.zIndex = '11'; // Plus haut que les autres chakras
-        } else {
-            chakra.style.display = 'block';
+        // S'assurer que tous les chakras sont visibles
+        chakra.style.display = 'block';
+        chakra.style.opacity = '1';
+        chakra.style.visibility = 'visible';
+        
+        // Chakra rouge (premier) avec z-index supérieur
+        if (index === 0) { 
+            chakra.style.zIndex = '20'; // Z-index plus élevé pour être sûr qu'il est au-dessus
+            console.log("Chakra rouge configuré:", chakra.style.display, chakra.style.opacity, chakra.style.zIndex);
         }
+        
         chakra.style.animationDelay = `${index * 0.2}s`;
 
         // Récupérer les données du chakra (si disponible)

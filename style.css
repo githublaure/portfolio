@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 :root{
-	--main-background: #f8f3e9; /* Beige clair */
+	--main-background: #f8f3e9; /* Suppression du chakra beige */
 	--main-fonts-color: #5d4037; /* Marron foncé */
 	--main-decor-color: #a1887f; /* Marron clair */
-    --main-header-background: #d7ccc8; /* Beige un peu plus foncé */
+    --main-header-background: #d7ccc8; /* Suppression du chakra beige */
 	--main-font-family: 'Poppins', sans-serif;
 }
 
@@ -716,13 +716,13 @@ hr {
 }
 
 /* Positionnement selon la forme d'un arbre */
-.chakra:nth-child(1) { top: 80%; left: 30%; background: #FF0000; color: #FF0000; display: block !important; } /* Rouge - Racine (base du tronc) */
-.chakra:nth-child(2) { top: 65%; left: 30%; background: #FFA500; color: #FFA500; display: block !important; } /* Orange - Sacré (bas du tronc) */
-.chakra:nth-child(3) { top: 45%; left: 50%; background: #FFFF00; color: #FFFF00; display: block !important; } /* Jaune - Plexus solaire (milieu du tronc) */
-.chakra:nth-child(4) { top: 35%; left: 40%; background: #00FF00; color: #00FF00; display: block !important; } /* Vert - Cœur (branche gauche) */
-.chakra:nth-child(5) { top: 35%; left: 60%; background: #00FFFF; color: #00FFFF; display: block !important; } /* Bleu clair - Gorge (branche droite) */
-.chakra:nth-child(6) { top: 25%; left: 50%; background: #0000FF; color: #0000FF; display: block !important; } /* Bleu foncé - Troisième œil (haut milieu) */
-.chakra:nth-child(7) { top: 15%; left: 50%; background: #800080; color: #800080; display: block !important; } /* Violet - Couronne (sommet) */
+.chakra-tree-container .chakra:nth-of-type(1) { top: 80%; left: 30%; background: #FF0000; color: #FF0000; display: block !important; z-index: 20; } /* Rouge - Racine (base du tronc) */
+.chakra-tree-container .chakra:nth-of-type(2) { top: 65%; left: 30%; background: #FFA500; color: #FFA500; display: block !important; } /* Orange - Sacré (bas du tronc) */
+.chakra-tree-container .chakra:nth-of-type(3) { top: 45%; left: 50%; background: #FFFF00; color: #FFFF00; display: block !important; } /* Jaune - Plexus solaire (milieu du tronc) */
+.chakra-tree-container .chakra:nth-of-type(4) { top: 35%; left: 40%; background: #00FF00; color: #00FF00; display: block !important; } /* Vert - Cœur (branche gauche) */
+.chakra-tree-container .chakra:nth-of-type(5) { top: 35%; left: 60%; background: #00FFFF; color: #00FFFF; display: block !important; } /* Bleu clair - Gorge (branche droite) */
+.chakra-tree-container .chakra:nth-of-type(6) { top: 25%; left: 50%; background: #0000FF; color: #0000FF; display: block !important; } /* Bleu foncé - Troisième œil (haut milieu) */
+.chakra-tree-container .chakra:nth-of-type(7) { top: 15%; left: 50%; background: #800080; color: #800080; display: block !important; } /* Violet - Couronne (sommet) */
 
 /* Légende des chakras */
 .chakra-legend {
