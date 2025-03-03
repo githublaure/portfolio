@@ -482,25 +482,32 @@ const sortNavbarLaureItems = () => {
 };
 
 // JavaScript for handling mobile nav-bar
-const hamburger = document.querySelector(".hamburger");
-const navBar = document.querySelector(".nav-bar");
-const navLinks = document.querySelectorAll(".nav-link");
+// Nous utilisons la fonction navSlide définie au début du fichier
+function navSlide() {
+  const hamburger = document.querySelector(".hamburger");
+  const navBar = document.querySelector(".nav-bar");
+  const navLinks = document.querySelectorAll(".nav-bar li");
 
-// Toggle hamburger menu
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("toggle");
-  navBar.classList.toggle("nav-active");
+  if (hamburger) {
+    hamburger.addEventListener("click", () => {
+      // Toggle navigation
+      navBar.classList.toggle("nav-active");
 
-  // Animation for nav items
-  navLinks.forEach((link, index) => {
-    if (link.style.animation) {
-      link.style.animation = "";
-    } else {
-      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-    }
-    link.parentElement.style.opacity = "1";
-  });
-});
+      // Animation for nav items
+      navLinks.forEach((link, index) => {
+        if (link.style.animation) {
+          link.style.animation = "";
+        } else {
+          link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+        }
+        link.style.opacity = "1";
+      });
+
+      // Toggle hamburger animation
+      hamburger.classList.toggle("toggle");
+    });
+  }
+}
 
 // Close menu when clicking a nav link
 navLinks.forEach(link => link.addEventListener("click", () => {
@@ -530,6 +537,13 @@ window.addEventListener("scroll", () => {
 // Page loader
 window.addEventListener("load", () => {
   document.querySelector(".loader").classList.add("hidden");
+  
+  // S'assurer que les éléments Laure sont visibles
+  document.querySelectorAll('.laure-item').forEach(item => {
+    item.style.display = 'inline-block';
+    item.style.opacity = '1';
+    item.style.visibility = 'visible';
+  });
 });
 
 // Assurer que le site prend toute la largeur sur mobile
@@ -574,7 +588,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }, 500);
 });
 
-// Make animations responsive on mobile
+// Rendre toutes les animations responsives sur mobile
 function checkScreenSize() {
   const chakraTreeContainer = document.querySelector(".chakra-tree-container");
 

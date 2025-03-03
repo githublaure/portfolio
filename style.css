@@ -204,6 +204,19 @@ a.nav-link{
     visibility: visible !important;
 }
 
+/* Assurer que les images Laure sont toujours visibles */
+.laure-gallery .laure-item {
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.navbar-laure-gallery .laure-item {
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
 .laure-item:hover {
     transform: translateY(-5px);
 }
