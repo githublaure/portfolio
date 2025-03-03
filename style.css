@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 :root{
-	--main-background: #f8f3e9; /* Fond principal */
+	--main-background: #fff; /* Fond blanc pour éviter toute teinte beige */
 	--main-fonts-color: #5d4037; /* Marron foncé */
 	--main-decor-color: #a1887f; /* Marron clair */
-    --main-header-background: #d7ccc8; /* Fond de l'en-tête */
+    --main-header-background: #f5f5f5; /* Fond de l'en-tête gris clair au lieu de beige */
 	--main-font-family: 'Poppins', sans-serif;
 }
 
