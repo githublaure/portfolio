@@ -1218,7 +1218,7 @@ hr {
 	border-left: 4px solid;
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 	backdrop-filter: blur(0);
-	left: calc(100% + 20px); /* Positionner par défaut à droite du chakra */
+	left: calc(100% + 10px); /* Positionner par défaut à droite du chakra mais plus proche */
 }
 
 .chakra:hover .tooltip {

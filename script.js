@@ -347,12 +347,23 @@ const initChakras = () => {
                         tooltip.style.transform = 'translateY(-50%)';
                     }
                     
-                    // Correction spécifique pour le chakra jaune (index 2) et bleu clair (index 4)
-                    if (index === 2 || index === 4) { // Jaune ou Bleu clair
-                        tooltip.style.left = 'calc(100% + 20px)';
+                    // Correction spécifique pour les chakras jaune (index 2), vert (index 3) et bleu clair (index 4)
+                    if (index === 2) { // Jaune
+                        tooltip.style.left = '0';
                         tooltip.style.right = 'auto';
+                        tooltip.style.top = 'auto';
+                        tooltip.style.bottom = 'calc(100% + 10px)';
+                        tooltip.style.transform = 'translateX(0)';
+                    } else if (index === 3) { // Vert
+                        tooltip.style.left = 'auto';
+                        tooltip.style.right = 'calc(100% + 10px)';
                         tooltip.style.top = '50%';
                         tooltip.style.transform = 'translateY(-50%)';
+                    } else if (index === 4) { // Bleu clair
+                        tooltip.style.left = 'auto';
+                        tooltip.style.right = 'calc(100% + 10px)';
+                        tooltip.style.top = '0';
+                        tooltip.style.transform = 'translateY(0)';
                     }
 
                     // Assurer la visibilité du tooltip et le positionner au-dessus de tout
