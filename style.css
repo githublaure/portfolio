@@ -412,9 +412,39 @@ footer {
 }
 
 .footer-text {
-    padding: 10px 0;
+    padding: 20px 0;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    gap: 20px;
+}
+
+.footer-contact p {
+    color: #fff;
+    font-size: 0.9rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer-contact i {
+    margin-right: 8px;
+    color: var(--main-decor-color);
+}
+
+.footer-copyright {
+    width: 100%;
+    text-align: center;
 }
 
 .copyright a{
@@ -676,12 +706,11 @@ hr {
 
 /* Positionnement selon la forme d'un arbre */
 .chakra:nth-child(2) { top: 85%; left: 50%; background: #FF0000; color: #FF0000; z-index: 20; box-shadow: 0 0 20px 8px #FF0000; } /* Rouge - Racine (base du tronc) */
-.chakra:nth-child(3) { top: 45%; left: 50%; background: #FFA500; color: #FFA500; }  /* Orange - Sacré (milieu du tronc) */
-.chakra:nth-child(4) { top: 35%; left: 50%; background: #FFFF00; color: #FFFF00; } /* Jaune - Plexus solaire (haut du tronc) */
+.chakra:nth-child(3) { top: 65%; left: 50%; background: #FFA500; color: #FFA500; }  /* Orange - Sacré (bas du tronc) */
+.chakra:nth-child(4) { top: 45%; left: 50%; background: #FFFF00; color: #FFFF00; } /* Jaune - Plexus solaire (milieu du tronc) */
 .chakra:nth-child(5) { top: 35%; left: 40%; background: #00FF00; color: #00FF00; } /* Vert - Cœur (branche gauche) */
 .chakra:nth-child(6) { top: 35%; left: 60%; background: #00FFFF; color: #00FFFF; } /* Bleu clair - Gorge (branche droite) */
 .chakra:nth-child(7) { top: 22%; left: 30%; background: #0000FF; color: #0000FF; } /* Bleu - Troisième œil (feuillage gauche) */
-.chakra:nth-child(8) { top: 20%; left: 70%; background: #800080; color: #800080; } /* Violet - Couronne (feuillage droit) */
 
 /* Légende des chakras */
 .chakra-legend {
@@ -780,7 +809,6 @@ hr {
 .chakra:nth-child(5) .tooltip { border-color: #00FF00; color: #333; background: rgba(255, 255, 255, 0.9); }
 .chakra:nth-child(6) .tooltip { border-color: #00FFFF; color: #333; background: rgba(255, 255, 255, 0.9); }
 .chakra:nth-child(7) .tooltip { border-color: #0000FF; color: #333; background: rgba(255, 255, 255, 0.9); }
-.chakra:nth-child(8) .tooltip { border-color: #800080; color: #333; background: rgba(255, 255, 255, 0.9); }
 /* Animations de typing (effet geek) */
 .typewriter h3 {
   overflow: hidden;
