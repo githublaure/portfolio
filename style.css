@@ -761,14 +761,13 @@ hr {
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
-.chakra:nth-child(2) .tooltip { border-color: #FF0000; }
-.chakra:nth-child(3) .tooltip { border-color: #FFA500; }
-.chakra:nth-child(4) .tooltip { border-color: #FFFF00; color: #333; background: rgba(255, 255, 255, 0.9); }
-.chakra:nth-child(5) .tooltip { border-color: #00FF00; }
-.chakra:nth-child(6) .tooltip { border-color: #00FFFF; }
-.chakra:nth-child(7) .tooltip { border-color: #0000FF; }
-.chakra:nth-child(8) .tooltip { border-color: #800080; }
-
+.chakra:nth-child(1) .tooltip { border-color: #FF0000; color: #333; background: rgba(255, 255, 255, 0.9); }
+.chakra:nth-child(2) .tooltip { border-color: #FFA500; color: #333; background: rgba(255, 255, 255, 0.9); }
+.chakra:nth-child(3) .tooltip { border-color: #FFFF00; color: #333; background: rgba(255, 255, 255, 0.9); }
+.chakra:nth-child(4) .tooltip { border-color: #00FF00; color: #333; background: rgba(255, 255, 255, 0.9); }
+.chakra:nth-child(5) .tooltip { border-color: #00FFFF; color: #333; background: rgba(255, 255, 255, 0.9); }
+.chakra:nth-child(6) .tooltip { border-color: #0000FF; color: #333; background: rgba(255, 255, 255, 0.9); }
+.chakra:nth-child(7) .tooltip { border-color: #800080; color: #333; background: rgba(255, 255, 255, 0.9); }
 /* Animations de typing (effet geek) */
 .typewriter h3 {
   overflow: hidden;
@@ -802,7 +801,7 @@ hr {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, transparent, rgba(0, 169, 226, 0.2), transparent);
+  background: linear-gradient(45deg, transparent, rgb(221, 0, 224, 0.2), transparent);
   transition: all 0.5s ease;
 }
 
