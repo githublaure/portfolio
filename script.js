@@ -482,7 +482,6 @@ const sortNavbarLaureItems = () => {
 };
 
 // JavaScript for handling mobile nav-bar
-// Nous utilisons la fonction navSlide définie au début du fichier
 function navSlide() {
   const hamburger = document.querySelector(".hamburger");
   const navBar = document.querySelector(".nav-bar");
@@ -501,12 +500,24 @@ function navSlide() {
           link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
         }
         link.style.opacity = "1";
+        link.style.visibility = "visible";
+        link.style.display = "block";
       });
 
       // Toggle hamburger animation
       hamburger.classList.toggle("toggle");
     });
   }
+  
+  // Close menu when clicking a nav link
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (navBar.classList.contains("nav-active")) {
+        navBar.classList.remove("nav-active");
+        hamburger.classList.remove("toggle");
+      }
+    });
+  });
 }
 
 // Close menu when clicking a nav link
