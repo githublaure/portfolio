@@ -122,10 +122,21 @@ const initChakras = () => {
                         tooltip.style.top = '50%';
                         tooltip.style.transform = 'translateY(-50%)';
                     }
-                    
+
                     // Assurer la visibilité du tooltip
                     tooltip.style.opacity = '1';
                     tooltip.style.visibility = 'visible';
+                }
+            });
+
+            // Gestion de l'infobulle pour le chakra rouge
+            const tooltip = chakra.querySelector('.tooltip');
+
+            // Ajouter un événement pour cacher l'infobulle quand on quitte le chakra
+            chakra.addEventListener('mouseleave', () => {
+                if (tooltip) {
+                    tooltip.style.opacity = '0';
+                    tooltip.style.visibility = 'hidden';
                 }
             });
         }
@@ -242,15 +253,15 @@ const initLaureGallery = () => {
             // Augmenter le score
             let score = parseInt(item.getAttribute('data-score')) + 1;
             item.setAttribute('data-score', score);
-            
+
             // Mettre à jour l'affichage du score pour tous les éléments avec la même image
             const imgSrc = item.querySelector('img').src;
             // Extraire le nom du fichier de l'URL complète
             const imgFileName = imgSrc.split('/').pop();
-            
+
             // Sélectionner tous les éléments avec la même image par nom de fichier
             const allMatchingItems = document.querySelectorAll('.laure-item');
-            
+
             allMatchingItems.forEach(matchItem => {
                 const matchImg = matchItem.querySelector('img');
                 if (matchImg && matchImg.src.includes(imgFileName)) {
@@ -261,7 +272,7 @@ const initLaureGallery = () => {
                     }
                 }
             });
-            
+
             // Trier les éléments en fonction du score
             sortLaureItems();
             sortNavbarLaureItems();
@@ -273,23 +284,23 @@ const initLaureGallery = () => {
 const sortLaureItems = () => {
     const gallery = document.querySelector('.laure-gallery');
     if (!gallery) return;
-    
+
     // Convertir NodeList en tableau pour le tri
     const items = Array.from(gallery.querySelectorAll('.laure-item'));
-    
+
     // Trier par score décroissant
     items.sort((a, b) => {
         const scoreA = parseInt(a.getAttribute('data-score'));
         const scoreB = parseInt(b.getAttribute('data-score'));
         return scoreB - scoreA;
     });
-    
+
     // Animation de tri
     items.forEach((item, index) => {
         // Appliquer une transition pour le déplacement
         item.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         item.style.opacity = '0.7';
-        
+
         // Repositionner après un court délai pour permettre l'animation
         setTimeout(() => {
             gallery.appendChild(item);
@@ -302,23 +313,23 @@ const sortLaureItems = () => {
 const sortNavbarLaureItems = () => {
     const navbarGallery = document.querySelector('.navbar-laure-gallery');
     if (!navbarGallery) return;
-    
+
     // Convertir NodeList en tableau pour le tri
     const items = Array.from(navbarGallery.querySelectorAll('.laure-item'));
-    
+
     // Trier par score décroissant
     items.sort((a, b) => {
         const scoreA = parseInt(a.getAttribute('data-score'));
         const scoreB = parseInt(b.getAttribute('data-score'));
         return scoreB - scoreA;
     });
-    
+
     // Animation de tri
     items.forEach((item, index) => {
         // Appliquer une transition pour le déplacement
         item.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
         item.style.opacity = '0.7';
-        
+
         // Repositionner après un court délai pour permettre l'animation
         setTimeout(() => {
             navbarGallery.appendChild(item);
