@@ -388,6 +388,10 @@ const initChakras = () => {
                 }
             });
         }
+        // Ajustement spécifique pour le chakra violet (Couronne)
+        if (index === 6) {
+            chakra.style.zIndex = '25'; // Z-index plus élevé pour être sûr qu'il est au-dessus
+        }
     });
 
     // Animation subtile de l'arbre
