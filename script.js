@@ -391,6 +391,10 @@ const initChakras = () => {
         // Ajustement spécifique pour le chakra violet (Couronne)
         if (index === 6) {
             chakra.style.zIndex = '25'; // Z-index plus élevé pour être sûr qu'il est au-dessus
+            chakra.style.top = '10%';
+            chakra.style.left = '50%';
+            chakra.style.transform = 'translate(-50%, -50%)';
+            chakra.style.boxShadow = '0 0 20px 8px #800080'; // Augmenter l'effet lumineux
         }
     });
 
