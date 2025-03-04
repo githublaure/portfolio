@@ -352,8 +352,8 @@ const initChakras = () => {
                     if (index === 2) { // Jaune
                         tooltip.style.left = '50%';
                         tooltip.style.right = 'auto';
-                        tooltip.style.top = 'auto';
-                        tooltip.style.bottom = 'calc(100% + 5px)';
+                        tooltip.style.top = 'calc(100% + 15px)'; // Afficher en-dessous du chakra au lieu d'au-dessus
+                        tooltip.style.bottom = 'auto';
                         tooltip.style.transform = 'translateX(-50%)';
                     } else if (index === 3) { // Vert
                         tooltip.style.left = 'auto';
