@@ -745,37 +745,37 @@ function checkScreenSize() {
       switch(index) {
         case 0: // Rouge - Racine
           chakra.style.top = "88%";
-          chakra.style.left = "50%";
+          chakra.style.left = "55%";
           chakra.style.zIndex = "20";
           break;
         case 1: // Orange - Sacré
           chakra.style.top = "75%";
-          chakra.style.left = "42%";
+          chakra.style.left = "48%";
           chakra.style.zIndex = "19";
           break;
         case 2: // Jaune - Plexus solaire
           chakra.style.top = "63%";
-          chakra.style.left = "50%";
+          chakra.style.left = "55%";
           chakra.style.zIndex = "18";
           break;
         case 3: // Vert - Cœur
           chakra.style.top = "52%";
-          chakra.style.left = "58%";
+          chakra.style.left = "62%";
           chakra.style.zIndex = "17";
           break;
         case 4: // Bleu clair - Gorge
           chakra.style.top = "39%";
-          chakra.style.left = "50%";
+          chakra.style.left = "55%";
           chakra.style.zIndex = "16";
           break;
         case 5: // Bleu foncé - Troisième œil
           chakra.style.top = "27%";
-          chakra.style.left = "42%";
+          chakra.style.left = "48%";
           chakra.style.zIndex = "15";
           break;
         case 6: // Violet - Couronne
           chakra.style.top = "15%";
-          chakra.style.left = "50%";
+          chakra.style.left = "55%";
           chakra.style.zIndex = "25";
           chakra.style.transform = "translate(-50%, -50%)";
           break;
