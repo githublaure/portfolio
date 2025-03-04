@@ -718,13 +718,13 @@ hr {
 		padding: 0 5px;
 		max-width: 70%;
 	}
-	
+
 	.navbar-laure-gallery .laure-item {
 		width: 30px;
 		height: 30px;
 		margin: 0 3px;
 	}
-	
+
 	.navbar-laure-gallery .laure-item img {
 		width: 100%;
 		height: 100%;
@@ -900,26 +900,28 @@ hr {
 		height: 100%;
 		background-position: center;
 	}
-	
+
 	@media only screen and (max-width: 768px) {
 		.chakra-tree {
 			background-position: 55% center; /* Légèrement décalé vers la droite pour s'aligner avec les chakras */
 		}
 	}
-	
+
 	/* Assurer que l'arbre des chakras est bien visible sur mobile */
 	@media only screen and (max-width: 768px) {
 		#chakra-section {
 			padding-bottom: 300px; /* Espace supplémentaire pour la légende */
 		}
-		
+
 		.chakra-tree-container {
 			height: 500px;
 			margin-bottom: 320px; /* Espace pour la légende en bas */
+			transform: scale(1.0) !important; /* Augmenter la taille de l'arbre */
 		}
-		
+
 		.chakra-tree {
 			background-position: center 40%; /* Centré mais légèrement plus haut */
+			transform: scale(1.2) !important; /* Agrandir l'arbre */
 		}
 	}
 
@@ -1040,14 +1042,7 @@ hr {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-	}
-
-	.footer-copyright {
-		width: 100%;
-		padding: 10px;
-		box-sizing: border-box;
-		text-align: center;
-	}
+	}	}
 
 	/* S'assurer que tous les éléments sont visibles sur mobile */
 	.laure-item, .chakra, .card {
