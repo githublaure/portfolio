@@ -737,13 +737,53 @@ function checkScreenSize() {
   const chakraTreeContainer = document.querySelector(".chakra-tree-container");
 
   if (window.innerWidth <= 768) {
-    document.querySelectorAll(".chakra").forEach(chakra => {
+    document.querySelectorAll(".chakra").forEach((chakra, index) => {
       chakra.style.width = "30px";
       chakra.style.height = "30px";
+      
+      // Maintenir les positions originales sur mobile
+      switch(index) {
+        case 0: // Rouge - Racine
+          chakra.style.top = "85%";
+          chakra.style.left = "50%";
+          chakra.style.zIndex = "20";
+          break;
+        case 1: // Orange - Sacré
+          chakra.style.top = "75%";
+          chakra.style.left = "38%";
+          chakra.style.zIndex = "19";
+          break;
+        case 2: // Jaune - Plexus solaire
+          chakra.style.top = "65%";
+          chakra.style.left = "50%";
+          chakra.style.zIndex = "18";
+          break;
+        case 3: // Vert - Cœur
+          chakra.style.top = "55%";
+          chakra.style.left = "62%";
+          chakra.style.zIndex = "17";
+          break;
+        case 4: // Bleu clair - Gorge
+          chakra.style.top = "45%";
+          chakra.style.left = "50%";
+          chakra.style.zIndex = "16";
+          break;
+        case 5: // Bleu foncé - Troisième œil
+          chakra.style.top = "35%";
+          chakra.style.left = "38%";
+          chakra.style.zIndex = "15";
+          break;
+        case 6: // Violet - Couronne
+          chakra.style.top = "10%";
+          chakra.style.left = "50%";
+          chakra.style.zIndex = "25";
+          chakra.style.transform = "translate(-50%, -50%)";
+          break;
+      }
     });
 
     if (chakraTreeContainer) {
-      chakraTreeContainer.style.transform = "scale(0.6)";
+      chakraTreeContainer.style.transform = "scale(0.7)"; // Légèrement plus grand pour mieux voir
     }
   } else {
     document.querySelectorAll(".chakra").forEach(chakra => {
