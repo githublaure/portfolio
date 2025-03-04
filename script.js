@@ -60,7 +60,7 @@ window.addEventListener("load", function() {
 
                 // Initialiser l'effet de pluie de code
                 const ctx = canvas.getContext('2d');
-                const characters = "01アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン";
+                const characters = "DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DAT";
                 const columns = Math.floor(canvas.width / 10);
                 const drops = [];
 
