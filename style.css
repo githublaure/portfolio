@@ -459,6 +459,29 @@ a.nav-link{
     display: flex !important;
 }
 
+/* S'assurer que les cartes avec data-category ont toujours leur attribut visible */
+.card[data-category] {
+    position: relative;
+}
+
+.card[data-category]::before {
+    content: attr(data-category);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 2px 5px;
+    font-size: 10px;
+    opacity: 0;
+    z-index: 10;
+    border-radius: 0 10px 0 10px;
+}
+
+.card[data-category]:hover::before {
+    opacity: 1;
+}
+
 /*──────────────────
 			Contact
 ──────────────────*/

@@ -966,10 +966,11 @@ const initProjectCategories = () => {
     // Ajouter les événements de clic sur les filtres de catégorie
     if (categoryBullets.length > 0) {
         // Premier clic sur "Tous" pour initialiser l'affichage
-        document.querySelector('.category-bullet[data-category="all"]').click();
         
         categoryBullets.forEach(bullet => {
             bullet.addEventListener('click', () => {
+                console.log("Catégorie cliquée:", bullet.getAttribute('data-category'));
+                
                 // Supprimer la classe active de tous les bullets
                 categoryBullets.forEach(b => b.classList.remove('active'));
                 
@@ -977,14 +978,18 @@ const initProjectCategories = () => {
                 bullet.classList.add('active');
                 
                 const selectedCategory = bullet.getAttribute('data-category');
+                console.log("Catégorie sélectionnée:", selectedCategory);
                 
                 // Filtrer les projets
                 projectCards.forEach(card => {
                     const cardCategory = card.getAttribute('data-category');
+                    console.log("Carte:", card.getAttribute('data-title'), "- Catégorie:", cardCategory);
+                    
                     if (selectedCategory === 'all' || cardCategory === selectedCategory) {
-                        card.style.display = 'block';
+                        card.style.display = 'flex';
                         card.style.visibility = 'visible';
                         card.style.opacity = '1';
+                        console.log("Carte à afficher:", card.getAttribute('data-title'));
                         // Ajouter une animation pour les cartes qui apparaissent
                         setTimeout(() => {
                             card.classList.add('appear');
@@ -994,6 +999,7 @@ const initProjectCategories = () => {
                         card.style.visibility = 'hidden';
                         card.style.opacity = '0';
                         card.classList.remove('appear');
+                        console.log("Carte à masquer:", card.getAttribute('data-title'));
                     }
                 });
                 
@@ -1004,6 +1010,9 @@ const initProjectCategories = () => {
                 }, 10);
             });
         });
+        
+        // Déclencher le clic sur "Tous" pour initialiser l'affichage
+        document.querySelector('.category-bullet[data-category="all"]').click();
     }
 };
 
