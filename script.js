@@ -841,7 +841,9 @@ window.addEventListener("resize", checkScreenSize);
 // Initialisation du filtrage des projets par catégories
 const initProjectCategories = () => {
     const categoryBullets = document.querySelectorAll('.category-bullet');
-    const projectCards = document.querySelectorAll('.card');
+    const projectCards = document.querySelectorAll('.work .card');
+    
+    console.log("Nombre de cartes trouvées:", projectCards.length);
     
     // Définir des catégories et des données pour les projets
     const categories = ['datascience', 'webdesign', 'community', 'design'];
@@ -978,14 +980,19 @@ const initProjectCategories = () => {
                 
                 // Filtrer les projets
                 projectCards.forEach(card => {
-                    if (selectedCategory === 'all' || card.getAttribute('data-category') === selectedCategory) {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (selectedCategory === 'all' || cardCategory === selectedCategory) {
                         card.style.display = 'block';
+                        card.style.visibility = 'visible';
+                        card.style.opacity = '1';
                         // Ajouter une animation pour les cartes qui apparaissent
                         setTimeout(() => {
                             card.classList.add('appear');
                         }, 100);
                     } else {
                         card.style.display = 'none';
+                        card.style.visibility = 'hidden';
+                        card.style.opacity = '0';
                         card.classList.remove('appear');
                     }
                 });

@@ -447,6 +447,18 @@ a.nav-link{
 	box-shadow: 0 0 1.5rem gray;
 }
 
+/* Styles pour les cartes filtrées */
+.card[data-category] {
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+.card[data-category]:not([style*="display: none"]) {
+    transform: translateY(0);
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+}
+
 /*──────────────────
 			Contact
 ──────────────────*/
