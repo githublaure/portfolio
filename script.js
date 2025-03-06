@@ -119,6 +119,8 @@ window.addEventListener("load", function() {
 // Animation au défilement
 const scrollAppear = () => {
     const fadeInElements = document.querySelectorAll('.fade-in');
+    const projectsSection = document.getElementById('projects');
+    const projectCards = document.querySelectorAll('#projects .card');
 
     // Si on est sur mobile, rendre tous les éléments visibles immédiatement
     if (window.innerWidth <= 768) {
@@ -128,18 +130,38 @@ const scrollAppear = () => {
         return;
     }
 
-    fadeInElements.forEach(element => {
-        // Position de l'élément par rapport au haut de la fenêtre
-        const elementPosition = element.getBoundingClientRect().top;
-        // Hauteur de la fenêtre
+    // Traitement spécial pour la section projets (animation depuis la droite)
+    if (projectsSection) {
+        const projectsPosition = projectsSection.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-        // Point de déclenchement - 100px avant que l'élément soit visible
         const triggerPoint = windowHeight - 100;
 
-        if(elementPosition < triggerPoint) {
-            element.classList.add('appear');
-        } else {
-            element.classList.remove('appear');
+        if (projectsPosition < triggerPoint) {
+            // Ajouter les classes avec délai pour chaque carte
+            projectCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('appear');
+                }, index * 100); // Délai progressif pour chaque carte
+            });
+        }
+    }
+
+    // Pour les autres éléments fade-in (non cartes de projet)
+    fadeInElements.forEach(element => {
+        // Ne pas traiter à nouveau les cartes de projet
+        if (!element.classList.contains('card')) {
+            // Position de l'élément par rapport au haut de la fenêtre
+            const elementPosition = element.getBoundingClientRect().top;
+            // Hauteur de la fenêtre
+            const windowHeight = window.innerHeight;
+            // Point de déclenchement - 100px avant que l'élément soit visible
+            const triggerPoint = windowHeight - 100;
+
+            if(elementPosition < triggerPoint) {
+                element.classList.add('appear');
+            } else {
+                element.classList.remove('appear');
+            }
         }
     });
 };
@@ -741,41 +763,48 @@ function checkScreenSize() {
       chakra.style.width = "30px";
       chakra.style.height = "30px";
       
-      // Positions ajustées pour aligner avec les branches de l'arbre sur mobile
+      // Positions ajustées pour s'aligner en positions absolues par rapport à l'arbre sur mobile
+      // Ces positions sont relatives au centre de l'arbre pour maintenir la même apparence qu'en desktop
       switch(index) {
         case 0: // Rouge - Racine
           chakra.style.top = "88%";
-          chakra.style.left = "60%";
+          chakra.style.left = "50%";
           chakra.style.zIndex = "20";
+          chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 1: // Orange - Sacré
           chakra.style.top = "75%";
-          chakra.style.left = "55%";
+          chakra.style.left = "38%";
           chakra.style.zIndex = "19";
+          chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 2: // Jaune - Plexus solaire
-          chakra.style.top = "63%";
-          chakra.style.left = "60%";
+          chakra.style.top = "65%";
+          chakra.style.left = "50%";
           chakra.style.zIndex = "18";
+          chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 3: // Vert - Cœur
-          chakra.style.top = "52%";
-          chakra.style.left = "65%";
+          chakra.style.top = "55%";
+          chakra.style.left = "62%";
           chakra.style.zIndex = "17";
+          chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 4: // Bleu clair - Gorge
-          chakra.style.top = "39%";
-          chakra.style.left = "60%";
+          chakra.style.top = "45%";
+          chakra.style.left = "50%";
           chakra.style.zIndex = "16";
+          chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 5: // Bleu foncé - Troisième œil
-          chakra.style.top = "27%";
-          chakra.style.left = "55%";
+          chakra.style.top = "35%";
+          chakra.style.left = "38%";
           chakra.style.zIndex = "15";
+          chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 6: // Violet - Couronne
           chakra.style.top = "15%";
-          chakra.style.left = "60%";
+          chakra.style.left = "50%";
           chakra.style.zIndex = "25";
           chakra.style.transform = "translate(-50%, -50%)";
           break;
