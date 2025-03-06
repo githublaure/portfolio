@@ -1038,8 +1038,7 @@ hr {
 		justify-content: center;
 	}
 
-	.footer-contact p {
-		font-size: 0.9rem;
+	.footer-contact p {		font-size: 0.9rem;
 		width: 100%;
 		text-align: center;
 		margin: 3px auto;
@@ -1752,24 +1751,24 @@ hr {
     .popup-body {
         flex-direction: column;
     }
-    
+
     .popup-image, .popup-description {
         min-width: 100%;
     }
-    
+
     .popup-content {
         padding: 20px;
         width: 95%;
     }
-    
+
     .popup-title {
         font-size: 20px;
     }
-    
+
     .popup-navigation {
         margin-top: 20px;
     }
-    
+
     .category-bullet {
         margin: 0 5px 10px;
         padding: 6px 12px;
