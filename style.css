@@ -881,14 +881,15 @@ hr {
 
 	.chakra-legend {
 		position: relative;
-		bottom: -600px;
-		right: 0;
+		bottom: auto;
+		right: auto;
 		transform: none;
-		margin: 30px auto 20px;
+		margin: 20px auto;
 		width: 90%;
 		max-width: 300px;
 		background: rgba(248, 243, 233, 0.98);
 		z-index: 40;
+		order: -1; /* Placer la légende avant l'arbre dans le flex container */
 	}
 
 	/* Assurer que l'arbre des chakras est centré */
@@ -901,37 +902,31 @@ hr {
 		background-position: center;
 	}
 
-	@media only screen and (max-width: 768px) {
-		.chakra-tree {
-			background-position: 55% center; /* Légèrement décalé vers la droite pour s'aligner avec les chakras */
-		}
+	/* Assurer que l'arbre des chakras est bien visible sur mobile */
+	.chakra-tree-container {
+		height: 500px;
+		margin-top: 20px; /* Espace après la légende */
+		transform: scale(1.1) !important; /* Augmenter la taille de l'arbre */
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		left: 0;
+		right: 0;
 	}
 
-	/* Assurer que l'arbre des chakras est bien visible sur mobile */
-	@media only screen and (max-width: 768px) {
-		#chakra-section {
-			padding-bottom: 300px; /* Espace supplémentaire pour la légende */
-		}
-
-		.chakra-tree-container {
-			height: 500px;
-			margin-bottom: 320px; /* Espace pour la légende en bas */
-			transform: scale(1.1) !important; /* Augmenter la taille de l'arbre */
-			margin-left: auto;
-			margin-right: auto;
-			position: relative;
-			left: 0;
-			right: 0;
-		}
-
-		.chakra-tree {
-			background-position: center center; /* Parfaitement centré */
-			transform: scale(1.3) !important; /* Agrandir l'arbre */
-			position: absolute;
-			left: 50%;
-			transform-origin: center center;
-			transform: translate(-50%, 0) scale(1.3) !important; /* Centrage horizontal parfait */
-		}
+	.chakra-tree {
+		background-position: center center; /* Parfaitement centré */
+		transform: scale(1.3) !important; /* Agrandir l'arbre */
+		position: absolute;
+		left: 50%;
+		transform-origin: center center;
+		transform: translate(-50%, 0) scale(1.3) !important; /* Centrage horizontal parfait */
+	}
+	#chakra-section {
+		padding-bottom: 50px; /* Espace réduit car la légende est maintenant en haut */
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	/* Projects section adjustments */

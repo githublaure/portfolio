@@ -107,6 +107,38 @@
 	  <div id="chakra-section">
 		<h3 class="fade-in">Compétences & Expertise.<hr></h3>
 		<p class="fade-in">Découvrez mes compétences à travers cet arbre des chakras interactif.</p>
+		<!-- Légende des chakras placée ici pour la version mobile -->
+		<div class="chakra-legend mobile-legend">
+		    <div class="legend-title">Les Chakras</div>
+		    <div class="legend-item">
+		      <div class="legend-color legend-color-1"></div>
+		      <div class="legend-text">Racine - Data Engineering</div>
+		    </div>
+		    <div class="legend-item">
+		      <div class="legend-color legend-color-2"></div>
+		      <div class="legend-text">Sacré - Machine Learning</div>
+		    </div>
+		    <div class="legend-item">
+		      <div class="legend-color legend-color-3"></div>
+		      <div class="legend-text">Plexus Solaire - Cloud</div>
+		    </div>
+		    <div class="legend-item">
+		      <div class="legend-color legend-color-4"></div>
+		      <div class="legend-text">Cœur - Programmation</div>
+		    </div>
+		    <div class="legend-item">
+		      <div class="legend-color legend-color-5"></div>
+		      <div class="legend-text">Gorge - Visualisation</div>
+		    </div>
+		    <div class="legend-item">
+		      <div class="legend-color legend-color-6"></div>
+		      <div class="legend-text">3ème Œil - IA</div>
+		    </div>
+            <div class="legend-item">
+		      <div class="legend-color legend-color-7"></div>
+		      <div class="legend-text">Couronne - Leadership</div>
+		    </div>
+		  </div>
 		<!-- Conteneur de l'arbre des chakras déplacé ici -->
 		<div class="chakra-tree-container">
 		  <div class="chakra-tree"></div>
@@ -216,6 +248,16 @@
 	  <div id="projects"> 
 		 <h3 class="fade-in">My Projects.<hr></h3>
 		  <p class="fade-in">Here are some of my projects, you may like.</p>
+		  
+		  <!-- Navigation par catégories de projets -->
+		  <div class="project-categories fade-in">
+		    <div class="category-bullet active" data-category="all">Tous</div>
+		    <div class="category-bullet" data-category="datascience">Data Science</div>
+		    <div class="category-bullet" data-category="webdesign">Web Design</div>
+		    <div class="category-bullet" data-category="community">Community Management</div>
+		    <div class="category-bullet" data-category="design">2D/3D Design</div>
+		  </div>
+		  
 		  <div class="work-box">
 		  <div class="work">
 		<!--───────────────card───────────────-->
@@ -248,7 +290,38 @@
 			    <img class="work-img" src="https://images.unsplash.com/photo-1483546416237-76fd26bbcdd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
 				<a href="" target="_blank"> <!--Link to project-->
 				<div class="work-content">Lorem ipsum dolor sit amet consectetur.</div></a>
-            </div> 	  
+            </div>
+            
+            <!-- Ajout de nouvelles cartes de projets -->
+            <div class="card fade-in" data-category="datascience">
+			    <img class="work-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+				<a href="" target="_blank">
+				<div class="work-content">Analyse prédictive des données clients</div></a>
+            </div>
+            
+            <div class="card fade-in" data-category="webdesign">
+			    <img class="work-img" src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+				<a href="" target="_blank">
+				<div class="work-content">Refonte de site e-commerce</div></a>
+            </div>
+            
+            <div class="card fade-in" data-category="community">
+			    <img class="work-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+				<a href="" target="_blank">
+				<div class="work-content">Campagne social media pour startup</div></a>
+            </div>
+            
+            <div class="card fade-in" data-category="design">
+			    <img class="work-img" src="https://images.unsplash.com/photo-1545239351-ef35f43d514b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+				<a href="" target="_blank">
+				<div class="work-content">Modélisation 3D d'espace bureau</div></a>
+            </div>
+            
+            <div class="card fade-in" data-category="datascience">
+			    <img class="work-img" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+				<a href="" target="_blank">
+				<div class="work-content">Clustering des comportements utilisateurs</div></a>
+            </div>
 		  </div>
 		  </div>
 	  </div>

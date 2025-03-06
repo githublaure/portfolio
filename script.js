@@ -838,6 +838,54 @@ function checkScreenSize() {
 window.addEventListener("load", checkScreenSize);
 window.addEventListener("resize", checkScreenSize);
 
+// Initialisation du filtrage des projets par catégories
+const initProjectCategories = () => {
+    const categoryBullets = document.querySelectorAll('.category-bullet');
+    const projectCards = document.querySelectorAll('.card');
+    
+    // Simuler des catégories pour les cartes existantes
+    const categories = ['datascience', 'webdesign', 'community', 'design'];
+    projectCards.forEach((card, index) => {
+        // Attribuer aléatoirement des catégories aux cartes existantes pour la démo
+        const randomCategory = categories[index % categories.length];
+        card.setAttribute('data-category', randomCategory);
+    });
+    
+    if (categoryBullets.length > 0) {
+        categoryBullets.forEach(bullet => {
+            bullet.addEventListener('click', () => {
+                // Supprimer la classe active de tous les bullets
+                categoryBullets.forEach(b => b.classList.remove('active'));
+                
+                // Ajouter la classe active au bullet cliqué
+                bullet.classList.add('active');
+                
+                const selectedCategory = bullet.getAttribute('data-category');
+                
+                // Filtrer les projets
+                projectCards.forEach(card => {
+                    if (selectedCategory === 'all' || card.getAttribute('data-category') === selectedCategory) {
+                        card.style.display = 'block';
+                        // Ajouter une animation pour les cartes qui apparaissent
+                        setTimeout(() => {
+                            card.classList.add('appear');
+                        }, 100);
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('appear');
+                    }
+                });
+                
+                // Animation des bullets avec effet bump
+                bullet.style.animation = 'none';
+                setTimeout(() => {
+                    bullet.style.animation = 'bump 0.5s ease-out';
+                }, 10);
+            });
+        });
+    }
+};
+
 // Initialisation de toutes les animations
 window.onload = () => {
     navSlide();
@@ -847,6 +895,7 @@ window.onload = () => {
     initTypingEffect();
     initSocialAnimations();
     initLaureGallery(); // Initialiser la galerie Laure
+    initProjectCategories(); // Initialiser le filtrage des projets
 
     // Détecter le scroll pour les animations
     window.addEventListener('scroll', scrollAppear);
