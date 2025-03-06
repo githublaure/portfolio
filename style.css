@@ -898,14 +898,14 @@ hr {
 		align-items: center;
 	}
 
-	/* Préserver les positions des chakras sur mobile - utilisant les mêmes positions que sur desktop */
-	.chakra-tree-container .chakra:nth-of-type(1) { top: 85%; left: 50%; } /* Rouge - Racine */
-	.chakra-tree-container .chakra:nth-of-type(2) { top: 75%; left: 38%; } /* Orange - Sacré */
-	.chakra-tree-container .chakra:nth-of-type(3) { top: 65%; left: 50%; } /* Jaune - Plexus solaire */
-	.chakra-tree-container .chakra:nth-of-type(4) { top: 55%; left: 62%; } /* Vert - Cœur */
-	.chakra-tree-container .chakra:nth-of-type(5) { top: 45%; left: 50%; } /* Bleu clair - Gorge */
-	.chakra-tree-container .chakra:nth-of-type(6) { top: 35%; left: 38%; } /* Bleu foncé - Troisième œil */
-	.chakra-tree-container .chakra:nth-of-type(7) { top: 15%; left: 50%; } /* Violet - Couronne */
+	/* Positions des chakras sur mobile adaptées pour s'aligner avec l'arbre */
+	.chakra-tree-container .chakra:nth-of-type(1) { top: 85%; left: 40%; } /* Rouge - Racine */
+	.chakra-tree-container .chakra:nth-of-type(2) { top: 75%; left: 30%; } /* Orange - Sacré */
+	.chakra-tree-container .chakra:nth-of-type(3) { top: 65%; left: 40%; } /* Jaune - Plexus solaire */
+	.chakra-tree-container .chakra:nth-of-type(4) { top: 55%; left: 50%; } /* Vert - Cœur */
+	.chakra-tree-container .chakra:nth-of-type(5) { top: 45%; left: 40%; } /* Bleu clair - Gorge */
+	.chakra-tree-container .chakra:nth-of-type(6) { top: 35%; left: 30%; } /* Bleu foncé - Troisième œil */
+	.chakra-tree-container .chakra:nth-of-type(7) { top: 20%; left: 40%; } /* Violet - Couronne - position ajustée pour éviter la légende */
 
 	/* Maintenir le bon z-index pour les chakras */
 	.chakra-tree-container .chakra:nth-of-type(1) { z-index: 20; }
@@ -942,7 +942,7 @@ hr {
 
 	/* Assurer que l'arbre des chakras est bien visible sur mobile */
 	.chakra-tree-container {
-		height: 700px; /* Hauteur augmentée */
+		height: 750px; /* Hauteur augmentée */
 		margin-top: 60px; /* Plus d'espace après la légende */
 		transform: scale(1) !important;
 		margin-left: auto;
@@ -957,9 +957,9 @@ hr {
 
 	.chakra-tree {
 		background-position: center center;
-		transform: translateY(50px) scale(1.1) !important; /* Déplacé vers le bas */
+		transform: translateX(-50%) translateY(50px) scale(1.1) !important; /* Correction pour centrer et déplacer vers le bas */
 		position: absolute;
-		left: 50%;
+		left: 40%; /* Décalage légèrement vers la gauche pour compenser l'arbre qui semble trop à droite */
 		transform-origin: center center;
 	}
 	#chakra-section {
@@ -1259,7 +1259,7 @@ hr {
 		top: auto;
 		right: auto;
 		transform: none;
-		margin: 0 auto 50px auto; /* Augmenté la marge inférieure */
+		margin: 0 auto 80px auto; /* Marge inférieure augmentée pour éviter de cacher le chakra couronne */
 		width: 90%;
 		max-width: 300px;
 		order: -1; /* Assure que la légende apparaît avant l'arbre */
@@ -1268,7 +1268,7 @@ hr {
 	/* Ajustement du conteneur pour s'assurer qu'il y a de l'espace pour tous les chakras */
 	.chakra-tree-container {
 		margin-top: 30px;
-		height: 700px !important; /* Hauteur augmentée pour accueillir tous les chakras */
+		height: 750px !important; /* Hauteur augmentée pour accueillir tous les chakras */
 		padding-bottom: 100px; /* Espacement supplémentaire en bas */
 	}
 	

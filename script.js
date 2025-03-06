@@ -766,44 +766,44 @@ function checkScreenSize() {
       // Positions améliorées pour que les chakras soient alignés avec l'arbre sur mobile
       switch(index) {
         case 0: // Rouge - Racine
-          chakra.style.top = "73%"; // Ajusté pour être dans l'arbre
-          chakra.style.left = "50%";
+          chakra.style.top = "85%"; // Ajusté pour être dans l'arbre
+          chakra.style.left = "40%";
           chakra.style.zIndex = "20";
           chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 1: // Orange - Sacré
-          chakra.style.top = "66%";
-          chakra.style.left = "38%";
+          chakra.style.top = "75%";
+          chakra.style.left = "30%";
           chakra.style.zIndex = "19";
           chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 2: // Jaune - Plexus solaire
-          chakra.style.top = "58%";
-          chakra.style.left = "50%";
+          chakra.style.top = "65%";
+          chakra.style.left = "40%";
           chakra.style.zIndex = "18";
           chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 3: // Vert - Cœur
-          chakra.style.top = "50%";
-          chakra.style.left = "62%";
+          chakra.style.top = "55%";
+          chakra.style.left = "50%";
           chakra.style.zIndex = "17";
           chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 4: // Bleu clair - Gorge
-          chakra.style.top = "42%";
-          chakra.style.left = "50%";
+          chakra.style.top = "45%";
+          chakra.style.left = "40%";
           chakra.style.zIndex = "16";
           chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 5: // Bleu foncé - Troisième œil
-          chakra.style.top = "34%";
-          chakra.style.left = "38%";
+          chakra.style.top = "35%";
+          chakra.style.left = "30%";
           chakra.style.zIndex = "15";
           chakra.style.transform = "translate(-50%, -50%)";
           break;
         case 6: // Violet - Couronne
-          chakra.style.top = "24%";
-          chakra.style.left = "50%";
+          chakra.style.top = "20%"; // Élevé pour éviter que la légende ne le cache
+          chakra.style.left = "40%";
           chakra.style.zIndex = "25";
           chakra.style.transform = "translate(-50%, -50%)";
           break;
@@ -812,14 +812,15 @@ function checkScreenSize() {
 
     if (chakraTreeContainer) {
       chakraTreeContainer.style.transform = "scale(1.0)"; 
-      chakraTreeContainer.style.height = "700px"; // Hauteur augmentée pour tous les chakras
-      chakraTreeContainer.style.marginTop = "60px"; // Plus d'espace en haut après la légende
+      chakraTreeContainer.style.height = "750px"; // Hauteur augmentée pour tous les chakras
+      chakraTreeContainer.style.marginTop = "80px"; // Plus d'espace en haut après la légende
       
       // Ajuster la position et la taille de l'arbre
       const chakraTree = document.querySelector('.chakra-tree');
       if (chakraTree) {
-        chakraTree.style.transform = "translateY(50px) scale(1.1)"; // Déplacé plus bas
+        chakraTree.style.transform = "translateX(-10%) translateY(50px) scale(1.1)"; // Décalé vers la gauche et plus bas
         chakraTree.style.transformOrigin = "center center";
+        chakraTree.style.left = "40%"; // Décaler l'arbre vers la gauche sur mobile
       }
     }
   } else {
