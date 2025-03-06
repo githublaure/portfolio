@@ -452,11 +452,10 @@ a.nav-link{
     transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
 }
 
-.card[data-category]:not([style*="display: none"]) {
+/* Les styles spécifiques pour le filtrage sont maintenant appliqués directement via JavaScript */
+.work .card.appear {
     transform: translateY(0);
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: flex !important;
+    animation: bump 0.8s ease-out forwards;
 }
 
 /* S'assurer que les cartes avec data-category ont toujours leur attribut visible */

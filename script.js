@@ -987,30 +987,27 @@ const initProjectCategories = () => {
                     card.style.removeProperty('opacity');
                 });
 
-                // Filtrer les projets avec un délai pour permettre au navigateur de traiter
-                setTimeout(() => {
-                    projectCards.forEach(card => {
-                        const cardCategory = card.getAttribute('data-category');
-                        console.log("Carte:", card.getAttribute('data-title'), "- Catégorie:", cardCategory);
-                        
-                        if (selectedCategory === 'all' || cardCategory === selectedCategory) {
-                            card.style.display = 'flex';
-                            card.style.visibility = 'visible';
-                            card.style.opacity = '1';
-                            console.log("Carte à afficher:", card.getAttribute('data-title'));
-                            // Ajouter une animation pour les cartes qui apparaissent
-                            setTimeout(() => {
-                                card.classList.add('appear');
-                            }, 100);
-                        } else {
-                            card.style.display = 'none';
-                            card.style.visibility = 'hidden';
-                            card.style.opacity = '0';
-                            card.classList.remove('appear');
-                            console.log("Carte à masquer:", card.getAttribute('data-title'));
-                        }
-                    });
-                }, 50);
+                // Filtrer les projets immédiatement
+                projectCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    console.log("Carte:", card.getAttribute('data-title'), "- Catégorie:", cardCategory);
+                    
+                    if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                        // Forcer l'affichage avec !important pour écraser toute autre valeur
+                        card.style.setProperty('display', 'flex', 'important');
+                        card.style.setProperty('visibility', 'visible', 'important');
+                        card.style.setProperty('opacity', '1', 'important');
+                        card.classList.add('appear');
+                        console.log("Carte à afficher:", card.getAttribute('data-title'));
+                    } else {
+                        // Forcer le masquage avec !important
+                        card.style.setProperty('display', 'none', 'important');
+                        card.style.setProperty('visibility', 'hidden', 'important');
+                        card.style.setProperty('opacity', '0', 'important');
+                        card.classList.remove('appear');
+                        console.log("Carte à masquer:", card.getAttribute('data-title'));
+                    }
+                });
                 
                 // Animation des bullets avec effet bump
                 bullet.style.animation = 'none';
