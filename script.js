@@ -843,15 +843,129 @@ const initProjectCategories = () => {
     const categoryBullets = document.querySelectorAll('.category-bullet');
     const projectCards = document.querySelectorAll('.card');
     
-    // Simuler des catégories pour les cartes existantes
+    // Définir des catégories et des données pour les projets
     const categories = ['datascience', 'webdesign', 'community', 'design'];
+    const projectData = [
+        { 
+            title: "Analyse prédictive des données clients", 
+            category: "datascience", 
+            description: "Développement d'un modèle prédictif pour anticiper les comportements d'achat client basé sur l'historique des transactions et les données démographiques. Implémentation avec Python, pandas et scikit-learn.",
+            fullImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        },
+        { 
+            title: "Segmentation des utilisateurs par clustering", 
+            category: "datascience", 
+            description: "Création d'un système de segmentation automatique des utilisateurs par méthodes de clustering non-supervisées (K-means, DBSCAN). Interface de visualisation avec Plotly et Dash.",
+            fullImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        },
+        { 
+            title: "Refonte de site e-commerce", 
+            category: "webdesign", 
+            description: "Refonte complète de l'expérience utilisateur et de l'interface d'un site e-commerce, incluant une optimisation mobile et une amélioration du tunnel de conversion. Technologies utilisées : HTML5, CSS3, JavaScript, React.",
+            fullImage: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        },
+        { 
+            title: "Portfolio d'artiste interactif", 
+            category: "webdesign", 
+            description: "Conception et développement d'un portfolio digital pour un artiste visuel, avec galerie interactive et animations sur mesure. Site construit avec Vue.js et GSAP pour les animations.",
+            fullImage: "https://images.unsplash.com/photo-1462642109801-4ac2971a3a51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1266&q=80"
+        },
+        { 
+            title: "Campagne social media pour startup", 
+            category: "community", 
+            description: "Stratégie et mise en œuvre d'une campagne de communication sur les réseaux sociaux pour une startup tech, augmentant l'engagement de 300% en 3 mois. Planification de contenu avec Buffer et analyse avec Google Analytics.",
+            fullImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        },
+        { 
+            title: "Gestion de communauté pour événement tech", 
+            category: "community", 
+            description: "Animation de la communauté en ligne avant, pendant et après un événement tech majeur. Coordination des AMA (Ask Me Anything) avec les intervenants et modération du forum de discussion.",
+            fullImage: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        },
+        { 
+            title: "Modélisation 3D d'espace bureau", 
+            category: "design", 
+            description: "Conception 3D d'un espace de bureau moderne avec visualisation photo-réaliste. Réalisation sur Blender avec rendu en ray tracing pour un résultat ultra-réaliste.",
+            fullImage: "https://images.unsplash.com/photo-1545239351-ef35f43d514b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        },
+        { 
+            title: "Illustrations pour application éducative", 
+            category: "design", 
+            description: "Création d'une série d'illustrations vectorielles pour une application d'apprentissage destinée aux enfants. Design réalisé sur Adobe Illustrator avec une charte graphique ludique et inclusive.",
+            fullImage: "https://images.unsplash.com/photo-1535556116002-6281ff3e9f36?ixlib=rb-1.2.1&auto=format&fit=crop&w=781&q=80"
+        },
+        { 
+            title: "Dashboard de visualisation de données", 
+            category: "datascience", 
+            description: "Conception et implémentation d'un tableau de bord interactif pour la visualisation de données complexes en temps réel, facilitant la prise de décision pour les équipes marketing.",
+            fullImage: "https://images.unsplash.com/photo-1518611507436-f9221403cca2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80"
+        },
+        { 
+            title: "Application web de gestion de projet", 
+            category: "webdesign", 
+            description: "Développement d'une application web de gestion de projet avec fonctionnalités de tableau Kanban, suivi du temps et rapports analytiques. Stack technique : Node.js, Express, MongoDB et React.",
+            fullImage: "https://images.unsplash.com/photo-1485815457792-d1a966f9bde0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        },
+        { 
+            title: "Brand book pour entreprise tech", 
+            category: "design", 
+            description: "Création d'un guide de marque complet pour une entreprise tech, incluant logo, typographie, palette de couleurs et applications sur divers supports. Réalisé avec la suite Adobe.",
+            fullImage: "https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        },
+        { 
+            title: "Stratégie d'engagement sur LinkedIn", 
+            category: "community", 
+            description: "Développement et exécution d'une stratégie de contenu B2B sur LinkedIn, augmentant le taux d'engagement de 250% et générant 30% de leads qualifiés supplémentaires.",
+            fullImage: "https://images.unsplash.com/photo-1483546416237-76fd26bbcdd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        }
+    ];
+    
+    // Attribuer les données aux cartes existantes
     projectCards.forEach((card, index) => {
-        // Attribuer aléatoirement des catégories aux cartes existantes pour la démo
-        const randomCategory = categories[index % categories.length];
-        card.setAttribute('data-category', randomCategory);
+        if (index < projectData.length) {
+            const data = projectData[index];
+            card.setAttribute('data-category', data.category);
+            card.setAttribute('data-title', data.title);
+            card.setAttribute('data-description', data.description);
+            card.setAttribute('data-image', data.fullImage);
+            
+            // Mise à jour du contenu texte de la carte
+            const workContent = card.querySelector('.work-content');
+            if (workContent) {
+                workContent.textContent = data.title;
+            }
+            
+            // Mise à jour de l'image
+            const workImg = card.querySelector('.work-img');
+            if (workImg) {
+                workImg.src = data.fullImage;
+            }
+        }
     });
     
+    // Créer la popup
+    createProjectPopup();
+    
+    // Ajouter les événements de clic sur les cartes
+    projectCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            const title = card.getAttribute('data-title');
+            const category = card.getAttribute('data-category');
+            const description = card.getAttribute('data-description');
+            const image = card.getAttribute('data-image');
+            
+            if (title && category && description && image) {
+                showProjectPopup(title, category, description, image);
+            }
+        });
+    });
+    
+    // Ajouter les événements de clic sur les filtres de catégorie
     if (categoryBullets.length > 0) {
+        // Premier clic sur "Tous" pour initialiser l'affichage
+        document.querySelector('.category-bullet[data-category="all"]').click();
+        
         categoryBullets.forEach(bullet => {
             bullet.addEventListener('click', () => {
                 // Supprimer la classe active de tous les bullets
@@ -884,6 +998,131 @@ const initProjectCategories = () => {
             });
         });
     }
+};
+
+// Création de la popup
+const createProjectPopup = () => {
+    if (!document.getElementById('project-popup')) {
+        const popup = document.createElement('div');
+        popup.id = 'project-popup';
+        popup.className = 'project-popup';
+        popup.innerHTML = `
+            <div class="popup-content">
+                <span class="close-popup">&times;</span>
+                <div class="popup-category"></div>
+                <h2 class="popup-title"></h2>
+                <div class="popup-body">
+                    <div class="popup-image">
+                        <img src="" alt="Project image">
+                    </div>
+                    <div class="popup-description"></div>
+                </div>
+                <div class="popup-navigation">
+                    <button class="nav-prev" title="Projet précédent de la même catégorie">&#10094;</button>
+                    <button class="nav-next" title="Projet suivant de la même catégorie">&#10095;</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(popup);
+        
+        // Fermer la popup au clic sur la croix
+        const closeBtn = popup.querySelector('.close-popup');
+        closeBtn.addEventListener('click', () => {
+            popup.classList.remove('active');
+        });
+        
+        // Fermer la popup au clic en dehors du contenu
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.classList.remove('active');
+            }
+        });
+        
+        // Navigation entre projets
+        const prevBtn = popup.querySelector('.nav-prev');
+        const nextBtn = popup.querySelector('.nav-next');
+        
+        prevBtn.addEventListener('click', () => {
+            navigateProjects('prev');
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            navigateProjects('next');
+        });
+    }
+};
+
+// Afficher la popup avec les détails du projet
+const showProjectPopup = (title, category, description, image) => {
+    const popup = document.getElementById('project-popup');
+    
+    // Sauvegarder les informations du projet courant pour la navigation
+    popup.setAttribute('data-current-title', title);
+    popup.setAttribute('data-current-category', category);
+    
+    // Mettre à jour le contenu
+    popup.querySelector('.popup-title').textContent = title;
+    
+    // Formater la catégorie pour l'affichage
+    let categoryDisplay = '';
+    switch(category) {
+        case 'datascience':
+            categoryDisplay = 'Data Science';
+            break;
+        case 'webdesign':
+            categoryDisplay = 'Web Design';
+            break;
+        case 'community':
+            categoryDisplay = 'Community Management';
+            break;
+        case 'design':
+            categoryDisplay = '2D/3D Design';
+            break;
+    }
+    
+    popup.querySelector('.popup-category').textContent = categoryDisplay;
+    popup.querySelector('.popup-description').textContent = description;
+    popup.querySelector('.popup-image img').src = image;
+    
+    // Afficher la popup avec animation
+    popup.classList.add('active');
+};
+
+// Navigation entre projets de même catégorie
+const navigateProjects = (direction) => {
+    const popup = document.getElementById('project-popup');
+    const currentCategory = popup.getAttribute('data-current-category');
+    const currentTitle = popup.getAttribute('data-current-title');
+    
+    // Récupérer tous les projets de la même catégorie
+    const projectsInCategory = Array.from(document.querySelectorAll(`.card[data-category="${currentCategory}"]`));
+    
+    if (projectsInCategory.length <= 1) return; // Pas de navigation si un seul projet
+    
+    // Trouver l'index du projet courant
+    const currentIndex = projectsInCategory.findIndex(card => 
+        card.getAttribute('data-title') === currentTitle
+    );
+    
+    if (currentIndex === -1) return;
+    
+    // Calculer le nouvel index
+    let newIndex;
+    if (direction === 'next') {
+        newIndex = (currentIndex + 1) % projectsInCategory.length;
+    } else {
+        newIndex = (currentIndex - 1 + projectsInCategory.length) % projectsInCategory.length;
+    }
+    
+    // Récupérer les données du nouveau projet
+    const nextProject = projectsInCategory[newIndex];
+    const title = nextProject.getAttribute('data-title');
+    const category = nextProject.getAttribute('data-category');
+    const description = nextProject.getAttribute('data-description');
+    const image = nextProject.getAttribute('data-image');
+    
+    // Mettre à jour la popup
+    showProjectPopup(title, category, description, image);
 };
 
 // Initialisation de toutes les animations
