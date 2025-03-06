@@ -1031,7 +1031,7 @@ hr {
 		padding: 0 15px;
 		box-sizing: border-box;
 		text-align: center;
-	}
+	}}
 
 	/* Footer adjustments */
 	footer {
@@ -1264,14 +1264,14 @@ hr {
 		max-width: 300px;
 		order: -1; /* Assure que la légende apparaît avant l'arbre */
 	}
-	
+
 	/* Ajustement du conteneur pour s'assurer qu'il y a de l'espace pour tous les chakras */
 	.chakra-tree-container {
 		margin-top: 30px;
 		height: 700px !important; /* Hauteur augmentée pour accueillir tous les chakras */
 		padding-bottom: 100px; /* Espacement supplémentaire en bas */
 	}
-	
+
 	/* S'assurer que le chakra racine est bien visible et dans l'arbre */
 	#chakra-section {
 		padding-bottom: 100px; /* Augmenter l'espace en bas */
@@ -1827,4 +1827,24 @@ hr {
         padding: 6px 12px;
         font-size: 12px;
     }
+}
+.footer-contact-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.footer-title {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 5px;
+  font-family: var(--main-font-family);
 }
