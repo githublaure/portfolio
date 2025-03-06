@@ -764,10 +764,10 @@ function checkScreenSize() {
       chakra.style.height = "30px";
       
       // Positions ajustées pour s'aligner en positions absolues par rapport à l'arbre sur mobile
-      // Ces positions sont relatives au centre de l'arbre pour maintenir la même apparence qu'en desktop
+      // Ces positions sont les mêmes que dans le CSS pour assurer la cohérence
       switch(index) {
         case 0: // Rouge - Racine
-          chakra.style.top = "88%";
+          chakra.style.top = "85%";
           chakra.style.left = "50%";
           chakra.style.zIndex = "20";
           chakra.style.transform = "translate(-50%, -50%)";
@@ -980,28 +980,37 @@ const initProjectCategories = () => {
                 const selectedCategory = bullet.getAttribute('data-category');
                 console.log("Catégorie sélectionnée:", selectedCategory);
                 
-                // Filtrer les projets
+                // Nettoyage et force d'affichage des cartes
                 projectCards.forEach(card => {
-                    const cardCategory = card.getAttribute('data-category');
-                    console.log("Carte:", card.getAttribute('data-title'), "- Catégorie:", cardCategory);
-                    
-                    if (selectedCategory === 'all' || cardCategory === selectedCategory) {
-                        card.style.display = 'flex';
-                        card.style.visibility = 'visible';
-                        card.style.opacity = '1';
-                        console.log("Carte à afficher:", card.getAttribute('data-title'));
-                        // Ajouter une animation pour les cartes qui apparaissent
-                        setTimeout(() => {
-                            card.classList.add('appear');
-                        }, 100);
-                    } else {
-                        card.style.display = 'none';
-                        card.style.visibility = 'hidden';
-                        card.style.opacity = '0';
-                        card.classList.remove('appear');
-                        console.log("Carte à masquer:", card.getAttribute('data-title'));
-                    }
+                    card.style.removeProperty('display');
+                    card.style.removeProperty('visibility');
+                    card.style.removeProperty('opacity');
                 });
+
+                // Filtrer les projets avec un délai pour permettre au navigateur de traiter
+                setTimeout(() => {
+                    projectCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        console.log("Carte:", card.getAttribute('data-title'), "- Catégorie:", cardCategory);
+                        
+                        if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                            card.style.display = 'flex';
+                            card.style.visibility = 'visible';
+                            card.style.opacity = '1';
+                            console.log("Carte à afficher:", card.getAttribute('data-title'));
+                            // Ajouter une animation pour les cartes qui apparaissent
+                            setTimeout(() => {
+                                card.classList.add('appear');
+                            }, 100);
+                        } else {
+                            card.style.display = 'none';
+                            card.style.visibility = 'hidden';
+                            card.style.opacity = '0';
+                            card.classList.remove('appear');
+                            console.log("Carte à masquer:", card.getAttribute('data-title'));
+                        }
+                    });
+                }, 50);
                 
                 // Animation des bullets avec effet bump
                 bullet.style.animation = 'none';
@@ -1012,7 +1021,12 @@ const initProjectCategories = () => {
         });
         
         // Déclencher le clic sur "Tous" pour initialiser l'affichage
-        document.querySelector('.category-bullet[data-category="all"]').click();
+        const allBullet = document.querySelector('.category-bullet[data-category="all"]');
+        if (allBullet) {
+            setTimeout(() => {
+                allBullet.click();
+            }, 200);
+        }
     }
 };
 
