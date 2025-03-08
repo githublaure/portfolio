@@ -1289,6 +1289,22 @@ hr {
 		height: 850px !important; /* Hauteur encore plus augmentée pour accueillir tous les chakras */
 		padding-bottom: 150px; /* Espacement supplémentaire en bas */
 		padding-top: 120px; /* Ajouter plus d'espace en haut pour éviter le conflit avec la légende */
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: center !important;
+		justify-content: center !important;
+		position: relative !important;
+		overflow: visible !important;
+	}
+
+	/* Centrer l'arbre des chakras sur mobile */
+	.chakra-tree {
+		position: absolute !important;
+		left: 50% !important;
+		transform: translateX(-50%) !important;
+		width: 100% !important;
+		height: 100% !important;
+		background-position: center !important;
 	}
 
 	/* S'assurer que le chakra racine est bien visible et dans l'arbre */
@@ -1304,13 +1320,21 @@ hr {
 
 	/* Positionnement central des infobulles sur mobile */
 	.chakra:hover .tooltip {
+		position: fixed !important;
 		left: 50% !important;
 		right: auto !important;
-		top: 120% !important;
-		transform: translateX(-50%) !important;
+		top: 50% !important;
+		transform: translate(-50%, -50%) !important;
 		width: 250px !important;
 		max-width: 90vw !important;
 		z-index: 9999 !important;
+		background: rgba(255, 255, 255, 0.95) !important;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important;
+	}
+	
+	/* S'assurer que le chakra couronne ne se superpose pas à la légende */
+	.chakra-tree-container .chakra:nth-of-type(7) {
+		top: 25% !important; /* Position plus basse pour éviter la légende */
 	}
 }
 

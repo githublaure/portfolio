@@ -391,11 +391,19 @@ const initChakras = () => {
                         tooltip.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.5)';
                         tooltip.style.padding = '15px';
                         tooltip.style.borderRadius = '10px';
+                        tooltip.style.zIndex = '9999';
                         // Ajouter un peu d'espace en haut et en bas
                         tooltip.style.marginTop = '0';
                         // Assurer que le texte est lisible
                         tooltip.style.fontSize = '14px';
                         tooltip.style.lineHeight = '1.4';
+                        
+                        // Forcer le style avec !important
+                        tooltip.style.setProperty('position', 'fixed', 'important');
+                        tooltip.style.setProperty('left', '50%', 'important');
+                        tooltip.style.setProperty('top', '50%', 'important');
+                        tooltip.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+                        tooltip.style.setProperty('z-index', '9999', 'important');
                     } else {
                         // Positionner les tooltips selon la position du chakra sur desktop
                         if (rect.left > window.innerWidth / 2) {
@@ -834,6 +842,9 @@ function checkScreenSize() {
       chakra.style.width = "25px";
       chakra.style.height = "25px";
       chakra.style.transform = "translate(-50%, -50%)";
+      chakra.style.display = "block";
+      chakra.style.opacity = "1";
+      chakra.style.visibility = "visible";
       
       // Positions fixes par rapport à l'arbre, avec espacement vertical réduit
       switch(index) {
@@ -868,7 +879,7 @@ function checkScreenSize() {
           chakra.style.zIndex = "15";
           break;
         case 6: // Violet - Couronne
-          chakra.style.top = "32%"; // Déplacé pour réduire l'espacement
+          chakra.style.top = "25%"; // Position plus basse pour éviter la légende
           chakra.style.left = "50%";
           chakra.style.zIndex = "25";
           break;
@@ -879,14 +890,19 @@ function checkScreenSize() {
       if (tooltip) {
         // Définir l'infobulle pour qu'elle s'affiche toujours au centre de l'écran sur mobile
         chakra.addEventListener('mouseenter', () => {
-          tooltip.style.position = 'fixed';
-          tooltip.style.left = '50vw';
-          tooltip.style.right = 'auto';
-          tooltip.style.top = '50vh';
-          tooltip.style.transform = 'translate(-50%, -50%)';
-          tooltip.style.width = '250px';
-          tooltip.style.maxWidth = '90vw';
-          tooltip.style.zIndex = '9999';
+          tooltip.style.setProperty('position', 'fixed', 'important');
+          tooltip.style.setProperty('left', '50%', 'important');
+          tooltip.style.setProperty('right', 'auto', 'important');
+          tooltip.style.setProperty('top', '50%', 'important');
+          tooltip.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+          tooltip.style.setProperty('width', '250px', 'important');
+          tooltip.style.setProperty('maxWidth', '90vw', 'important');
+          tooltip.style.setProperty('z-index', '9999', 'important');
+          tooltip.style.setProperty('background', 'rgba(255, 255, 255, 0.95)', 'important');
+          tooltip.style.setProperty('box-shadow', '0 0 20px rgba(0, 0, 0, 0.5)', 'important');
+          tooltip.style.setProperty('visibility', 'visible', 'important');
+          tooltip.style.setProperty('opacity', '1', 'important');
+          tooltip.style.setProperty('display', 'block', 'important');
         });
       }
     });
@@ -895,16 +911,22 @@ function checkScreenSize() {
     chakraTreeContainer.style.width = "100%";
     chakraTreeContainer.style.height = "750px";
     chakraTreeContainer.style.marginTop = "80px";
+    chakraTreeContainer.style.display = "flex";
+    chakraTreeContainer.style.flexDirection = "column";
+    chakraTreeContainer.style.alignItems = "center";
+    chakraTreeContainer.style.justifyContent = "center";
+    chakraTreeContainer.style.position = "relative";
+    chakraTreeContainer.style.overflow = "visible";
     
     // Centrer l'arbre correctement
     const chakraTree = document.querySelector('.chakra-tree');
     if (chakraTree) {
-      chakraTree.style.left = "50%";
-      chakraTree.style.transform = "translateX(-50%)";
-      chakraTree.style.position = "absolute";
-      chakraTree.style.width = "100%";
-      chakraTree.style.height = "100%";
-      chakraTree.style.backgroundPosition = "center";
+      chakraTree.style.setProperty('left', '50%', 'important');
+      chakraTree.style.setProperty('transform', 'translateX(-50%)', 'important');
+      chakraTree.style.setProperty('position', 'absolute', 'important');
+      chakraTree.style.setProperty('width', '100%', 'important');
+      chakraTree.style.setProperty('height', '100%', 'important');
+      chakraTree.style.setProperty('background-position', 'center', 'important');
     }
     
     // Assurer que la légende ne cache pas les chakras
