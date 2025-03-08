@@ -1270,7 +1270,7 @@ hr {
 
 @media only screen and (max-width: 768px) {
 	.chakra-legend {
-		position: relative;
+		position: static !important;
 		width: 90%;
 		max-width: 300px;
 		background: rgba(248, 243, 233, 0.98);
@@ -1278,24 +1278,25 @@ hr {
 		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 		/* Positionner la légende avant l'arbre */
 		order: -1 !important; /* Forcer la légende avant l'arbre dans le flex container */
-		margin: 0 auto 30px auto; /* Marge en bas seulement */
-		position: relative !important;
+		margin: 0 auto 60px auto; /* Plus grande marge en bas pour séparer de l'arbre */
 		top: auto !important;
 		right: auto !important;
 		transform: none !important;
+		display: block !important;
 	}
-	
+
 	/* Ajuster le conteneur principal pour créer une séparation claire */
 	#chakra-section {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		padding-bottom: 70px; /* Réduire l'espace en bas */
+		padding-top: 50px; /* Plus d'espace en haut */
 	}
-	
+
 	/* Ajustement du conteneur pour s'assurer qu'il y a de l'espace pour tous les chakras */
 	.chakra-tree-container {
-		margin-top: 0;
+		margin-top: 40px !important; /* Plus d'espace après la légende */
 		height: 750px !important; /* Hauteur adaptée */
 		padding-bottom: 20px; /* Moins d'espace en bas */
 		padding-top: 0; /* Pas d'espace en haut pour coller à la section */
@@ -1305,7 +1306,7 @@ hr {
 		justify-content: center !important;
 		position: relative !important;
 		overflow: visible !important;
-		order: 0; /* S'assurer que l'arbre est avant la légende */
+		order: 1 !important; /* S'assurer que l'arbre vient après la légende */
 	}
 
 	/* Centrer l'arbre des chakras sur mobile */
@@ -1337,13 +1338,13 @@ hr {
 		background: rgba(255, 255, 255, 0.95) !important;
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important;
 	}
-	
+
 	/* Positions ajustées des chakras du haut pour qu'ils soient bien visibles */
 	.chakra-tree-container .chakra:nth-of-type(6) { /* 3ème œil */
 		top: 30% !important;
 		left: 38% !important;
 	}
-	
+
 	.chakra-tree-container .chakra:nth-of-type(7) { /* Couronne */
 		top: 20% !important;
 		left: 50% !important;
@@ -1853,6 +1854,53 @@ hr {
 .popup-navigation {
 		display: flex;
 		justify-content: space-between;
+		margin-top: 30px;
+}
+
+.popup-navigation button {
+		background-color: var(--main-background);
+		color: var(--main-fonts-color);
+		border: 2px solid var(--main-decor-color);
+		padding: 8px 15px;
+		font-size: 16px;
+		cursor: pointer;
+		border-radius: 5px;
+		transition: all 0.3s ease;
+}
+
+.popup-navigation button:hover {
+		background-color: var(--main-decor-color);
+		color: white;
+}
+
+@media only screen and (max-width: 768px) {
+		.popup-body {
+				flex-direction: column;
+		}
+
+		.popup-image, .popup-description {
+				min-width: 100%;
+		}
+
+		.popup-content {
+				padding: 20px;
+				width: 95%;
+		}
+
+		.popup-title {
+				font-size: 20px;
+		}
+
+		.popup-navigation {
+				margin-top: 20px;
+		}
+
+		.category-bullet {
+				margin: 0 5px 10px;
+				padding: 6px 12px;
+				font-size: 12px;
+		}
+}tween;
 		margin-top: 30px;
 }
 
