@@ -813,40 +813,40 @@ function checkScreenSize() {
       chakra.style.height = "30px";
       chakra.style.transform = "translate(-50%, -50%)";
       
-      // Positions spécifiques corrigées pour mobile pour s'aligner avec l'arbre
+      // Positions fixes par rapport à l'arbre, identiques à la version desktop
       switch(index) {
         case 0: // Rouge - Racine
           chakra.style.top = "85%";
-          chakra.style.left = "55%";
+          chakra.style.left = "50%";
           chakra.style.zIndex = "20";
           break;
         case 1: // Orange - Sacré
-          chakra.style.top = "72%";
-          chakra.style.left = "33%";
+          chakra.style.top = "75%";
+          chakra.style.left = "38%";
           chakra.style.zIndex = "19";
           break;
         case 2: // Jaune - Plexus solaire
-          chakra.style.top = "63%";
-          chakra.style.left = "65%";
+          chakra.style.top = "65%";
+          chakra.style.left = "50%";
           chakra.style.zIndex = "18";
           break;
         case 3: // Vert - Cœur
-          chakra.style.top = "53%";
-          chakra.style.left = "40%";
+          chakra.style.top = "55%";
+          chakra.style.left = "62%";
           chakra.style.zIndex = "17";
           break;
         case 4: // Bleu clair - Gorge
-          chakra.style.top = "42%";
-          chakra.style.left = "70%";
+          chakra.style.top = "45%";
+          chakra.style.left = "50%";
           chakra.style.zIndex = "16";
           break;
         case 5: // Bleu foncé - Troisième œil
-          chakra.style.top = "32%";
-          chakra.style.left = "33%";
+          chakra.style.top = "35%";
+          chakra.style.left = "38%";
           chakra.style.zIndex = "15";
           break;
         case 6: // Violet - Couronne
-          chakra.style.top = "18%"; // Plus haut pour éviter d'être caché par la légende
+          chakra.style.top = "15%"; // Plus haut pour éviter d'être caché par la légende
           chakra.style.left = "50%";
           chakra.style.zIndex = "25";
           break;
@@ -857,6 +857,17 @@ function checkScreenSize() {
     chakraTreeContainer.style.width = "100%";
     chakraTreeContainer.style.height = "750px";
     chakraTreeContainer.style.marginTop = "80px";
+    
+    // Centrer l'arbre correctement
+    const chakraTree = document.querySelector('.chakra-tree');
+    if (chakraTree) {
+      chakraTree.style.left = "50%";
+      chakraTree.style.transform = "translateX(-50%)";
+      chakraTree.style.position = "absolute";
+      chakraTree.style.width = "100%";
+      chakraTree.style.height = "100%";
+      chakraTree.style.backgroundPosition = "center";
+    }
     
     // Assurer que la légende ne cache pas les chakras
     const chakraLegend = document.querySelector('.chakra-legend');
