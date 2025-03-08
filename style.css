@@ -73,11 +73,11 @@ header:hover{
 	height: 100%;
 	object-fit: cover;
 	border-radius: 50%;
-	border: 2px solid transparent;
 }
 
 .navbar-laure-gallery .laure-item:hover img {
-	border-color: var(--main-decor-color);
+	transform: scale(1.1);
+	box-shadow: 0 0 8px var(--main-decor-color);
 }
 
 .navbar-laure-gallery .laure-item .score {
@@ -224,19 +224,16 @@ a.nav-link{
 
 .laure-item:hover {
 		transform: translateY(-5px);
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .laure-item img {
 		width: 100%;
 		height: auto;
 		border-radius: 10px;
-		border: 2px solid transparent;
 		transition: all 0.3s ease;
 }
 
 .laure-item:hover img {
-		border-color: var(--main-decor-color);
 		transform: scale(1.05);
 }
 

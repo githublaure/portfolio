@@ -588,7 +588,7 @@ const initSocialAnimations = () => {
 }
 
 
-// Système de score pour les images Laure sans effet de mélange
+// Système de score pour les images Laure avec tri par score
 const initLaureGallery = () => {
     const laureItems = document.querySelectorAll('.laure-item');
     if (!laureItems.length) return;
@@ -605,6 +605,26 @@ const initLaureGallery = () => {
             imageScores[imgFileName] = score;
         }
     });
+
+    // Fonction pour trier les éléments Laure par score décroissant
+    const sortLaureItems = (container) => {
+        if (!container) return;
+        
+        // Obtenir tous les éléments Laure dans ce conteneur
+        const items = Array.from(container.querySelectorAll('.laure-item'));
+        
+        // Trier les éléments par score décroissant
+        items.sort((a, b) => {
+            const scoreA = parseInt(a.getAttribute('data-score')) || 0;
+            const scoreB = parseInt(b.getAttribute('data-score')) || 0;
+            return scoreB - scoreA; // Ordre décroissant
+        });
+        
+        // Réinsérer les éléments dans le bon ordre
+        items.forEach(item => {
+            container.appendChild(item);
+        });
+    };
 
     // Ajouter les événements de clic pour augmenter le score
     laureItems.forEach(item => {
@@ -633,23 +653,16 @@ const initLaureGallery = () => {
                     }
                 });
 
-                // Pas de tri ou de repositionnement des éléments
-                // Cela élimine l'effet "hacker" de mélange
+                // Trier les éléments après la mise à jour du score
+                sortLaureItems(document.querySelector('.laure-gallery'));
+                sortLaureItems(document.querySelector('.navbar-laure-gallery'));
             });
         }
     });
-};
-
-// Ces fonctions de tri ne sont plus utilisées pour éviter le mélange des images
-// mais elles sont conservées au cas où vous souhaiteriez les réactiver plus tard
-const sortLaureItems = () => {
-    // Fonction désactivée pour éviter le mélange
-    return;
-};
-
-const sortNavbarLaureItems = () => {
-    // Fonction désactivée pour éviter le mélange
-    return;
+    
+    // Trier les éléments au chargement initial
+    sortLaureItems(document.querySelector('.laure-gallery'));
+    sortLaureItems(document.querySelector('.navbar-laure-gallery'));
 };
 
 
