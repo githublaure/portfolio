@@ -1278,7 +1278,7 @@ hr {
 		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 		/* Positionner la légende complètement avant l'arbre */
 		order: -1 !important; /* Forcer la légende avant l'arbre dans le flex container */
-		margin: 0 auto 80px auto !important; /* Augmenter davantage l'espace entre légende et arbre */
+		margin: 20 auto 650px auto !important; /* Augmenter davantage l'espace entre légende et arbre */
 		padding: 15px;
 		border-radius: 10px;
 		top: auto !important;
@@ -1312,14 +1312,14 @@ hr {
 		flex-direction: column;
 		align-items: center;
 		padding-bottom: 50px; /* Espace raisonnable en bas */
-		padding-top: 50px; /* Plus d'espace en haut */
+		padding-top: 0px; /* Plus d'espace en haut */
 	}
 
 	/* Ajustement du conteneur pour s'assurer qu'il y a de l'espace pour tous les chakras */
 	.chakra-tree-container {
-		margin-top: 20px !important; /* Espace supplémentaire après la légende */
+		margin-top: 100px !important; /* Espace supplémentaire après la légende */
 		height: 650px !important; /* Hauteur fixe pour une meilleure visibilité */
-		padding-bottom: 30px; /* Plus d'espace en bas */
+		padding-bottom: 600px; /* Plus d'espace en bas */
 		padding-top: 0; /* Pas d'espace en haut */
 		display: flex !important;
 		flex-direction: column !important;
