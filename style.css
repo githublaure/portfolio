@@ -538,7 +538,7 @@ footer {
 }
 
 .footer-image img {
-		width: 50%;
+		width: 100%;
 		object-fit: cover;
 		filter: sepia(80%) hue-rotate(330deg) saturate(120%) brightness(90%); /* Effet sépia pour tons beige/marron */
 }
