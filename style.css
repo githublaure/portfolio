@@ -1278,7 +1278,7 @@ hr {
 		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 		/* Positionner la légende complètement avant l'arbre */
 		order: -1 !important; /* Forcer la légende avant l'arbre dans le flex container */
-		margin: 20 auto 650px auto !important; /* Augmenter davantage l'espace entre légende et arbre */
+		margin: 20px auto 50px auto !important; /* Espace entre légende et arbre */
 		padding: 15px;
 		border-radius: 10px;
 		top: auto !important;
@@ -1317,9 +1317,9 @@ hr {
 
 	/* Ajustement du conteneur pour s'assurer qu'il y a de l'espace pour tous les chakras */
 	.chakra-tree-container {
-		margin-top: 100px !important; /* Espace supplémentaire après la légende */
-		height: 650px !important; /* Hauteur fixe pour une meilleure visibilité */
-		padding-bottom: 600px; /* Plus d'espace en bas */
+		margin-top: 20px !important; /* Espace supplémentaire après la légende */
+		height: 600px !important; /* Hauteur fixe pour une meilleure visibilité */
+		padding-bottom: 600px; /* Garder l'espace en bas que vous avez défini */
 		padding-top: 0; /* Pas d'espace en haut */
 		display: flex !important;
 		flex-direction: column !important;
@@ -1348,6 +1348,42 @@ hr {
 		visibility: visible !important;
 	}
 
+	/* Amélioration : Ajustement précis des positions des chakras sur mobile pour qu'ils s'alignent avec l'image de l'arbre */
+	.chakra-tree-container .chakra:nth-of-type(1) { 
+		top: 88% !important; 
+		left: 50% !important; 
+	} /* Rouge - Racine */
+	
+	.chakra-tree-container .chakra:nth-of-type(2) { 
+		top: 76% !important; 
+		left: 35% !important; 
+	} /* Orange - Sacré */
+	
+	.chakra-tree-container .chakra:nth-of-type(3) { 
+		top: 64% !important; 
+		left: 50% !important; 
+	} /* Jaune - Plexus solaire */
+	
+	.chakra-tree-container .chakra:nth-of-type(4) { 
+		top: 54% !important; 
+		left: 65% !important; 
+	} /* Vert - Cœur */
+	
+	.chakra-tree-container .chakra:nth-of-type(5) { 
+		top: 41% !important; 
+		left: 50% !important; 
+	} /* Bleu clair - Gorge */
+	
+	.chakra-tree-container .chakra:nth-of-type(6) { 
+		top: 30% !important; 
+		left: 35% !important; 
+	} /* Bleu foncé - Troisième œil */
+	
+	.chakra-tree-container .chakra:nth-of-type(7) { 
+		top: 12% !important; 
+		left: 50% !important; 
+	} /* Violet - Couronne */
+
 	/* Positionnement central des infobulles sur mobile */
 	.chakra:hover .tooltip {
 		position: fixed !important;
@@ -1361,10 +1397,6 @@ hr {
 		background: rgba(255, 255, 255, 0.95) !important;
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important;
 	}
-
-	/* Maintenir les positions en pourcentage même sur mobile */
-	/* Ces positionnements en pourcentage permettent de garder les chakras au même endroit relatif sur l'arbre */
-	/* Pas besoin de surcharger les positions ici car elles sont définies en pourcentage dans le sélecteur principal */
 }
 
 .legend-title {

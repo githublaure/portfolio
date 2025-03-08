@@ -960,7 +960,7 @@ function positionLegendOnMobile() {
       // Positionner clairement la légende en haut avant l'arbre avec plus d'espace
       chakraLegend.style.order = '-1';
       chakraLegend.style.marginTop = '30px';
-      chakraLegend.style.marginBottom = '80px'; // Augmenter l'espace entre la légende et l'arbre
+      chakraLegend.style.marginBottom = '50px'; // Espace suffisant entre la légende et l'arbre
       chakraLegend.style.position = 'relative';
       chakraLegend.style.top = 'auto';
       chakraLegend.style.right = 'auto';
@@ -976,7 +976,7 @@ function positionLegendOnMobile() {
       // Ajouter un style important pour s'assurer que la légende est bien positionnée
       chakraLegend.style.setProperty('order', '-1', 'important');
       chakraLegend.style.setProperty('position', 'relative', 'important');
-      chakraLegend.style.setProperty('margin-bottom', '80px', 'important');
+      chakraLegend.style.setProperty('margin-bottom', '50px', 'important');
 
       // Rendre les éléments de la légende plus lisibles
       const legendTitle = chakraLegend.querySelector('.legend-title');
@@ -1009,7 +1009,18 @@ function positionLegendOnMobile() {
       chakraTreeContainer.style.setProperty('order', '1', 'important');
       chakraTreeContainer.style.setProperty('margin-top', '0', 'important');
       
-      // S'assurer que les chakras restent visibles
+      // Ajuster les positions des chakras pour qu'ils s'alignent correctement avec l'arbre sur mobile
+      const chakraPositions = [
+        { top: '88%', left: '50%' },  // Rouge - Racine
+        { top: '76%', left: '35%' },  // Orange - Sacré
+        { top: '64%', left: '50%' },  // Jaune - Plexus solaire
+        { top: '54%', left: '65%' },  // Vert - Cœur
+        { top: '41%', left: '50%' },  // Bleu clair - Gorge
+        { top: '30%', left: '35%' },  // Bleu foncé - Troisième œil
+        { top: '12%', left: '50%' }   // Violet - Couronne
+      ];
+      
+      // S'assurer que les chakras restent visibles et correctement positionnés
       document.querySelectorAll('.chakra').forEach((chakra, index) => {
         // Maintenir les positions en pourcentage pour que les chakras restent alignés avec l'arbre
         chakra.style.display = 'block';
@@ -1021,7 +1032,13 @@ function positionLegendOnMobile() {
         chakra.style.width = `${chakraSize}px`;
         chakra.style.height = `${chakraSize}px`;
         
-        // S'assurer que les positions des chakras respectent les pourcentages définis dans le CSS
+        // Appliquer les positions spécifiques pour chaque chakra
+        if (index < chakraPositions.length) {
+          chakra.style.setProperty('top', chakraPositions[index].top, 'important');
+          chakra.style.setProperty('left', chakraPositions[index].left, 'important');
+        }
+        
+        // S'assurer que les chakras sont visibles
         chakra.style.setProperty('display', 'block', 'important');
         chakra.style.setProperty('opacity', '1', 'important');
         chakra.style.setProperty('visibility', 'visible', 'important');
