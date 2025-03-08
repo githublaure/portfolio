@@ -509,7 +509,7 @@ a.nav-link{
 
 footer {
 	width: 100%;
-	height: auto;
+	height: 180%;
 		background-color: var(--main-header-background);
 		position: relative; /* Add position relative to footer */
 }
@@ -527,7 +527,7 @@ footer {
 .footer-image {
 		width: 100%;
 		overflow: hidden;
-		max-height: 100%; /* Hauteur augmentée pour afficher le haut de l'image en version desktop */
+		max-height: 180%; /* Hauteur augmentée pour afficher le haut de l'image en version desktop */
 		position: relative;
 }
 

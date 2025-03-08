@@ -8,3 +8,7 @@ author = 29941025
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "python -m http.server 3000 --bind 0.0.0.0"
+
+[deployment]
+deploymentTarget = "static"
+publicDir = "portfolio"
