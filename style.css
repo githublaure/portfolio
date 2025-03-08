@@ -1199,7 +1199,7 @@ hr {
 		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 		/* Positionner la légende complètement avant l'arbre */
 		order: -1 !important; /* Forcer la légende avant l'arbre dans le flex container */
-		margin: 20px auto 50px auto !important; /* Espace entre légende et arbre */
+		margin: 20px auto 90px auto !important; /* Augmenter l'espace entre légende et arbre */
 		padding: 15px;
 		border-radius: 10px;
 		top: auto !important;
@@ -1269,39 +1269,39 @@ hr {
 		visibility: visible !important;
 	}
 
-	/* Nouvelle configuration pour aligner les chakras correctement sur l'arbre (mobile) avec un espacement vertical réduit */
+	/* Nouvelle configuration pour aligner les chakras correctement sur l'arbre (mobile) avec un espacement vertical plus rapproché */
 	.chakra-tree-container .chakra:nth-of-type(1) { 
-		top: 85% !important; 
+		top: 80% !important; 
 		left: 50% !important; 
 	} /* Rouge - Racine - Base du tronc */
 
 	.chakra-tree-container .chakra:nth-of-type(2) { 
-		top: 73% !important; 
+		top: 70% !important; 
 		left: 35% !important; 
 	} /* Orange - Sacré - Bas gauche */
 
 	.chakra-tree-container .chakra:nth-of-type(3) { 
-		top: 60% !important; 
+		top: 58% !important; 
 		left: 50% !important; 
 	} /* Jaune - Plexus solaire - Milieu du tronc */
 
 	.chakra-tree-container .chakra:nth-of-type(4) { 
-		top: 48% !important; 
+		top: 47% !important; 
 		left: 65% !important; 
 	} /* Vert - Cœur - Branches droites */
 
 	.chakra-tree-container .chakra:nth-of-type(5) { 
-		top: 35% !important; 
+		top: 36% !important; 
 		left: 50% !important; 
 	} /* Bleu clair - Gorge - Branches gauches haut */
 
 	.chakra-tree-container .chakra:nth-of-type(6) { 
-		top: 25% !important; 
+		top: 27% !important; 
 		left: 35% !important; 
 	} /* Bleu foncé - Troisième œil - Haut du feuillage */
 
 	.chakra-tree-container .chakra:nth-of-type(7) { 
-		top: 12% !important; 
+		top: 15% !important; 
 		left: 50% !important; 
 	} /* Violet - Couronne - Sommet */
 

@@ -210,7 +210,7 @@ const initChakras = () => {
               const chakraLegend = document.querySelector('.chakra-legend');
               if (chakraLegend) {
                 chakraLegend.style.setProperty('order', '-1', 'important');
-                chakraLegend.style.setProperty('margin-bottom', '30px', 'important');
+                chakraLegend.style.setProperty('margin-bottom', '90px', 'important');
               }
             }
         };
@@ -977,7 +977,7 @@ function positionLegendOnMobile() {
         const chakraSize = containerWidth * 0.09;
         chakra.style.width = `${chakraSize}px`;
         chakra.style.height = `${chakraSize}px`;
-        
+
         // Augmenter la luminosité/visibilité avec une ombre plus prononcée
         chakra.style.boxShadow = `0 0 15px 8px ${chakra.style.backgroundColor}`;
 
