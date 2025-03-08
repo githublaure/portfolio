@@ -1195,11 +1195,11 @@ const initProjectCategories = () => {
             });
         });
 
-        // Déclencher le clic sur "Tous" pour initialiser l'affichage
-        const allBullet = document.querySelector('.category-bullet[data-category="all"]');
-        if (allBullet) {
+        // Déclencher le clic sur "Data Science" pour initialiser l'affichage
+        const dataScienceBullet = document.querySelector('.category-bullet[data-category="datascience"]');
+        if (dataScienceBullet) {
             setTimeout(() => {
-                allBullet.click();
+                dataScienceBullet.click();
             }, 200);
         }
     }
