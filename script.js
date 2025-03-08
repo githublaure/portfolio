@@ -956,13 +956,13 @@ function positionLegendOnMobile() {
 
       // Positions des chakras corrigées pour s'aligner avec l'arbre sur mobile
       const chakraPositions = [
-        { top: '92%', left: '50%' },  // Rouge - Racine - Base du tronc
-        { top: '80%', left: '32%' },  // Orange - Sacré - Bas gauche
-        { top: '55%', left: '50%' },  // Jaune - Plexus solaire - Milieu du tronc
-        { top: '45%', left: '75%' },  // Vert - Cœur - Branches droites
-        { top: '30%', left: '25%' },  // Bleu clair - Gorge - Branches gauches haut
-        { top: '18%', left: '50%' },  // Bleu foncé - Troisième œil - Haut du feuillage
-        { top: '5%', left: '50%' }    // Violet - Couronne - Sommet
+        { top: '85%', left: '50%' },  // Rouge - Racine - Base du tronc
+        { top: '73%', left: '35%' },  // Orange - Sacré - Bas gauche
+        { top: '60%', left: '50%' },  // Jaune - Plexus solaire - Milieu du tronc
+        { top: '48%', left: '65%' },  // Vert - Cœur - Branches droites
+        { top: '35%', left: '50%' },  // Bleu clair - Gorge - Branches gauches haut
+        { top: '25%', left: '35%' },  // Bleu foncé - Troisième œil - Haut du feuillage
+        { top: '12%', left: '50%' }    // Violet - Couronne - Sommet
       ];
 
       // S'assurer que les chakras restent visibles et correctement positionnés
@@ -971,11 +971,15 @@ function positionLegendOnMobile() {
         chakra.style.display = 'block';
         chakra.style.opacity = '1';
         chakra.style.visibility = 'visible';
+        chakra.style.zIndex = (20 - index).toString(); // S'assurer que les z-index sont correctement attribués
 
-        // Taille proportionnelle des chakras
-        const chakraSize = containerWidth * 0.07;
+        // Taille proportionnelle des chakras - légèrement plus grands sur mobile pour une meilleure visibilité
+        const chakraSize = containerWidth * 0.09;
         chakra.style.width = `${chakraSize}px`;
         chakra.style.height = `${chakraSize}px`;
+        
+        // Augmenter la luminosité/visibilité avec une ombre plus prononcée
+        chakra.style.boxShadow = `0 0 15px 8px ${chakra.style.backgroundColor}`;
 
         // Appliquer les positions spécifiques pour chaque chakra
         if (index < chakraPositions.length) {
