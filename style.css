@@ -178,33 +178,6 @@ a.nav-link{
 		transform: scale(1.05);
 }
 
-.profile-picture:hover::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 255, 0, 0.1);
-		animation: glitch 0.3s infinite;
-		z-index: 2;
-		mix-blend-mode: hue;
-}
-
-.profile-picture:hover::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: url('pp.webp');
-		background-size: cover;
-		animation: glitch-shift 0.2s infinite;
-		opacity: 0.3;
-		z-index: 1;
-}
-
 .profile-picture img {
 		width: 100%;
 		height: 100%;
@@ -213,61 +186,7 @@ a.nav-link{
 		z-index: 0;
 }
 
-@keyframes glitch {
-		0% { 
-				opacity: 1;
-				transform: translate(0);
-				background: rgba(0, 255, 0, 0.1);
-		}
-		20% { 
-				opacity: 0.8;
-				transform: translate(5px, 0);
-				background: rgba(255, 0, 0, 0.1);
-		}
-		40% { 
-				opacity: 0.9;
-				transform: translate(-5px, 0);
-				background: rgba(0, 0, 255, 0.1);
-		}
-		60% { 
-				opacity: 0.6;
-				transform: translate(0, 3px);
-				background: rgba(0, 255, 0, 0.1);
-		}
-		80% { 
-				opacity: 0.8;
-				transform: translate(0, -3px);
-				background: rgba(255, 0, 255, 0.1);
-		}
-		100% { 
-				opacity: 1;
-				transform: translate(0);
-				background: rgba(0, 255, 0, 0.1);
-		}
-}
-
-@keyframes glitch-shift {
-		0% { 
-				transform: translate(-5px, -5px) scale(1.05);
-				clip-path: inset(10% 0 0 0);
-		}
-		25% { 
-				transform: translate(5px, 5px) scale(1.05);
-				clip-path: inset(0 10% 0 0);
-		}
-		50% { 
-				transform: translate(-3px, 2px) scale(1.05);
-				clip-path: inset(0 0 10% 0);
-		}
-		75% { 
-				transform: translate(3px, -2px) scale(1.05);
-				clip-path: inset(0 0 0 10%);
-		}
-		100% { 
-				transform: translate(-5px, -5px) scale(1.05);
-				clip-path: inset(10% 0 0 0);
-		}
-}
+/* Animations de glitch supprimées tout en gardant l'effet de zoom */
 
 /* Laure gallery */
 .laure-gallery {
