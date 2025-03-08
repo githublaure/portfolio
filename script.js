@@ -36,11 +36,93 @@ const navSlide = () => {
 
 // Animation de chargement
 window.addEventListener("load", function() {
-    const loader = document.querySelector(".loader");
-    loader.className += " hidden";
-    
-    // Note: Effet hacker supprimé pour les images Laure tout en conservant les animations normales
-});
+        const loader = document.querySelector(".loader");
+        loader.className += " hidden";
+
+        // Effet hackerEffect pour l'image de profil
+        const profilePic = document.querySelector(".profile-picture");
+        if (profilePic) {
+            profilePic.addEventListener("mouseenter", function() {
+                // Créer un canvas pour l'effet de matrice
+                if (!document.querySelector('.matrix-canvas')) {
+                    const canvas = document.createElement('canvas');
+                    canvas.className = 'matrix-canvas';
+                    canvas.width = profilePic.offsetWidth;
+                    canvas.height = profilePic.offsetHeight;
+                    canvas.style.position = 'absolute';
+                    canvas.style.top = '0';
+                    canvas.style.left = '0';
+                    canvas.style.zIndex = '3';
+                    canvas.style.opacity = '0.5';
+                    canvas.style.borderRadius = '50%';
+                    canvas.style.pointerEvents = 'none';
+                    profilePic.appendChild(canvas);
+
+                    // Initialiser l'effet de pluie de code
+                    const ctx = canvas.getContext('2d');
+                    const characters = "DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DATASCIENCE DAT";
+                    const columns = Math.floor(canvas.width / 10);
+                    const drops = [];
+
+                    // Initialiser les positions de départ des caractères
+                    for (let i = 0; i < columns; i++) {
+                        drops[i] = Math.random() * -100;
+                    }
+
+                    // Fonction pour dessiner l'effet de matrice
+                    function drawMatrix() {
+                        // Ajouter un fond semi-transparent pour créer un effet de traînée
+                        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                        // Définir le style pour les caractères
+                        ctx.fillStyle = "#0F0";
+                        ctx.font = "10px monospace";
+
+                        // Dessiner les caractères
+                        for (let i = 0; i < drops.length; i++) {
+                            // Caractère aléatoire
+                            const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                            // Position x dépend de l'index de la colonne
+                            const x = i * 10;
+                            // Position y dépend de la valeur dans le tableau drops
+                            const y = drops[i] * 10;
+
+                            // Dessiner le caractère
+                            ctx.fillText(text, x, y);
+
+                            // Réinitialiser quand le caractère sort de l'écran ou aléatoirement
+                            if (y > canvas.height || Math.random() > 0.98) {
+                                drops[i] = 0;
+                            }
+
+                            // Déplacer le caractère vers le bas
+                            drops[i]++;
+                        }
+                    }
+
+                    // ID de l'animation pour pouvoir l'arrêter plus tard
+                    const matrixInterval = setInterval(drawMatrix, 50);
+
+                    // Arrêter l'animation quand la souris quitte l'image
+                    profilePic.addEventListener("mouseleave", function() {
+                        clearInterval(matrixInterval);
+                        if (canvas) {
+                            canvas.remove();
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+    // Animation au défilement
+    const scrollAppear = () => {
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        const projectsSection = document.getElementById('projects');
+        const projectCards = document.querySelectorAll('#projects .card');
+
+        // Si on est sur mobile, rendre tous les éléments visibles immédiatement
 
 // Animation au défilement
 const scrollAppear = () => {
