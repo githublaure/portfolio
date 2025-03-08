@@ -761,48 +761,7 @@ window.addEventListener("load", () => {
   }
 });
 
-// Function for navigation slide
-function navSlide() {
-  const hamburger = document.querySelector(".hamburger");
-  const navBar = document.querySelector(".nav-bar");
-  const navLinks = document.querySelectorAll(".nav-bar li");
-
-  if (hamburger && navBar && navLinks) {
-    hamburger.addEventListener("click", () => {
-      // Toggle navigation
-      navBar.classList.toggle("nav-active");
-
-      // Hamburger animation
-      hamburger.classList.toggle("toggle");
-
-      // Animate links
-      navLinks.forEach((link, index) => {
-        if (link.style.animation) {
-          link.style.animation = "";
-        } else {
-          link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-        }
-      });
-    });
-  }
-
-  // Close menu when a link is clicked
-  const links = document.querySelectorAll(".nav-link");
-  links.forEach(link => {
-    if(link){
-        link.addEventListener("click", () => {
-            if (navBar.classList.contains("nav-active")) {
-              navBar.classList.remove("nav-active");
-              hamburger.classList.remove("toggle");
-
-              navLinks.forEach(link => {
-                link.style.animation = "";
-              });
-            }
-        });
-    }
-  });
-}
+// navSlide function is already defined earlier, removing duplicate declaration
 
 // Rendre toutes les animations responsives lors du redimensionnement
 function checkScreenSize() {
