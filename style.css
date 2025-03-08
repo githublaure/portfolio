@@ -1270,15 +1270,15 @@ hr {
 
 @media only screen and (max-width: 768px) {
 	.chakra-legend {
-		position: static !important;
+		position: relative !important;
 		width: 90%;
 		max-width: 300px;
 		background: rgba(248, 243, 233, 0.98);
 		z-index: 40;
 		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-		/* Positionner la légende avant l'arbre */
+		/* Positionner la légende complètement avant l'arbre */
 		order: -1 !important; /* Forcer la légende avant l'arbre dans le flex container */
-		margin: 20px auto 50px auto !important; /* Augmenté l'espace entre légende et arbre */
+		margin: 0 auto 80px auto !important; /* Augmenter davantage l'espace entre légende et arbre */
 		padding: 15px;
 		border-radius: 10px;
 		top: auto !important;

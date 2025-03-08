@@ -957,11 +957,11 @@ function positionLegendOnMobile() {
       chakraSection.style.flexDirection = 'column';
       chakraSection.style.alignItems = 'center';
 
-      // Positionner clairement la légende en haut avant l'arbre
+      // Positionner clairement la légende en haut avant l'arbre avec plus d'espace
       chakraLegend.style.order = '-1';
       chakraLegend.style.marginTop = '30px';
-      chakraLegend.style.marginBottom = '50px';
-      chakraLegend.style.position = 'static';
+      chakraLegend.style.marginBottom = '80px'; // Augmenter l'espace entre la légende et l'arbre
+      chakraLegend.style.position = 'relative';
       chakraLegend.style.top = 'auto';
       chakraLegend.style.right = 'auto';
       chakraLegend.style.width = '90%';
@@ -972,6 +972,11 @@ function positionLegendOnMobile() {
       chakraLegend.style.borderRadius = '10px';
       chakraLegend.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
       chakraLegend.style.borderLeft = '4px solid var(--main-decor-color)';
+      
+      // Ajouter un style important pour s'assurer que la légende est bien positionnée
+      chakraLegend.style.setProperty('order', '-1', 'important');
+      chakraLegend.style.setProperty('position', 'relative', 'important');
+      chakraLegend.style.setProperty('margin-bottom', '80px', 'important');
 
       // Rendre les éléments de la légende plus lisibles
       const legendTitle = chakraLegend.querySelector('.legend-title');
@@ -991,7 +996,7 @@ function positionLegendOnMobile() {
 
       // Positionner l'arbre après la légende avec une séparation claire
       chakraTreeContainer.style.order = '1';
-      chakraTreeContainer.style.marginTop = '20px';
+      chakraTreeContainer.style.marginTop = '0'; // Réinitialiser la marge supérieure
       chakraTreeContainer.style.paddingTop = '0';
       
       // Définir une taille fixe pour le conteneur de l'arbre
@@ -999,6 +1004,10 @@ function positionLegendOnMobile() {
       const containerHeight = 650; // Hauteur fixe pour une meilleure visibilité
       chakraTreeContainer.style.width = `${containerWidth}px`;
       chakraTreeContainer.style.height = `${containerHeight}px`;
+      
+      // Ajouter un style important pour s'assurer que l'arbre est bien positionné
+      chakraTreeContainer.style.setProperty('order', '1', 'important');
+      chakraTreeContainer.style.setProperty('margin-top', '0', 'important');
       
       // S'assurer que les chakras restent visibles
       document.querySelectorAll('.chakra').forEach((chakra, index) => {
@@ -1011,6 +1020,11 @@ function positionLegendOnMobile() {
         const chakraSize = containerWidth * 0.07;
         chakra.style.width = `${chakraSize}px`;
         chakra.style.height = `${chakraSize}px`;
+        
+        // S'assurer que les positions des chakras respectent les pourcentages définis dans le CSS
+        chakra.style.setProperty('display', 'block', 'important');
+        chakra.style.setProperty('opacity', '1', 'important');
+        chakra.style.setProperty('visibility', 'visible', 'important');
       });
       
       // Centrer l'arbre horizontalement
@@ -1022,6 +1036,11 @@ function positionLegendOnMobile() {
         chakraTree.style.width = '100%';
         chakraTree.style.height = '100%';
         chakraTree.style.backgroundPosition = 'center';
+        
+        // Ajouter un style important pour s'assurer que l'arbre est centré
+        chakraTree.style.setProperty('position', 'absolute', 'important');
+        chakraTree.style.setProperty('left', '50%', 'important');
+        chakraTree.style.setProperty('transform', 'translateX(-50%)', 'important');
       }
     }
   }
