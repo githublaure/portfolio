@@ -1348,39 +1348,39 @@ hr {
 		visibility: visible !important;
 	}
 
-	/* Nouvelle configuration pour aligner les chakras correctement sur l'arbre (mobile) */
+	/* Nouvelle configuration pour aligner les chakras correctement sur l'arbre (mobile) avec un espacement vertical réduit */
 	.chakra-tree-container .chakra:nth-of-type(1) { 
-		top: 92% !important; 
+		top: 85% !important; 
 		left: 10% !important; 
 	} /* Rouge - Racine - Base du tronc */
 
 	.chakra-tree-container .chakra:nth-of-type(2) { 
-		top: 80% !important; 
+		top: 75% !important; 
 		left: 32% !important; 
 	} /* Orange - Sacré - Bas gauche */
 
 	.chakra-tree-container .chakra:nth-of-type(3) { 
-		top: 55% !important; 
+		top: 65% !important; 
 		left: 50% !important; 
 	} /* Jaune - Plexus solaire - Milieu du tronc */
 
 	.chakra-tree-container .chakra:nth-of-type(4) { 
-		top: 45% !important; 
+		top: 55% !important; 
 		left: 75% !important; 
 	} /* Vert - Cœur - Branches droites */
 
 	.chakra-tree-container .chakra:nth-of-type(5) { 
-		top: 30% !important; 
+		top: 45% !important; 
 		left: 25% !important; 
 	} /* Bleu clair - Gorge - Branches gauches haut */
 
 	.chakra-tree-container .chakra:nth-of-type(6) { 
-		top: 18% !important; 
+		top: 35% !important; 
 		left: 50% !important; 
 	} /* Bleu foncé - Troisième œil - Haut du feuillage */
 
 	.chakra-tree-container .chakra:nth-of-type(7) { 
-		top: 5% !important; 
+		top: 25% !important; 
 		left: 50% !important; 
 	} /* Violet - Couronne - Sommet */
 
