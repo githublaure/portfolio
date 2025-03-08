@@ -182,34 +182,42 @@ const initChakras = () => {
             // Conserver un rapport largeur/hauteur fixe
             const containerWidth = Math.min(window.innerWidth * 0.8, 900);
             const containerHeight = containerWidth * 1.11; // Ratio hauteur/largeur ~ 1.11
-            
+
             treeContainer.style.width = `${containerWidth}px`;
             treeContainer.style.height = `${containerHeight}px`;
             treeContainer.style.margin = '0 auto';
-            
+
             // Assurer que l'arbre reste centré et à la bonne taille
             const chakraTree = document.querySelector('.chakra-tree');
             if (chakraTree) {
-                chakraTree.style.position = 'absolute';
-                chakraTree.style.top = '0';
-                chakraTree.style.left = '0';
-                chakraTree.style.width = '100%';
-                chakraTree.style.height = '100%';
-                chakraTree.style.transformOrigin = 'center center';
+              chakraTree.style.position = 'absolute';
+              chakraTree.style.top = '0';
+              chakraTree.style.left = '0';
+              chakraTree.style.width = '100%';
+              chakraTree.style.height = '100%';
+              chakraTree.style.transformOrigin = 'center center';
             }
-            
+
             // Sur mobile, utiliser une mise à l'échelle spécifique
             if (window.innerWidth <= 768) {
-                treeContainer.style.width = '100%';
-                treeContainer.style.height = '750px';
-                treeContainer.style.transform = 'scale(1)';
-                treeContainer.style.transformOrigin = 'center center';
+              treeContainer.style.width = '100%';
+              treeContainer.style.height = '650px'; // Hauteur réduite
+              treeContainer.style.transform = 'scale(0.9)'; // Légèrement plus petit
+              treeContainer.style.transformOrigin = 'center center';
+              treeContainer.style.marginTop = '20px'; // Espace après la légende
+
+              // S'assurer que la légende est bien positionnée avant l'arbre
+              const chakraLegend = document.querySelector('.chakra-legend');
+              if (chakraLegend) {
+                chakraLegend.style.setProperty('order', '-1', 'important');
+                chakraLegend.style.setProperty('margin-bottom', '30px', 'important');
+              }
             }
         };
-        
+
         // Appliquer le dimensionnement initial
         setTreeContainerSize();
-        
+
         // Ajouter un écouteur de redimensionnement pour maintenir les proportions
         window.addEventListener('resize', setTreeContainerSize);
 
@@ -375,7 +383,7 @@ const initChakras = () => {
 
                     // S'assurer que le tooltip est au premier plan avec un z-index très élevé
                     tooltip.style.zIndex = '9999';
-                    
+
                     // Comportement spécifique sur mobile (écran < 768px)
                     if (window.innerWidth <= 768) {
                         // Sur mobile, afficher le tooltip au centre de l'écran
@@ -397,7 +405,7 @@ const initChakras = () => {
                         // Assurer que le texte est lisible
                         tooltip.style.fontSize = '14px';
                         tooltip.style.lineHeight = '1.4';
-                        
+
                         // Forcer le style avec !important
                         tooltip.style.setProperty('position', 'fixed', 'important');
                         tooltip.style.setProperty('left', '50%', 'important');
@@ -816,18 +824,18 @@ function checkScreenSize() {
   const chakraTree = document.querySelector('.chakra-tree');
 
   if (!chakraTreeContainer || !chakraTree) return;
-  
+
   // Adapter la taille du conteneur en fonction de la fenêtre
   const containerWidth = Math.min(window.innerWidth * 0.8, 900);
   const containerHeight = containerWidth * 1.11; // Ratio hauteur/largeur
-  
+
   // Configurer le conteneur principal
   chakraTreeContainer.style.width = `${containerWidth}px`;
   chakraTreeContainer.style.height = `${containerHeight}px`;
   chakraTreeContainer.style.margin = '0 auto';
   chakraTreeContainer.style.position = 'relative';
   chakraTreeContainer.style.transformOrigin = 'center center';
-  
+
   // Configurer l'arbre
   chakraTree.style.position = 'absolute';
   chakraTree.style.top = '0';
@@ -845,7 +853,7 @@ function checkScreenSize() {
       chakra.style.display = "block";
       chakra.style.opacity = "1";
       chakra.style.visibility = "visible";
-      
+
       // Positions fixes par rapport à l'arbre, avec espacement vertical réduit
       switch(index) {
         case 0: // Rouge - Racine
@@ -884,7 +892,7 @@ function checkScreenSize() {
           chakra.style.zIndex = "25";
           break;
       }
-      
+
       // Configuration spéciale pour les infobulles sur mobile
       const tooltip = chakra.querySelector('.tooltip');
       if (tooltip) {
@@ -917,7 +925,7 @@ function checkScreenSize() {
     chakraTreeContainer.style.justifyContent = "center";
     chakraTreeContainer.style.position = "relative";
     chakraTreeContainer.style.overflow = "visible";
-    
+
     // Centrer l'arbre correctement
     const chakraTree = document.querySelector('.chakra-tree');
     if (chakraTree) {
@@ -928,7 +936,7 @@ function checkScreenSize() {
       chakraTree.style.setProperty('height', '100%', 'important');
       chakraTree.style.setProperty('background-position', 'center', 'important');
     }
-    
+
     // Assurer que la légende ne cache pas les chakras
     const chakraLegend = document.querySelector('.chakra-legend');
     if (chakraLegend) {
@@ -944,14 +952,14 @@ function checkScreenSize() {
       chakra.style.width = "40px";
       chakra.style.height = "40px";
       chakra.style.transform = "translate(-50%, -50%)";
-      
+
       // Utiliser les positions définies en CSS pour les grands écrans
       // Les positions sont déjà définies en pourcentage dans le CSS
     });
-    
+
     // Configuration du conteneur pour desktop
     chakraTreeContainer.style.transform = "scale(1)";
-    
+
     // Remettre la légende à sa position normale
     const chakraLegend = document.querySelector('.chakra-legend');
     if (chakraLegend) {
@@ -974,13 +982,13 @@ function positionLegendOnMobile() {
     const chakraSection = document.getElementById('chakra-section');
     const chakraLegend = document.querySelector('.chakra-legend');
     const chakraTreeContainer = document.querySelector('.chakra-tree-container');
-    
+
     if (chakraSection && chakraLegend && chakraTreeContainer) {
       // S'assurer que la section chakra utilise flexbox pour un meilleur contrôle
       chakraSection.style.display = 'flex';
       chakraSection.style.flexDirection = 'column';
       chakraSection.style.alignItems = 'center';
-      
+
       // Positionner la légende en bas après l'arbre
       chakraLegend.style.order = '1';
       chakraLegend.style.marginTop = '50px';
@@ -988,19 +996,19 @@ function positionLegendOnMobile() {
       chakraLegend.style.position = 'relative';
       chakraLegend.style.top = 'auto';
       chakraLegend.style.right = 'auto';
-      
+
       // Positionner l'arbre avant la légende
       chakraTreeContainer.style.order = '0';
       chakraTreeContainer.style.marginTop = '0';
       chakraTreeContainer.style.paddingTop = '0';
-      
+
       // S'assurer que les chakras du haut sont bien positionnés
       const chakras = document.querySelectorAll('.chakra');
       if (chakras.length >= 7) {
         // Troisième œil (6ème chakra)
         chakras[5].style.top = '30%';
         chakras[5].style.left = '38%';
-        
+
         // Couronne (7ème chakra)
         chakras[6].style.top = '20%';
         chakras[6].style.left = '50%';
@@ -1017,9 +1025,9 @@ window.addEventListener('resize', positionLegendOnMobile);
 const initProjectCategories = () => {
     const categoryBullets = document.querySelectorAll('.category-bullet');
     const projectCards = document.querySelectorAll('.work .card');
-    
+
     console.log("Nombre de cartes trouvées:", projectCards.length);
-    
+
     // Définir des catégories et des données pour les projets
     const categories = ['datascience', 'webdesign', 'community', 'design'];
     const projectData = [
@@ -1096,7 +1104,7 @@ const initProjectCategories = () => {
             fullImage: "https://images.unsplash.com/photo-1483546416237-76fd26bbcdd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
         }
     ];
-    
+
     // Attribuer les données aux cartes existantes
     projectCards.forEach((card, index) => {
         if (index < projectData.length) {
@@ -1105,13 +1113,13 @@ const initProjectCategories = () => {
             card.setAttribute('data-title', data.title);
             card.setAttribute('data-description', data.description);
             card.setAttribute('data-image', data.fullImage);
-            
+
             // Mise à jour du contenu texte de la carte
             const workContent = card.querySelector('.work-content');
             if (workContent) {
                 workContent.textContent = data.title;
             }
-            
+
             // Mise à jour de l'image
             const workImg = card.querySelector('.work-img');
             if (workImg) {
@@ -1119,10 +1127,10 @@ const initProjectCategories = () => {
             }
         }
     });
-    
+
     // Créer la popup
     createProjectPopup();
-    
+
     // Ajouter les événements de clic sur les cartes
     projectCards.forEach(card => {
         card.addEventListener('click', (e) => {
@@ -1131,30 +1139,30 @@ const initProjectCategories = () => {
             const category = card.getAttribute('data-category');
             const description = card.getAttribute('data-description');
             const image = card.getAttribute('data-image');
-            
+
             if (title && category && description && image) {
                 showProjectPopup(title, category, description, image);
             }
         });
     });
-    
+
     // Ajouter les événements de clic sur les filtres de catégorie
     if (categoryBullets.length > 0) {
         // Premier clic sur "Tous" pour initialiser l'affichage
-        
+
         categoryBullets.forEach(bullet => {
             bullet.addEventListener('click', () => {
                 console.log("Catégorie cliquée:", bullet.getAttribute('data-category'));
-                
+
                 // Supprimer la classe active de tous les bullets
                 categoryBullets.forEach(b => b.classList.remove('active'));
-                
+
                 // Ajouter la classe active au bullet cliqué
                 bullet.classList.add('active');
-                
+
                 const selectedCategory = bullet.getAttribute('data-category');
                 console.log("Catégorie sélectionnée:", selectedCategory);
-                
+
                 // Nettoyage et force d'affichage des cartes
                 projectCards.forEach(card => {
                     card.style.removeProperty('display');
@@ -1166,7 +1174,7 @@ const initProjectCategories = () => {
                 projectCards.forEach(card => {
                     const cardCategory = card.getAttribute('data-category');
                     console.log("Carte:", card.getAttribute('data-title'), "- Catégorie:", cardCategory);
-                    
+
                     if (selectedCategory === 'all' || cardCategory === selectedCategory) {
                         // Forcer l'affichage avec !important pour écraser toute autre valeur
                         card.style.setProperty('display', 'flex', 'important');
@@ -1183,7 +1191,7 @@ const initProjectCategories = () => {
                         console.log("Carte à masquer:", card.getAttribute('data-title'));
                     }
                 });
-                
+
                 // Animation des bullets avec effet bump
                 bullet.style.animation = 'none';
                 setTimeout(() => {
@@ -1191,7 +1199,7 @@ const initProjectCategories = () => {
                 }, 10);
             });
         });
-        
+
         // Déclencher le clic sur "Tous" pour initialiser l'affichage
         const allBullet = document.querySelector('.category-bullet[data-category="all"]');
         if (allBullet) {
@@ -1226,28 +1234,28 @@ const createProjectPopup = () => {
             </div>
         `;
         document.body.appendChild(popup);
-        
+
         // Fermer la popup au clic sur la croix
         const closeBtn = popup.querySelector('.close-popup');
         closeBtn.addEventListener('click', () => {
             popup.classList.remove('active');
         });
-        
+
         // Fermer la popup au clic en dehors du contenu
         popup.addEventListener('click', (e) => {
             if (e.target === popup) {
                 popup.classList.remove('active');
             }
         });
-        
+
         // Navigation entre projets
         const prevBtn = popup.querySelector('.nav-prev');
         const nextBtn = popup.querySelector('.nav-next');
-        
+
         prevBtn.addEventListener('click', () => {
             navigateProjects('prev');
         });
-        
+
         nextBtn.addEventListener('click', () => {
             navigateProjects('next');
         });
@@ -1257,14 +1265,14 @@ const createProjectPopup = () => {
 // Afficher la popup avec les détails du projet
 const showProjectPopup = (title, category, description, image) => {
     const popup = document.getElementById('project-popup');
-    
+
     // Sauvegarder les informations du projet courant pour la navigation
     popup.setAttribute('data-current-title', title);
     popup.setAttribute('data-current-category', category);
-    
+
     // Mettre à jour le contenu
     popup.querySelector('.popup-title').textContent = title;
-    
+
     // Formater la catégorie pour l'affichage
     let categoryDisplay = '';
     switch(category) {
@@ -1281,11 +1289,11 @@ const showProjectPopup = (title, category, description, image) => {
             categoryDisplay = '2D/3D Design';
             break;
     }
-    
+
     popup.querySelector('.popup-category').textContent = categoryDisplay;
     popup.querySelector('.popup-description').textContent = description;
     popup.querySelector('.popup-image img').src = image;
-    
+
     // Afficher la popup avec animation
     popup.classList.add('active');
 };
@@ -1295,19 +1303,19 @@ const navigateProjects = (direction) => {
     const popup = document.getElementById('project-popup');
     const currentCategory = popup.getAttribute('data-current-category');
     const currentTitle = popup.getAttribute('data-current-title');
-    
+
     // Récupérer tous les projets de la même catégorie
     const projectsInCategory = Array.from(document.querySelectorAll(`.card[data-category="${currentCategory}"]`));
-    
+
     if (projectsInCategory.length <= 1) return; // Pas de navigation si un seul projet
-    
+
     // Trouver l'index du projet courant
     const currentIndex = projectsInCategory.findIndex(card => 
         card.getAttribute('data-title') === currentTitle
     );
-    
+
     if (currentIndex === -1) return;
-    
+
     // Calculer le nouvel index
     let newIndex;
     if (direction === 'next') {
@@ -1315,14 +1323,14 @@ const navigateProjects = (direction) => {
     } else {
         newIndex = (currentIndex - 1 + projectsInCategory.length) % projectsInCategory.length;
     }
-    
+
     // Récupérer les données du nouveau projet
     const nextProject = projectsInCategory[newIndex];
     const title = nextProject.getAttribute('data-title');
     const category = nextProject.getAttribute('data-category');
     const description = nextProject.getAttribute('data-description');
     const image = nextProject.getAttribute('data-image');
-    
+
     // Mettre à jour la popup
     showProjectPopup(title, category, description, image);
 };
