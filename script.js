@@ -510,100 +510,66 @@ const initSocialAnimations = () => {
 }
 
 
-// Système de score et tri pour les images Laure
+// Système de score pour les images Laure sans effet de mélange
 const initLaureGallery = () => {
     const laureItems = document.querySelectorAll('.laure-item');
     if (!laureItems.length) return;
 
+    // Créer un objet pour suivre les scores par image
+    const imageScores = {};
+
+    // Initialiser les scores à partir des attributs data-score
+    laureItems.forEach(item => {
+        const img = item.querySelector('img');
+        if (img) {
+            const imgFileName = img.src.split('/').pop();
+            const score = parseInt(item.getAttribute('data-score')) || 0;
+            imageScores[imgFileName] = score;
+        }
+    });
+
     // Ajouter les événements de clic pour augmenter le score
     laureItems.forEach(item => {
         item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            if (!img) return;
+            
+            // Extraire le nom du fichier
+            const imgFileName = img.src.split('/').pop();
+            
             // Augmenter le score
-            let score = parseInt(item.getAttribute('data-score')) + 1;
-            item.setAttribute('data-score', score);
-
+            imageScores[imgFileName] = (imageScores[imgFileName] || 0) + 1;
+            
             // Mettre à jour l'affichage du score pour tous les éléments avec la même image
-            const imgSrc = item.querySelector('img').src;
-            // Extraire le nom du fichier de l'URL complète
-            const imgFileName = imgSrc.split('/').pop();
-
-            // Sélectionner tous les éléments avec la même image par nom de fichier
             const allMatchingItems = document.querySelectorAll('.laure-item');
-
+            
             allMatchingItems.forEach(matchItem => {
                 const matchImg = matchItem.querySelector('img');
                 if (matchImg && matchImg.src.includes(imgFileName)) {
-                    matchItem.setAttribute('data-score', score);
+                    matchItem.setAttribute('data-score', imageScores[imgFileName]);
                     const scoreElement = matchItem.querySelector('.score');
                     if (scoreElement) {
-                        scoreElement.textContent = score;
+                        scoreElement.textContent = imageScores[imgFileName];
                     }
                 }
             });
-
-            // Trier les éléments en fonction du score
-            sortLaureItems();
-            sortNavbarLaureItems();
+            
+            // Pas de tri ou de repositionnement des éléments
+            // Cela élimine l'effet "hacker" de mélange
         });
     });
 };
 
-// Fonction pour trier les éléments Laure par score dans la section principale
+// Ces fonctions de tri ne sont plus utilisées pour éviter le mélange des images
+// mais elles sont conservées au cas où vous souhaiteriez les réactiver plus tard
 const sortLaureItems = () => {
-    const gallery = document.querySelector('.laure-gallery');
-    if (!gallery) return;
-
-    // Convertir NodeList en tableau pour le tri
-    const items = Array.from(gallery.querySelectorAll('.laure-item'));
-
-    // Trier par score décroissant
-    items.sort((a, b) => {
-        const scoreA = parseInt(a.getAttribute('data-score'));
-        const scoreB = parseInt(b.getAttribute('data-score'));
-        return scoreB - scoreA;
-    });
-
-    // Animation de tri
-    items.forEach((item, index) => {
-        // Appliquer une transition pour le déplacement
-        item.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-        item.style.opacity = '0.7';
-
-        // Repositionner après un court délai pour permettre l'animation
-        setTimeout(() => {
-            gallery.appendChild(item);
-            item.style.opacity = '1';
-        }, index * 100);
-    });
+    // Fonction désactivée pour éviter le mélange
+    return;
 };
 
-// Fonction pour trier les éléments Laure par score dans la navbar
 const sortNavbarLaureItems = () => {
-    const navbarGallery = document.querySelector('.navbar-laure-gallery');
-    if (!navbarGallery) return;
-
-    // Convertir NodeList en tableau pour le tri
-    const items = Array.from(navbarGallery.querySelectorAll('.laure-item'));
-
-    // Trier par score décroissant
-    items.sort((a, b) => {
-        const scoreA = parseInt(a.getAttribute('data-score'));
-        const scoreB = parseInt(b.getAttribute('data-score'));
-        return scoreB - scoreA;
-    });
-
-    // Animation de tri
-    items.forEach((item, index) => {
-        // Appliquer une transition pour le déplacement
-        item.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
-        item.style.opacity = '0.7';
-
-        // Repositionner après un court délai pour permettre l'animation
-        setTimeout(() => {
-            navbarGallery.appendChild(item);
-            item.style.opacity = '1';
-        }, index * 50);
-    });
+    // Fonction désactivée pour éviter le mélange
+    return;
 };
 
 
