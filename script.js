@@ -16,28 +16,28 @@ const navSlide = () => {
      const navbar = document.querySelector(".nav-bar");
      const navLinks = document.querySelectorAll(".nav-bar li");
 
-     hamburger.onclick = () => {
+     if(hamburger && navbar && navLinks){
+        hamburger.onclick = () => {
+            navbar.classList.toggle("nav-active");
 
-     navbar.classList.toggle("nav-active");
-
-      //Animation links
-     navLinks.forEach((link, index) => {
-        if (link.style.animation) {
-            link.style.animation = "";
-        } else {
-            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7+1}s`;
-           }
-        });
-      //hamburger animation
-     hamburger.classList.toggle("toggle");
-    }
-
+            //Animation links
+            navLinks.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = "";
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7+1}s`;
+                }
+            });
+            //hamburger animation
+            hamburger.classList.toggle("toggle");
+        }
+     }
 }
 
 // Animation de chargement
 window.addEventListener("load", function() {
         const loader = document.querySelector(".loader");
-        loader.className += " hidden";
+        if(loader) loader.className += " hidden";
 
         // Effet hackerEffect pour l'image de profil
         const profilePic = document.querySelector(".profile-picture");
@@ -115,14 +115,6 @@ window.addEventListener("load", function() {
             });
         }
     });
-
-    // Animation au défilement
-    const scrollAppear = () => {
-        const fadeInElements = document.querySelectorAll('.fade-in');
-        const projectsSection = document.getElementById('projects');
-        const projectCards = document.querySelectorAll('#projects .card');
-
-        // Si on est sur mobile, rendre tous les éléments visibles immédiatement
 
 // Animation au défilement
 const scrollAppear = () => {
@@ -525,28 +517,30 @@ const matrix = () => {
     let targets = document.querySelectorAll(".nav-link");
 
     targets.forEach(target => {
-        target.addEventListener("mouseover", event => {
-            let iterations = 0;
+        if(target && target.dataset){
+            target.addEventListener("mouseover", event => {
+                let iterations = 0;
 
-            const interval = setInterval(() => {
-                event.target.innerText = event.target.innerText
-                    .split("")
-                    .map((letter, index) => {
-                        if(index < iterations) {
-                            return event.target.dataset.value[index];
-                        }
-                        return letters[Math.floor(Math.random() * 26)];
-                    })
-                    .join("");
+                const interval = setInterval(() => {
+                    event.target.innerText = event.target.innerText
+                        .split("")
+                        .map((letter, index) => {
+                            if(index < iterations) {
+                                return event.target.dataset.value[index];
+                            }
+                            return letters[Math.floor(Math.random() * 26)];
+                        })
+                        .join("");
 
-                if(iterations >= event.target.dataset.value.length) clearInterval(interval);
+                    if(iterations >= event.target.dataset.value.length) clearInterval(interval);
 
-                iterations += 1 / 3;
-            }, 30);
-        });
+                    iterations += 1 / 3;
+                }, 30);
+            });
 
-        // Sauvegarde du texte original
-        target.dataset.value = target.innerText;
+            // Sauvegarde du texte original
+            target.dataset.value = target.innerText;
+        }
     });
 }
 
@@ -575,19 +569,21 @@ const initSocialAnimations = () => {
     const socialLinks = document.querySelectorAll('.social-media a');
     socialLinks.forEach(link => {
         // Utiliser les classes CSS plutôt que des styles inline pour une meilleure performance
-        link.addEventListener('mouseenter', () => {
-            const icon = link.querySelector('i');
-            if (icon) {
-                icon.classList.add('hover-effect');
-            }
-        });
+        if(link){
+            link.addEventListener('mouseenter', () => {
+                const icon = link.querySelector('i');
+                if (icon) {
+                    icon.classList.add('hover-effect');
+                }
+            });
 
-        link.addEventListener('mouseleave', () => {
-            const icon = link.querySelector('i');
-            if (icon) {
-                icon.classList.remove('hover-effect');
-            }
-        });
+            link.addEventListener('mouseleave', () => {
+                const icon = link.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('hover-effect');
+                }
+            });
+        }
     });
 }
 
@@ -612,33 +608,35 @@ const initLaureGallery = () => {
 
     // Ajouter les événements de clic pour augmenter le score
     laureItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const img = item.querySelector('img');
-            if (!img) return;
-            
-            // Extraire le nom du fichier
-            const imgFileName = img.src.split('/').pop();
-            
-            // Augmenter le score
-            imageScores[imgFileName] = (imageScores[imgFileName] || 0) + 1;
-            
-            // Mettre à jour l'affichage du score pour tous les éléments avec la même image
-            const allMatchingItems = document.querySelectorAll('.laure-item');
-            
-            allMatchingItems.forEach(matchItem => {
-                const matchImg = matchItem.querySelector('img');
-                if (matchImg && matchImg.src.includes(imgFileName)) {
-                    matchItem.setAttribute('data-score', imageScores[imgFileName]);
-                    const scoreElement = matchItem.querySelector('.score');
-                    if (scoreElement) {
-                        scoreElement.textContent = imageScores[imgFileName];
+        if(item){
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                if (!img) return;
+
+                // Extraire le nom du fichier
+                const imgFileName = img.src.split('/').pop();
+
+                // Augmenter le score
+                imageScores[imgFileName] = (imageScores[imgFileName] || 0) + 1;
+
+                // Mettre à jour l'affichage du score pour tous les éléments avec la même image
+                const allMatchingItems = document.querySelectorAll('.laure-item');
+
+                allMatchingItems.forEach(matchItem => {
+                    const matchImg = matchItem.querySelector('img');
+                    if (matchImg && matchImg.src.includes(imgFileName)) {
+                        matchItem.setAttribute('data-score', imageScores[imgFileName]);
+                        const scoreElement = matchItem.querySelector('.score');
+                        if (scoreElement) {
+                            scoreElement.textContent = imageScores[imgFileName];
+                        }
                     }
-                }
+                });
+
+                // Pas de tri ou de repositionnement des éléments
+                // Cela élimine l'effet "hacker" de mélange
             });
-            
-            // Pas de tri ou de repositionnement des éléments
-            // Cela élimine l'effet "hacker" de mélange
-        });
+        }
     });
 };
 
@@ -663,9 +661,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Forcer la visibilité de tous les éléments sur mobile
   if (window.innerWidth <= 768) {
     document.querySelectorAll('.chakra, .laure-item, .card').forEach(item => {
-      item.style.display = 'block';
-      item.style.opacity = '1';
-      item.style.visibility = 'visible';
+      if(item) {
+        item.style.display = 'block';
+        item.style.opacity = '1';
+        item.style.visibility = 'visible';
+      }
     });
   }
 });
@@ -674,28 +674,33 @@ document.addEventListener('DOMContentLoaded', function() {
 let lastScrollTop = 0;
 window.addEventListener("scroll", () => {
   let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const header = document.querySelector("header");
 
-  if (scrollTop > lastScrollTop) {
-    // Scroll down
-    document.querySelector("header").style.top = "-70px";
-  } else {
-    // Scroll up
-    document.querySelector("header").style.top = "0";
+  if (header) {
+    if (scrollTop > lastScrollTop) {
+      // Scroll down
+      header.style.top = "-70px";
+    } else {
+      // Scroll up
+      header.style.top = "0";
+    }
+    lastScrollTop = scrollTop;
   }
-  lastScrollTop = scrollTop;
 });
 
 // Page loader
 window.addEventListener("load", () => {
-  document.querySelector(".loader").classList.add("hidden");
+  const loader = document.querySelector(".loader");
+  if(loader) loader.classList.add("hidden");
 
   // S'assurer que les éléments Laure sont visibles
   // Ensure Laure items are visible
-document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.laure-item').forEach(item => {
-    item.style.display = 'inline-block';
-    item.style.opacity = '1';
-    item.style.visibility = 'visible';
+    if(item) {
+      item.style.display = 'inline-block';
+      item.style.opacity = '1';
+      item.style.visibility = 'visible';
+    }
   });
 
   // Navigation hamburger menu
@@ -716,9 +721,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Centrer le contenu
     document.querySelectorAll('#home, #projects, #contact, #chakra-section, footer').forEach(section => {
-      section.style.width = '100%';
-      section.style.boxSizing = 'border-box';
-      section.style.margin = '0 auto';
+      if(section) {
+        section.style.width = '100%';
+        section.style.boxSizing = 'border-box';
+        section.style.margin = '0 auto';
+      }
     });
   }
 
@@ -728,22 +735,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Animation du loader
   setTimeout(() => {
-    document.querySelector(".loader").classList.add("hidden");
-    document.querySelector(".loader").style.display = "none";
+    if(loader) {
+      loader.classList.add("hidden");
+      loader.style.display = "none";
+    }
   }, 500);
 
   // S'assurer que tous les éléments sont visibles sur mobile
   if (window.innerWidth <= 768) {
     document.querySelectorAll('.chakra').forEach(function(el) {
-      el.style.display = 'block';
-      el.style.opacity = '1';
-      el.style.visibility = 'visible';
+      if(el) {
+        el.style.display = 'block';
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+      }
     });
 
     document.querySelectorAll('.card, .laure-item').forEach(function(el) {
-      el.style.display = 'block';
-      el.style.opacity = '1';
-      el.style.visibility = 'visible';
+      if(el) {
+        el.style.display = 'block';
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+      }
     });
   }
 });
@@ -754,7 +767,7 @@ function navSlide() {
   const navBar = document.querySelector(".nav-bar");
   const navLinks = document.querySelectorAll(".nav-bar li");
 
-  if (hamburger) {
+  if (hamburger && navBar && navLinks) {
     hamburger.addEventListener("click", () => {
       // Toggle navigation
       navBar.classList.toggle("nav-active");
@@ -776,21 +789,20 @@ function navSlide() {
   // Close menu when a link is clicked
   const links = document.querySelectorAll(".nav-link");
   links.forEach(link => {
-    link.addEventListener("click", () => {
-      if (navBar.classList.contains("nav-active")) {
-        navBar.classList.remove("nav-active");
-        hamburger.classList.remove("toggle");
+    if(link){
+        link.addEventListener("click", () => {
+            if (navBar.classList.contains("nav-active")) {
+              navBar.classList.remove("nav-active");
+              hamburger.classList.remove("toggle");
 
-        navLinks.forEach(link => {
-          link.style.animation = "";
+              navLinks.forEach(link => {
+                link.style.animation = "";
+              });
+            }
         });
-      }
-    });
+    }
   });
-}setTimeout(() => {
-    document.querySelector(".loader").style.display = "none";
-  }, 500);
-});
+}
 
 // Rendre toutes les animations responsives lors du redimensionnement
 function checkScreenSize() {
@@ -1308,6 +1320,8 @@ const showProjectPopup = (title, category, description, image) => {
         case 'design':
             categoryDisplay = '2D/3D Design';
             break;
+        default:
+            categoryDisplay = category;
     }
 
     popup.querySelector('.popup-category').textContent = categoryDisplay;
