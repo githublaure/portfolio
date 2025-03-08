@@ -874,12 +874,12 @@ function checkScreenSize() {
           chakra.style.zIndex = "16";
           break;
         case 5: // Bleu foncé - Troisième œil
-          chakra.style.top = "40%";
+          chakra.style.top = "30%"; // Position ajustée pour être plus visible
           chakra.style.left = "38%";
           chakra.style.zIndex = "15";
           break;
         case 6: // Violet - Couronne
-          chakra.style.top = "25%"; // Position plus basse pour éviter la légende
+          chakra.style.top = "20%"; // Position ajustée pour être plus visible
           chakra.style.left = "50%";
           chakra.style.zIndex = "25";
           break;
@@ -981,16 +981,30 @@ function positionLegendOnMobile() {
       chakraSection.style.flexDirection = 'column';
       chakraSection.style.alignItems = 'center';
       
-      // Positionner la légende tout en haut, clairement séparée
-      chakraLegend.style.order = '-1';
-      chakraLegend.style.marginBottom = '50px';
+      // Positionner la légende en bas après l'arbre
+      chakraLegend.style.order = '1';
+      chakraLegend.style.marginTop = '50px';
+      chakraLegend.style.marginBottom = '20px';
       chakraLegend.style.position = 'relative';
       chakraLegend.style.top = 'auto';
       chakraLegend.style.right = 'auto';
       
-      // Donner plus d'espace à l'arbre
+      // Positionner l'arbre avant la légende
+      chakraTreeContainer.style.order = '0';
       chakraTreeContainer.style.marginTop = '0';
-      chakraTreeContainer.style.paddingTop = '20px';
+      chakraTreeContainer.style.paddingTop = '0';
+      
+      // S'assurer que les chakras du haut sont bien positionnés
+      const chakras = document.querySelectorAll('.chakra');
+      if (chakras.length >= 7) {
+        // Troisième œil (6ème chakra)
+        chakras[5].style.top = '30%';
+        chakras[5].style.left = '38%';
+        
+        // Couronne (7ème chakra)
+        chakras[6].style.top = '20%';
+        chakras[6].style.left = '50%';
+      }
     }
   }
 }

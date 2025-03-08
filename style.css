@@ -1271,16 +1271,14 @@ hr {
 @media only screen and (max-width: 768px) {
 	.chakra-legend {
 		position: relative;
-		top: auto;
-		right: auto;
-		transform: none;
-		margin: 0 auto 50px auto; /* Plus grand espace en bas pour séparer clairement de l'arbre */
 		width: 90%;
 		max-width: 300px;
 		background: rgba(248, 243, 233, 0.98);
 		z-index: 40;
-		order: -1; /* Placer la légende avant l'arbre dans le flex container */
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Ombre pour mieux se détacher */
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		/* Positionner la légende en bas pour ne pas cacher l'arbre */
+		order: 1; /* Placer la légende après l'arbre dans le flex container */
+		margin: 50px auto 20px auto; /* Marge en haut et en bas */
 	}
 	
 	/* Ajuster le conteneur principal pour créer une séparation claire */
@@ -1288,26 +1286,22 @@ hr {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		padding-bottom: 70px; /* Réduire l'espace en bas */
 	}
 	
-	/* Créer un espace distinct pour la légende et l'arbre */
-	.chakra-tree-container {
-		margin-top: 0; /* Supprimer la marge supérieure */
-		padding-top: 20px; /* Ajouter un peu d'espace en haut */
-	}
-
 	/* Ajustement du conteneur pour s'assurer qu'il y a de l'espace pour tous les chakras */
 	.chakra-tree-container {
-		margin-top: 30px;
-		height: 850px !important; /* Hauteur encore plus augmentée pour accueillir tous les chakras */
-		padding-bottom: 150px; /* Espacement supplémentaire en bas */
-		padding-top: 120px; /* Ajouter plus d'espace en haut pour éviter le conflit avec la légende */
+		margin-top: 0;
+		height: 750px !important; /* Hauteur adaptée */
+		padding-bottom: 20px; /* Moins d'espace en bas */
+		padding-top: 0; /* Pas d'espace en haut pour coller à la section */
 		display: flex !important;
 		flex-direction: column !important;
 		align-items: center !important;
 		justify-content: center !important;
 		position: relative !important;
 		overflow: visible !important;
+		order: 0; /* S'assurer que l'arbre est avant la légende */
 	}
 
 	/* Centrer l'arbre des chakras sur mobile */
@@ -1318,11 +1312,6 @@ hr {
 		width: 100% !important;
 		height: 100% !important;
 		background-position: center !important;
-	}
-
-	/* S'assurer que le chakra racine est bien visible et dans l'arbre */
-	#chakra-section {
-		padding-bottom: 150px; /* Augmenter l'espace en bas */
 	}
 
 	/* Réduire la taille des chakras sur mobile */
@@ -1345,9 +1334,15 @@ hr {
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important;
 	}
 	
-	/* S'assurer que le chakra couronne ne se superpose pas à la légende */
-	.chakra-tree-container .chakra:nth-of-type(7) {
-		top: 25% !important; /* Position plus basse pour éviter la légende */
+	/* Positions ajustées des chakras du haut pour qu'ils soient bien visibles */
+	.chakra-tree-container .chakra:nth-of-type(6) { /* 3ème œil */
+		top: 30% !important;
+		left: 38% !important;
+	}
+	
+	.chakra-tree-container .chakra:nth-of-type(7) { /* Couronne */
+		top: 20% !important;
+		left: 50% !important;
 	}
 }
 
