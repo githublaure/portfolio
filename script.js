@@ -1349,3 +1349,12 @@ window.onload = () => {
     // Détecter le scroll pour les animations
     window.addEventListener('scroll', scrollAppear);
 };
+// Initialisation de l'arbre des chakras
+window.addEventListener('load', function() {
+  initChakras();
+  setTimeout(positionLegendOnMobile, 200); // Exécuter après un court délai pour s'assurer que tout est chargé
+});
+window.addEventListener('resize', function() {
+  initChakras();
+  positionLegendOnMobile();
+});

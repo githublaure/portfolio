@@ -1270,7 +1270,7 @@ hr {
 
 @media only screen and (max-width: 768px) {
 	.chakra-legend {
-		position: static !important;
+		position: relative !important;
 		width: 90%;
 		max-width: 300px;
 		background: rgba(248, 243, 233, 0.98);
@@ -1281,8 +1281,10 @@ hr {
 		margin: 0 auto 60px auto; /* Plus grande marge en bas pour séparer de l'arbre */
 		top: auto !important;
 		right: auto !important;
+		left: auto !important;
 		transform: none !important;
 		display: block !important;
+		max-height: none !important;
 	}
 
 	/* Ajuster le conteneur principal pour créer une séparation claire */
