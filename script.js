@@ -584,33 +584,100 @@ const initSocialAnimations = () => {
 }
 
 
-// Version simplifiée pour les images Laure (sans effet hacker)
+// Système de score et tri pour les images Laure
 const initLaureGallery = () => {
     const laureItems = document.querySelectorAll('.laure-item');
     if (!laureItems.length) return;
 
-    // Assurons-nous simplement que les éléments sont visibles
+    // Ajouter les événements de clic pour augmenter le score
     laureItems.forEach(item => {
-        item.style.display = 'inline-block';
-        item.style.opacity = '1';
-        item.style.visibility = 'visible';
-        
-        // Masquer les scores qui ne seront plus utilisés
-        const scoreElement = item.querySelector('.score');
-        if (scoreElement) {
-            scoreElement.style.display = 'none';
-        }
+        item.addEventListener('click', () => {
+            // Augmenter le score
+            let score = parseInt(item.getAttribute('data-score')) + 1;
+            item.setAttribute('data-score', score);
+
+            // Mettre à jour l'affichage du score pour tous les éléments avec la même image
+            const imgSrc = item.querySelector('img').src;
+            // Extraire le nom du fichier de l'URL complète
+            const imgFileName = imgSrc.split('/').pop();
+
+            // Sélectionner tous les éléments avec la même image par nom de fichier
+            const allMatchingItems = document.querySelectorAll('.laure-item');
+
+            allMatchingItems.forEach(matchItem => {
+                const matchImg = matchItem.querySelector('img');
+                if (matchImg && matchImg.src.includes(imgFileName)) {
+                    matchItem.setAttribute('data-score', score);
+                    const scoreElement = matchItem.querySelector('.score');
+                    if (scoreElement) {
+                        scoreElement.textContent = score;
+                    }
+                }
+            });
+
+            // Trier les éléments en fonction du score
+            sortLaureItems();
+            sortNavbarLaureItems();
+        });
     });
 };
 
-// Fonction simplifiée pour la section principale (sans tri)
+// Fonction pour trier les éléments Laure par score dans la section principale
 const sortLaureItems = () => {
-    // Cette fonction ne fait plus rien car nous avons supprimé le tri
+    const gallery = document.querySelector('.laure-gallery');
+    if (!gallery) return;
+
+    // Convertir NodeList en tableau pour le tri
+    const items = Array.from(gallery.querySelectorAll('.laure-item'));
+
+    // Trier par score décroissant
+    items.sort((a, b) => {
+        const scoreA = parseInt(a.getAttribute('data-score'));
+        const scoreB = parseInt(b.getAttribute('data-score'));
+        return scoreB - scoreA;
+    });
+
+    // Animation de tri
+    items.forEach((item, index) => {
+        // Appliquer une transition pour le déplacement
+        item.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+        item.style.opacity = '0.7';
+
+        // Repositionner après un court délai pour permettre l'animation
+        setTimeout(() => {
+            gallery.appendChild(item);
+            item.style.opacity = '1';
+        }, index * 100);
+    });
 };
 
-// Fonction simplifiée pour la navbar (sans tri)
+// Fonction pour trier les éléments Laure par score dans la navbar
 const sortNavbarLaureItems = () => {
-    // Cette fonction ne fait plus rien car nous avons supprimé le tri
+    const navbarGallery = document.querySelector('.navbar-laure-gallery');
+    if (!navbarGallery) return;
+
+    // Convertir NodeList en tableau pour le tri
+    const items = Array.from(navbarGallery.querySelectorAll('.laure-item'));
+
+    // Trier par score décroissant
+    items.sort((a, b) => {
+        const scoreA = parseInt(a.getAttribute('data-score'));
+        const scoreB = parseInt(b.getAttribute('data-score'));
+        return scoreB - scoreA;
+    });
+
+    // Animation de tri
+    items.forEach((item, index) => {
+        // Appliquer une transition pour le déplacement
+        item.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+        item.style.opacity = '0.7';
+
+        // Repositionner après un court délai pour permettre l'animation
+        setTimeout(() => {
+            navbarGallery.appendChild(item);
+            item.style.opacity = '1';
+        }, index * 50);
+    });
 };
 
 
@@ -760,7 +827,7 @@ function checkScreenSize() {
 
   // Adapter la taille du conteneur en fonction de la fenêtre
   let containerWidth, containerHeight;
-  
+
   if (window.innerWidth <= 768) {
     // Sur mobile, utiliser presque toute la largeur disponible
     containerWidth = window.innerWidth * 0.95;
@@ -789,39 +856,39 @@ function checkScreenSize() {
 
   // Définir la taille des chakras en fonction de la taille du conteneur
   const chakraSize = window.innerWidth <= 768 ? containerWidth * 0.07 : containerWidth * 0.05;
-  
+
   // Configurer tous les chakras
   document.querySelectorAll(".chakra").forEach((chakra) => {
     // Maintenir la taille proportionnelle
     chakra.style.width = `${chakraSize}px`;
     chakra.style.height = `${chakraSize}px`;
-    
+
     // S'assurer que les chakras sont toujours visibles et positionnés correctement
     chakra.style.transform = "translate(-50%, -50%)";
     chakra.style.display = "block";
     chakra.style.opacity = "1";
     chakra.style.visibility = "visible";
-    
+
     // Les positions en pourcentage sont définies dans le CSS et ne changent pas
     // Cela assure que les chakras restent aux mêmes emplacements relatifs sur l'arbre
   });
 
   if (window.innerWidth <= 768) {
     // Configurations spécifiques pour mobile
-    
+
     // Configuration du conteneur pour mobile
     chakraTreeContainer.style.marginTop = "30px";
     chakraTreeContainer.style.display = "flex";
     chakraTreeContainer.style.flexDirection = "column";
     chakraTreeContainer.style.alignItems = "center";
     chakraTreeContainer.style.justifyContent = "center";
-    
+
     // Centrer l'arbre correctement
     chakraTree.style.setProperty('left', '50%', 'important');
     chakraTree.style.setProperty('transform', 'translateX(-50%)', 'important');
     chakraTree.style.setProperty('position', 'absolute', 'important');
     chakraTree.style.setProperty('background-position', 'center', 'important');
-    
+
     // Configuration pour les infobulles sur mobile
     document.querySelectorAll(".chakra").forEach((chakra) => {
       const tooltip = chakra.querySelector('.tooltip');
@@ -859,7 +926,7 @@ function checkScreenSize() {
   } else {
     // Configuration pour desktop
     chakraTreeContainer.style.transform = "scale(1)";
-    
+
     // Remettre la légende à sa position normale
     const chakraLegend = document.querySelector('.chakra-legend');
     if (chakraLegend) {
@@ -905,7 +972,7 @@ function positionLegendOnMobile() {
       chakraLegend.style.borderRadius = '10px';
       chakraLegend.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
       chakraLegend.style.borderLeft = '4px solid var(--main-decor-color)';
-      
+
       // Ajouter un style important pour s'assurer que la légende est bien positionnée
       chakraLegend.style.setProperty('order', '-1', 'important');
       chakraLegend.style.setProperty('position', 'relative', 'important');
@@ -931,17 +998,17 @@ function positionLegendOnMobile() {
       chakraTreeContainer.style.order = '1';
       chakraTreeContainer.style.marginTop = '0'; // Réinitialiser la marge supérieure
       chakraTreeContainer.style.paddingTop = '0';
-      
+
       // Définir une taille fixe pour le conteneur de l'arbre
       const containerWidth = window.innerWidth * 0.95;
       const containerHeight = 650; // Hauteur fixe pour une meilleure visibilité
       chakraTreeContainer.style.width = `${containerWidth}px`;
       chakraTreeContainer.style.height = `${containerHeight}px`;
-      
+
       // Ajouter un style important pour s'assurer que l'arbre est bien positionné
       chakraTreeContainer.style.setProperty('order', '1', 'important');
       chakraTreeContainer.style.setProperty('margin-top', '0', 'important');
-      
+
       // Positions des chakras corrigées pour s'aligner avec l'arbre sur mobile
       const chakraPositions = [
         { top: '92%', left: '50%' },  // Rouge - Racine - Base du tronc
@@ -952,31 +1019,31 @@ function positionLegendOnMobile() {
         { top: '18%', left: '50%' },  // Bleu foncé - Troisième œil - Haut du feuillage
         { top: '5%', left: '50%' }    // Violet - Couronne - Sommet
       ];
-      
+
       // S'assurer que les chakras restent visibles et correctement positionnés
       document.querySelectorAll('.chakra').forEach((chakra, index) => {
         // Maintenir les positions en pourcentage pour que les chakras restent alignés avec l'arbre
         chakra.style.display = 'block';
         chakra.style.opacity = '1';
         chakra.style.visibility = 'visible';
-        
+
         // Taille proportionnelle des chakras
         const chakraSize = containerWidth * 0.07;
         chakra.style.width = `${chakraSize}px`;
         chakra.style.height = `${chakraSize}px`;
-        
+
         // Appliquer les positions spécifiques pour chaque chakra
         if (index < chakraPositions.length) {
           chakra.style.setProperty('top', chakraPositions[index].top, 'important');
           chakra.style.setProperty('left', chakraPositions[index].left, 'important');
         }
-        
+
         // S'assurer que les chakras sont visibles
         chakra.style.setProperty('display', 'block', 'important');
         chakra.style.setProperty('opacity', '1', 'important');
         chakra.style.setProperty('visibility', 'visible', 'important');
       });
-      
+
       // Centrer l'arbre horizontalement
       const chakraTree = document.querySelector('.chakra-tree');
       if (chakraTree) {
@@ -986,7 +1053,7 @@ function positionLegendOnMobile() {
         chakraTree.style.width = '100%';
         chakraTree.style.height = '100%';
         chakraTree.style.backgroundPosition = 'center';
-        
+
         // Ajouter un style important pour s'assurer que l'arbre est centré
         chakraTree.style.setProperty('position', 'absolute', 'important');
         chakraTree.style.setProperty('left', '50%', 'important');

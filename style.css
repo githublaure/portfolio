@@ -81,7 +81,21 @@ header:hover{
 }
 
 .navbar-laure-gallery .laure-item .score {
-	display: none;
+	position: absolute;
+	bottom: -3px;
+	right: -3px;
+	background-color: var(--main-decor-color);
+	color: white;
+	border-radius: 50%;
+	width: 14px;
+	height: 14px;
+	font-size: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	opacity: 0.9;
+	z-index: 1;
 }
 
 .nav-bar{
@@ -269,6 +283,7 @@ a.nav-link{
 		margin: 10px;
 		text-align: center;
 		cursor: pointer;
+		transition: transform 0.3s ease;
 		position: relative;
 		display: inline-block !important;
 		opacity: 1 !important;
@@ -288,15 +303,32 @@ a.nav-link{
 		visibility: visible !important;
 }
 
+.laure-item:hover {
+		transform: translateY(-5px);
+}
+
 .laure-item img {
 		width: 100%;
 		height: auto;
 		border-radius: 10px;
 		border: 2px solid transparent;
+		transition: border-color 0.3s ease;
+}
+
+.laure-item:hover img {
+		border-color: var(--main-decor-color);
 }
 
 .laure-item .score {
-		display: none;
+		background-color: var(--main-decor-color);
+		color: white;
+		border-radius: 10px;
+		padding: 1px 6px;
+		font-size: 10px;
+		font-weight: bold;
+		margin-top: 3px;
+		display: inline-block;
+		opacity: 0.9;
 }
 
 .intro p {
@@ -1321,32 +1353,32 @@ hr {
 		top: 92% !important; 
 		left: 10% !important; 
 	} /* Rouge - Racine - Base du tronc */
-	
+
 	.chakra-tree-container .chakra:nth-of-type(2) { 
 		top: 80% !important; 
 		left: 32% !important; 
 	} /* Orange - Sacré - Bas gauche */
-	
+
 	.chakra-tree-container .chakra:nth-of-type(3) { 
 		top: 55% !important; 
 		left: 50% !important; 
 	} /* Jaune - Plexus solaire - Milieu du tronc */
-	
+
 	.chakra-tree-container .chakra:nth-of-type(4) { 
 		top: 45% !important; 
 		left: 75% !important; 
 	} /* Vert - Cœur - Branches droites */
-	
+
 	.chakra-tree-container .chakra:nth-of-type(5) { 
 		top: 30% !important; 
 		left: 25% !important; 
 	} /* Bleu clair - Gorge - Branches gauches haut */
-	
+
 	.chakra-tree-container .chakra:nth-of-type(6) { 
 		top: 18% !important; 
 		left: 50% !important; 
 	} /* Bleu foncé - Troisième œil - Haut du feuillage */
-	
+
 	.chakra-tree-container .chakra:nth-of-type(7) { 
 		top: 5% !important; 
 		left: 50% !important; 
@@ -1870,6 +1902,53 @@ hr {
 .popup-navigation {
 		display: flex;
 		justify-content: space-between;
+		margin-top: 30px;
+}
+
+.popup-navigation button {
+		background-color: var(--main-background);
+		color: var(--main-fonts-color);
+		border: 2px solid var(--main-decor-color);
+		padding: 8px 15px;
+		font-size: 16px;
+		cursor: pointer;
+		border-radius: 5px;
+		transition: all 0.3s ease;
+}
+
+.popup-navigation button:hover {
+		background-color: var(--main-decor-color);
+		color: white;
+}
+
+@media only screen and (max-width: 768px) {
+		.popup-body {
+				flex-direction: column;
+		}
+
+		.popup-image, .popup-description {
+				min-width: 100%;
+		}
+
+		.popup-content {
+				padding: 20px;
+				width: 95%;
+		}
+
+		.popup-title {
+				font-size: 20px;
+		}
+
+		.popup-navigation {
+				margin-top: 20px;
+		}
+
+		.category-bullet {
+				margin: 0 5px 10px;
+				padding: 6px 12px;
+				font-size: 12px;
+		}
+}tween;
 		margin-top: 30px;
 }
 
