@@ -1244,7 +1244,7 @@ hr {
 		transform-origin: center center;
 }
 
-/* Positions fixes par rapport à l'arbre des chakras */
+/* Positions fixes par rapport à l'arbre des chakras - utilisation de pourcentages pour un positionnement relatif */
 .chakra-tree-container .chakra:nth-of-type(1) { top: 85%; left: 50%; background: #FF0000; color: #FF0000; display: block !important; z-index: 20; } /* Rouge - Racine (base du tronc) */
 .chakra-tree-container .chakra:nth-of-type(2) { top: 75%; left: 38%; background: #FFA500; color: #FFA500; display: block !important; z-index: 19; } /* Orange - Sacré (bas du tronc gauche) */
 .chakra-tree-container .chakra:nth-of-type(3) { top: 65%; left: 50%; background: #FFFF00; color: #FFFF00; display: block !important; z-index: 18; } /* Jaune - Plexus solaire (milieu du tronc) */
@@ -1278,7 +1278,7 @@ hr {
 		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 		/* Positionner la légende avant l'arbre */
 		order: -1 !important; /* Forcer la légende avant l'arbre dans le flex container */
-		margin: 0 auto 60px auto; /* Plus grande marge en bas pour séparer de l'arbre */
+		margin: 0 auto 30px auto; /* Marge raisonnable en bas pour séparer de l'arbre */
 		top: auto !important;
 		right: auto !important;
 		left: auto !important;
@@ -1292,16 +1292,16 @@ hr {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding-bottom: 70px; /* Réduire l'espace en bas */
-		padding-top: 50px; /* Plus d'espace en haut */
+		padding-bottom: 50px; /* Espace raisonnable en bas */
+		padding-top: 30px; /* Espace en haut */
 	}
 
 	/* Ajustement du conteneur pour s'assurer qu'il y a de l'espace pour tous les chakras */
 	.chakra-tree-container {
-		margin-top: 40px !important; /* Plus d'espace après la légende */
-		height: 750px !important; /* Hauteur adaptée */
-		padding-bottom: 20px; /* Moins d'espace en bas */
-		padding-top: 0; /* Pas d'espace en haut pour coller à la section */
+		margin-top: 0 !important; /* Pas besoin d'espace supplémentaire après la légende */
+		height: auto !important; /* La hauteur sera définie dynamiquement avec JS */
+		padding-bottom: 20px; /* Espace en bas */
+		padding-top: 0; /* Pas d'espace en haut */
 		display: flex !important;
 		flex-direction: column !important;
 		align-items: center !important;
@@ -1321,10 +1321,12 @@ hr {
 		background-position: center !important;
 	}
 
-	/* Réduire la taille des chakras sur mobile */
+	/* Taille des chakras définie dynamiquement dans JS */
 	.chakra {
-		width: 25px !important;
-		height: 25px !important;
+		/* width et height sont définies en JS de façon proportionnelle */
+		display: block !important;
+		opacity: 1 !important;
+		visibility: visible !important;
 	}
 
 	/* Positionnement central des infobulles sur mobile */
@@ -1341,16 +1343,9 @@ hr {
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important;
 	}
 
-	/* Positions ajustées des chakras du haut pour qu'ils soient bien visibles */
-	.chakra-tree-container .chakra:nth-of-type(6) { /* 3ème œil */
-		top: 30% !important;
-		left: 38% !important;
-	}
-
-	.chakra-tree-container .chakra:nth-of-type(7) { /* Couronne */
-		top: 20% !important;
-		left: 50% !important;
-	}
+	/* Maintenir les positions en pourcentage même sur mobile */
+	/* Ces positionnements en pourcentage permettent de garder les chakras au même endroit relatif sur l'arbre */
+	/* Pas besoin de surcharger les positions ici car elles sont définies en pourcentage dans le sélecteur principal */
 }
 
 .legend-title {

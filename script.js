@@ -826,17 +826,27 @@ function checkScreenSize() {
   if (!chakraTreeContainer || !chakraTree) return;
 
   // Adapter la taille du conteneur en fonction de la fenêtre
-  const containerWidth = Math.min(window.innerWidth * 0.8, 900);
-  const containerHeight = containerWidth * 1.11; // Ratio hauteur/largeur
+  let containerWidth, containerHeight;
+  
+  if (window.innerWidth <= 768) {
+    // Sur mobile, utiliser presque toute la largeur disponible
+    containerWidth = window.innerWidth * 0.95;
+    containerHeight = containerWidth * 1.2; // Ratio hauteur/largeur légèrement plus grand sur mobile
+  } else {
+    // Sur desktop, limiter la taille maximale
+    containerWidth = Math.min(window.innerWidth * 0.8, 900);
+    containerHeight = containerWidth * 1.11; // Ratio hauteur/largeur
+  }
 
-  // Configurer le conteneur principal
+  // Configurer le conteneur principal avec une taille proportionnelle
   chakraTreeContainer.style.width = `${containerWidth}px`;
   chakraTreeContainer.style.height = `${containerHeight}px`;
   chakraTreeContainer.style.margin = '0 auto';
   chakraTreeContainer.style.position = 'relative';
   chakraTreeContainer.style.transformOrigin = 'center center';
+  chakraTreeContainer.style.overflow = 'visible';
 
-  // Configurer l'arbre
+  // Configurer l'arbre pour qu'il prenne tout l'espace du conteneur
   chakraTree.style.position = 'absolute';
   chakraTree.style.top = '0';
   chakraTree.style.left = '0';
@@ -844,56 +854,43 @@ function checkScreenSize() {
   chakraTree.style.height = '100%';
   chakraTree.style.transform = 'none';
 
+  // Définir la taille des chakras en fonction de la taille du conteneur
+  const chakraSize = window.innerWidth <= 768 ? containerWidth * 0.07 : containerWidth * 0.05;
+  
+  // Configurer tous les chakras
+  document.querySelectorAll(".chakra").forEach((chakra) => {
+    // Maintenir la taille proportionnelle
+    chakra.style.width = `${chakraSize}px`;
+    chakra.style.height = `${chakraSize}px`;
+    
+    // S'assurer que les chakras sont toujours visibles et positionnés correctement
+    chakra.style.transform = "translate(-50%, -50%)";
+    chakra.style.display = "block";
+    chakra.style.opacity = "1";
+    chakra.style.visibility = "visible";
+    
+    // Les positions en pourcentage sont définies dans le CSS et ne changent pas
+    // Cela assure que les chakras restent aux mêmes emplacements relatifs sur l'arbre
+  });
+
   if (window.innerWidth <= 768) {
-    // Configuration pour mobile
-    document.querySelectorAll(".chakra").forEach((chakra, index) => {
-      chakra.style.width = "25px";
-      chakra.style.height = "25px";
-      chakra.style.transform = "translate(-50%, -50%)";
-      chakra.style.display = "block";
-      chakra.style.opacity = "1";
-      chakra.style.visibility = "visible";
-
-      // Positions fixes par rapport à l'arbre, avec espacement vertical réduit
-      switch(index) {
-        case 0: // Rouge - Racine
-          chakra.style.top = "80%";
-          chakra.style.left = "50%";
-          chakra.style.zIndex = "20";
-          break;
-        case 1: // Orange - Sacré
-          chakra.style.top = "72%";
-          chakra.style.left = "38%";
-          chakra.style.zIndex = "19";
-          break;
-        case 2: // Jaune - Plexus solaire
-          chakra.style.top = "64%";
-          chakra.style.left = "50%";
-          chakra.style.zIndex = "18";
-          break;
-        case 3: // Vert - Cœur
-          chakra.style.top = "56%";
-          chakra.style.left = "62%";
-          chakra.style.zIndex = "17";
-          break;
-        case 4: // Bleu clair - Gorge
-          chakra.style.top = "48%";
-          chakra.style.left = "50%";
-          chakra.style.zIndex = "16";
-          break;
-        case 5: // Bleu foncé - Troisième œil
-          chakra.style.top = "30%"; // Position ajustée pour être plus visible
-          chakra.style.left = "38%";
-          chakra.style.zIndex = "15";
-          break;
-        case 6: // Violet - Couronne
-          chakra.style.top = "20%"; // Position ajustée pour être plus visible
-          chakra.style.left = "50%";
-          chakra.style.zIndex = "25";
-          break;
-      }
-
-      // Configuration spéciale pour les infobulles sur mobile
+    // Configurations spécifiques pour mobile
+    
+    // Configuration du conteneur pour mobile
+    chakraTreeContainer.style.marginTop = "30px";
+    chakraTreeContainer.style.display = "flex";
+    chakraTreeContainer.style.flexDirection = "column";
+    chakraTreeContainer.style.alignItems = "center";
+    chakraTreeContainer.style.justifyContent = "center";
+    
+    // Centrer l'arbre correctement
+    chakraTree.style.setProperty('left', '50%', 'important');
+    chakraTree.style.setProperty('transform', 'translateX(-50%)', 'important');
+    chakraTree.style.setProperty('position', 'absolute', 'important');
+    chakraTree.style.setProperty('background-position', 'center', 'important');
+    
+    // Configuration pour les infobulles sur mobile
+    document.querySelectorAll(".chakra").forEach((chakra) => {
       const tooltip = chakra.querySelector('.tooltip');
       if (tooltip) {
         // Définir l'infobulle pour qu'elle s'affiche toujours au centre de l'écran sur mobile
@@ -915,51 +912,21 @@ function checkScreenSize() {
       }
     });
 
-    // Configuration du conteneur pour mobile
-    chakraTreeContainer.style.width = "100%";
-    chakraTreeContainer.style.height = "750px";
-    chakraTreeContainer.style.marginTop = "80px";
-    chakraTreeContainer.style.display = "flex";
-    chakraTreeContainer.style.flexDirection = "column";
-    chakraTreeContainer.style.alignItems = "center";
-    chakraTreeContainer.style.justifyContent = "center";
-    chakraTreeContainer.style.position = "relative";
-    chakraTreeContainer.style.overflow = "visible";
-
-    // Centrer l'arbre correctement
-    const chakraTree = document.querySelector('.chakra-tree');
-    if (chakraTree) {
-      chakraTree.style.setProperty('left', '50%', 'important');
-      chakraTree.style.setProperty('transform', 'translateX(-50%)', 'important');
-      chakraTree.style.setProperty('position', 'absolute', 'important');
-      chakraTree.style.setProperty('width', '100%', 'important');
-      chakraTree.style.setProperty('height', '100%', 'important');
-      chakraTree.style.setProperty('background-position', 'center', 'important');
-    }
-
     // Assurer que la légende ne cache pas les chakras
     const chakraLegend = document.querySelector('.chakra-legend');
     if (chakraLegend) {
       chakraLegend.style.position = 'relative';
       chakraLegend.style.top = 'auto';
       chakraLegend.style.right = 'auto';
-      chakraLegend.style.marginBottom = '80px';
+      chakraLegend.style.marginBottom = '30px';
       chakraLegend.style.order = '-1';
+      chakraLegend.style.width = '90%';
+      chakraLegend.style.maxWidth = '300px';
     }
   } else {
     // Configuration pour desktop
-    document.querySelectorAll(".chakra").forEach((chakra, index) => {
-      chakra.style.width = "40px";
-      chakra.style.height = "40px";
-      chakra.style.transform = "translate(-50%, -50%)";
-
-      // Utiliser les positions définies en CSS pour les grands écrans
-      // Les positions sont déjà définies en pourcentage dans le CSS
-    });
-
-    // Configuration du conteneur pour desktop
     chakraTreeContainer.style.transform = "scale(1)";
-
+    
     // Remettre la légende à sa position normale
     const chakraLegend = document.querySelector('.chakra-legend');
     if (chakraLegend) {
@@ -968,6 +935,7 @@ function checkScreenSize() {
       chakraLegend.style.right = '2%';
       chakraLegend.style.marginBottom = '0';
       chakraLegend.style.order = 'unset';
+      chakraLegend.style.width = '200px';
     }
   }
 }
@@ -989,30 +957,41 @@ function positionLegendOnMobile() {
       chakraSection.style.flexDirection = 'column';
       chakraSection.style.alignItems = 'center';
 
-      // Positionner la légende en bas après l'arbre
-      chakraLegend.style.order = '1';
-      chakraLegend.style.marginTop = '50px';
-      chakraLegend.style.marginBottom = '20px';
+      // Positionner la légende en haut avant l'arbre
+      chakraLegend.style.order = '-1';
+      chakraLegend.style.marginTop = '20px';
+      chakraLegend.style.marginBottom = '30px';
       chakraLegend.style.position = 'relative';
       chakraLegend.style.top = 'auto';
       chakraLegend.style.right = 'auto';
+      chakraLegend.style.width = '90%';
+      chakraLegend.style.maxWidth = '300px';
+      chakraLegend.style.zIndex = '40';
 
-      // Positionner l'arbre avant la légende
-      chakraTreeContainer.style.order = '0';
+      // Positionner l'arbre après la légende
+      chakraTreeContainer.style.order = '1';
       chakraTreeContainer.style.marginTop = '0';
       chakraTreeContainer.style.paddingTop = '0';
-
-      // S'assurer que les chakras du haut sont bien positionnés
-      const chakras = document.querySelectorAll('.chakra');
-      if (chakras.length >= 7) {
-        // Troisième œil (6ème chakra)
-        chakras[5].style.top = '30%';
-        chakras[5].style.left = '38%';
-
-        // Couronne (7ème chakra)
-        chakras[6].style.top = '20%';
-        chakras[6].style.left = '50%';
-      }
+      
+      // S'assurer que le conteneur de l'arbre a une taille suffisante
+      const containerWidth = window.innerWidth * 0.95;
+      const containerHeight = containerWidth * 1.2;
+      chakraTreeContainer.style.width = `${containerWidth}px`;
+      chakraTreeContainer.style.height = `${containerHeight}px`;
+      
+      // S'assurer que les chakras restent visibles
+      document.querySelectorAll('.chakra').forEach((chakra, index) => {
+        // Maintenir les positions en pourcentage pour que les chakras restent alignés avec l'arbre
+        // Les valeurs en pourcentage sont dans le CSS
+        chakra.style.display = 'block';
+        chakra.style.opacity = '1';
+        chakra.style.visibility = 'visible';
+        
+        // Taille proportionnelle des chakras
+        const chakraSize = containerWidth * 0.07;
+        chakra.style.width = `${chakraSize}px`;
+        chakra.style.height = `${chakraSize}px`;
+      });
     }
   }
 }
