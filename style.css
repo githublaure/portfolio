@@ -899,13 +899,13 @@ hr {
 	}
 
 	/* Positions des chakras sur mobile adaptées pour s'aligner avec l'arbre */
-	.chakra-tree-container .chakra:nth-of-type(1) { top: 85%; left: 40%; } /* Rouge - Racine */
-	.chakra-tree-container .chakra:nth-of-type(2) { top: 75%; left: 30%; } /* Orange - Sacré */
-	.chakra-tree-container .chakra:nth-of-type(3) { top: 65%; left: 40%; } /* Jaune - Plexus solaire */
-	.chakra-tree-container .chakra:nth-of-type(4) { top: 55%; left: 50%; } /* Vert - Cœur */
-	.chakra-tree-container .chakra:nth-of-type(5) { top: 45%; left: 40%; } /* Bleu clair - Gorge */
-	.chakra-tree-container .chakra:nth-of-type(6) { top: 35%; left: 30%; } /* Bleu foncé - Troisième œil */
-	.chakra-tree-container .chakra:nth-of-type(7) { top: 20%; left: 40%; } /* Violet - Couronne - position ajustée pour éviter la légende */
+	.chakra-tree-container .chakra:nth-of-type(1) { top: 85%; left: 55%; } /* Rouge - Racine */
+	.chakra-tree-container .chakra:nth-of-type(2) { top: 72%; left: 33%; } /* Orange - Sacré */
+	.chakra-tree-container .chakra:nth-of-type(3) { top: 63%; left: 65%; } /* Jaune - Plexus solaire */
+	.chakra-tree-container .chakra:nth-of-type(4) { top: 53%; left: 40%; } /* Vert - Cœur */
+	.chakra-tree-container .chakra:nth-of-type(5) { top: 42%; left: 70%; } /* Bleu clair - Gorge */
+	.chakra-tree-container .chakra:nth-of-type(6) { top: 32%; left: 33%; } /* Bleu foncé - Troisième œil */
+	.chakra-tree-container .chakra:nth-of-type(7) { top: 18%; left: 50%; } /* Violet - Couronne - plus haut pour éviter la légende */
 
 	/* Maintenir le bon z-index pour les chakras */
 	.chakra-tree-container .chakra:nth-of-type(1) { z-index: 20; }
@@ -1030,7 +1030,7 @@ hr {
 		width: 100%;
 		padding: 0 15px;
 		box-sizing: border-box;
-		text-align: center;
+		textalign: center;
 	}
 
 	/* Footer adjustments */
@@ -1279,14 +1279,14 @@ hr {
 		max-width: 300px;
 		order: -1; /* Assure que la légende apparaît avant l'arbre */
 	}
-	
+
 	/* Ajustement du conteneur pour s'assurer qu'il y a de l'espace pour tous les chakras */
 	.chakra-tree-container {
 		margin-top: 30px;
 		height: 750px !important; /* Hauteur augmentée pour accueillir tous les chakras */
 		padding-bottom: 100px; /* Espacement supplémentaire en bas */
 	}
-	
+
 	/* S'assurer que le chakra racine est bien visible et dans l'arbre */
 	#chakra-section {
 		padding-bottom: 100px; /* Augmenter l'espace en bas */

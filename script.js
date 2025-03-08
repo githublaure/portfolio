@@ -813,40 +813,40 @@ function checkScreenSize() {
       chakra.style.height = "30px";
       chakra.style.transform = "translate(-50%, -50%)";
       
-      // Positions spécifiques pour mobile tout en maintenant la relation avec l'arbre
+      // Positions spécifiques corrigées pour mobile pour s'aligner avec l'arbre
       switch(index) {
         case 0: // Rouge - Racine
           chakra.style.top = "85%";
-          chakra.style.left = "50%";
+          chakra.style.left = "55%";
           chakra.style.zIndex = "20";
           break;
         case 1: // Orange - Sacré
-          chakra.style.top = "75%";
-          chakra.style.left = "38%";
+          chakra.style.top = "72%";
+          chakra.style.left = "33%";
           chakra.style.zIndex = "19";
           break;
         case 2: // Jaune - Plexus solaire
-          chakra.style.top = "65%";
-          chakra.style.left = "50%";
+          chakra.style.top = "63%";
+          chakra.style.left = "65%";
           chakra.style.zIndex = "18";
           break;
         case 3: // Vert - Cœur
-          chakra.style.top = "55%";
-          chakra.style.left = "62%";
+          chakra.style.top = "53%";
+          chakra.style.left = "40%";
           chakra.style.zIndex = "17";
           break;
         case 4: // Bleu clair - Gorge
-          chakra.style.top = "45%";
-          chakra.style.left = "50%";
+          chakra.style.top = "42%";
+          chakra.style.left = "70%";
           chakra.style.zIndex = "16";
           break;
         case 5: // Bleu foncé - Troisième œil
-          chakra.style.top = "35%";
-          chakra.style.left = "38%";
+          chakra.style.top = "32%";
+          chakra.style.left = "33%";
           chakra.style.zIndex = "15";
           break;
         case 6: // Violet - Couronne
-          chakra.style.top = "15%"; // Légèrement plus bas pour être visible mais pas caché par la légende
+          chakra.style.top = "18%"; // Plus haut pour éviter d'être caché par la légende
           chakra.style.left = "50%";
           chakra.style.zIndex = "25";
           break;
