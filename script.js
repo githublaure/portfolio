@@ -809,47 +809,62 @@ function checkScreenSize() {
   if (window.innerWidth <= 768) {
     // Configuration pour mobile
     document.querySelectorAll(".chakra").forEach((chakra, index) => {
-      chakra.style.width = "30px";
-      chakra.style.height = "30px";
+      chakra.style.width = "25px";
+      chakra.style.height = "25px";
       chakra.style.transform = "translate(-50%, -50%)";
       
-      // Positions fixes par rapport à l'arbre, identiques à la version desktop
+      // Positions fixes par rapport à l'arbre, déplacées vers le bas en version mobile
       switch(index) {
         case 0: // Rouge - Racine
-          chakra.style.top = "85%";
+          chakra.style.top = "90%";
           chakra.style.left = "50%";
           chakra.style.zIndex = "20";
           break;
         case 1: // Orange - Sacré
-          chakra.style.top = "75%";
+          chakra.style.top = "80%";
           chakra.style.left = "38%";
           chakra.style.zIndex = "19";
           break;
         case 2: // Jaune - Plexus solaire
-          chakra.style.top = "65%";
+          chakra.style.top = "70%";
           chakra.style.left = "50%";
           chakra.style.zIndex = "18";
           break;
         case 3: // Vert - Cœur
-          chakra.style.top = "55%";
+          chakra.style.top = "60%";
           chakra.style.left = "62%";
           chakra.style.zIndex = "17";
           break;
         case 4: // Bleu clair - Gorge
-          chakra.style.top = "45%";
+          chakra.style.top = "50%";
           chakra.style.left = "50%";
           chakra.style.zIndex = "16";
           break;
         case 5: // Bleu foncé - Troisième œil
-          chakra.style.top = "35%";
+          chakra.style.top = "40%";
           chakra.style.left = "38%";
           chakra.style.zIndex = "15";
           break;
         case 6: // Violet - Couronne
-          chakra.style.top = "15%"; // Plus haut pour éviter d'être caché par la légende
+          chakra.style.top = "30%"; // Déplacé encore plus bas pour éviter la légende
           chakra.style.left = "50%";
           chakra.style.zIndex = "25";
           break;
+      }
+      
+      // Configuration spéciale pour les infobulles sur mobile
+      const tooltip = chakra.querySelector('.tooltip');
+      if (tooltip) {
+        // Définir l'infobulle pour qu'elle s'affiche toujours au centre sur mobile
+        chakra.addEventListener('mouseenter', () => {
+          tooltip.style.left = '50%';
+          tooltip.style.right = 'auto';
+          tooltip.style.top = '120%';
+          tooltip.style.transform = 'translateX(-50%)';
+          tooltip.style.width = '250px';
+          tooltip.style.maxWidth = '90vw';
+          tooltip.style.zIndex = '9999';
+        });
       }
     });
 
