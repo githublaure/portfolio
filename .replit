@@ -11,4 +11,4 @@ args = "python -m http.server 3000 --bind 0.0.0.0"
 
 [deployment]
 deploymentTarget = "static"
-publicDir = "portfolio"
+publicDir = "./"
