@@ -527,8 +527,14 @@ footer {
 .footer-image {
 		width: 100%;
 		overflow: hidden;
-		max-height: 350px; /* Augmentation de la hauteur pour afficher l'image en entier */
+		max-height: 450px; /* Hauteur augmentée pour afficher le haut de l'image en version desktop */
 		position: relative;
+}
+
+@media only screen and (min-width: 1025px) {
+    .footer-image {
+        max-height: 500px; /* Hauteur encore plus grande sur les grands écrans */
+    }
 }
 
 .footer-image img {
