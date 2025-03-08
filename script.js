@@ -813,30 +813,30 @@ function checkScreenSize() {
       chakra.style.height = "25px";
       chakra.style.transform = "translate(-50%, -50%)";
       
-      // Positions fixes par rapport à l'arbre, déplacées vers le bas en version mobile
+      // Positions fixes par rapport à l'arbre, avec espacement vertical réduit
       switch(index) {
         case 0: // Rouge - Racine
-          chakra.style.top = "90%";
+          chakra.style.top = "80%";
           chakra.style.left = "50%";
           chakra.style.zIndex = "20";
           break;
         case 1: // Orange - Sacré
-          chakra.style.top = "80%";
+          chakra.style.top = "72%";
           chakra.style.left = "38%";
           chakra.style.zIndex = "19";
           break;
         case 2: // Jaune - Plexus solaire
-          chakra.style.top = "70%";
+          chakra.style.top = "64%";
           chakra.style.left = "50%";
           chakra.style.zIndex = "18";
           break;
         case 3: // Vert - Cœur
-          chakra.style.top = "60%";
+          chakra.style.top = "56%";
           chakra.style.left = "62%";
           chakra.style.zIndex = "17";
           break;
         case 4: // Bleu clair - Gorge
-          chakra.style.top = "50%";
+          chakra.style.top = "48%";
           chakra.style.left = "50%";
           chakra.style.zIndex = "16";
           break;
@@ -846,7 +846,7 @@ function checkScreenSize() {
           chakra.style.zIndex = "15";
           break;
         case 6: // Violet - Couronne
-          chakra.style.top = "30%"; // Déplacé encore plus bas pour éviter la légende
+          chakra.style.top = "32%"; // Déplacé pour réduire l'espacement
           chakra.style.left = "50%";
           chakra.style.zIndex = "25";
           break;
@@ -855,12 +855,13 @@ function checkScreenSize() {
       // Configuration spéciale pour les infobulles sur mobile
       const tooltip = chakra.querySelector('.tooltip');
       if (tooltip) {
-        // Définir l'infobulle pour qu'elle s'affiche toujours au centre sur mobile
+        // Définir l'infobulle pour qu'elle s'affiche toujours au centre de l'écran sur mobile
         chakra.addEventListener('mouseenter', () => {
-          tooltip.style.left = '50%';
+          tooltip.style.position = 'fixed';
+          tooltip.style.left = '50vw';
           tooltip.style.right = 'auto';
-          tooltip.style.top = '120%';
-          tooltip.style.transform = 'translateX(-50%)';
+          tooltip.style.top = '50vh';
+          tooltip.style.transform = 'translate(-50%, -50%)';
           tooltip.style.width = '250px';
           tooltip.style.maxWidth = '90vw';
           tooltip.style.zIndex = '9999';
