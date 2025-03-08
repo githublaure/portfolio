@@ -1274,13 +1274,26 @@ hr {
 		top: auto;
 		right: auto;
 		transform: none;
-		margin: 20px auto;
+		margin: 0 auto 50px auto; /* Plus grand espace en bas pour séparer clairement de l'arbre */
 		width: 90%;
 		max-width: 300px;
 		background: rgba(248, 243, 233, 0.98);
 		z-index: 40;
 		order: -1; /* Placer la légende avant l'arbre dans le flex container */
-		margin-bottom: 30px;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Ombre pour mieux se détacher */
+	}
+	
+	/* Ajuster le conteneur principal pour créer une séparation claire */
+	#chakra-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	/* Créer un espace distinct pour la légende et l'arbre */
+	.chakra-tree-container {
+		margin-top: 0; /* Supprimer la marge supérieure */
+		padding-top: 20px; /* Ajouter un peu d'espace en haut */
 	}
 
 	/* Ajustement du conteneur pour s'assurer qu'il y a de l'espace pour tous les chakras */

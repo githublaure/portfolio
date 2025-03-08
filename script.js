@@ -968,6 +968,37 @@ function checkScreenSize() {
 window.addEventListener("load", checkScreenSize);
 window.addEventListener("resize", checkScreenSize);
 
+// Fonction pour assurer que la légende est bien séparée de l'arbre sur mobile
+function positionLegendOnMobile() {
+  if (window.innerWidth <= 768) {
+    const chakraSection = document.getElementById('chakra-section');
+    const chakraLegend = document.querySelector('.chakra-legend');
+    const chakraTreeContainer = document.querySelector('.chakra-tree-container');
+    
+    if (chakraSection && chakraLegend && chakraTreeContainer) {
+      // S'assurer que la section chakra utilise flexbox pour un meilleur contrôle
+      chakraSection.style.display = 'flex';
+      chakraSection.style.flexDirection = 'column';
+      chakraSection.style.alignItems = 'center';
+      
+      // Positionner la légende tout en haut, clairement séparée
+      chakraLegend.style.order = '-1';
+      chakraLegend.style.marginBottom = '50px';
+      chakraLegend.style.position = 'relative';
+      chakraLegend.style.top = 'auto';
+      chakraLegend.style.right = 'auto';
+      
+      // Donner plus d'espace à l'arbre
+      chakraTreeContainer.style.marginTop = '0';
+      chakraTreeContainer.style.paddingTop = '20px';
+    }
+  }
+}
+
+// Exécuter au chargement et lors du redimensionnement
+window.addEventListener('load', positionLegendOnMobile);
+window.addEventListener('resize', positionLegendOnMobile);
+
 // Initialisation du filtrage des projets par catégories
 const initProjectCategories = () => {
     const categoryBullets = document.querySelectorAll('.category-bullet');
