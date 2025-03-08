@@ -1009,15 +1009,15 @@ function positionLegendOnMobile() {
       chakraTreeContainer.style.setProperty('order', '1', 'important');
       chakraTreeContainer.style.setProperty('margin-top', '0', 'important');
       
-      // Ajuster les positions des chakras pour qu'ils s'alignent correctement avec l'arbre sur mobile
+      // Positions des chakras corrigées pour s'aligner avec l'arbre sur mobile
       const chakraPositions = [
-        { top: '88%', left: '50%' },  // Rouge - Racine
-        { top: '76%', left: '35%' },  // Orange - Sacré
-        { top: '64%', left: '50%' },  // Jaune - Plexus solaire
-        { top: '54%', left: '65%' },  // Vert - Cœur
-        { top: '41%', left: '50%' },  // Bleu clair - Gorge
-        { top: '30%', left: '35%' },  // Bleu foncé - Troisième œil
-        { top: '12%', left: '50%' }   // Violet - Couronne
+        { top: '92%', left: '50%' },  // Rouge - Racine - Base du tronc
+        { top: '80%', left: '32%' },  // Orange - Sacré - Bas gauche
+        { top: '55%', left: '50%' },  // Jaune - Plexus solaire - Milieu du tronc
+        { top: '45%', left: '75%' },  // Vert - Cœur - Branches droites
+        { top: '30%', left: '25%' },  // Bleu clair - Gorge - Branches gauches haut
+        { top: '18%', left: '50%' },  // Bleu foncé - Troisième œil - Haut du feuillage
+        { top: '5%', left: '50%' }    // Violet - Couronne - Sommet
       ];
       
       // S'assurer que les chakras restent visibles et correctement positionnés
