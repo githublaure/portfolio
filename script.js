@@ -375,51 +375,73 @@ const initChakras = () => {
 
                     // S'assurer que le tooltip est au premier plan avec un z-index très élevé
                     tooltip.style.zIndex = '9999';
-
-                    // Positionner les tooltips selon la position du chakra
-                    if (rect.left > window.innerWidth / 2) {
-                        // Chakra à droite de l'écran
-                        tooltip.style.left = 'auto';
-                        tooltip.style.right = 'calc(100% + 20px)';
-                        tooltip.style.top = '50%';
-                        tooltip.style.transform = 'translateY(-50%)';
-                    } else if (rect.top < window.innerHeight / 3) {
-                        // Chakra en haut de l'arbre
+                    
+                    // Comportement spécifique sur mobile (écran < 768px)
+                    if (window.innerWidth <= 768) {
+                        // Sur mobile, afficher le tooltip au centre de l'écran
+                        tooltip.style.position = 'fixed';
                         tooltip.style.left = '50%';
-                        tooltip.style.transform = 'translateX(-50%)';
-                        tooltip.style.top = 'calc(100% + 20px)';
+                        tooltip.style.top = '50%';
+                        tooltip.style.transform = 'translate(-50%, -50%)';
+                        tooltip.style.width = '80%';
+                        tooltip.style.maxWidth = '300px';
+                        tooltip.style.maxHeight = '300px';
+                        tooltip.style.overflow = 'auto';
+                        tooltip.style.background = 'rgba(255, 255, 255, 0.95)';
+                        tooltip.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.5)';
+                        tooltip.style.padding = '15px';
+                        tooltip.style.borderRadius = '10px';
+                        // Ajouter un peu d'espace en haut et en bas
+                        tooltip.style.marginTop = '0';
+                        // Assurer que le texte est lisible
+                        tooltip.style.fontSize = '14px';
+                        tooltip.style.lineHeight = '1.4';
                     } else {
-                        // Chakra à gauche ou au centre
-                        tooltip.style.left = 'calc(100% + 20px)';
-                        tooltip.style.right = 'auto';
-                        tooltip.style.top = '50%';
-                        tooltip.style.transform = 'translateY(-50%)';
-                    }
+                        // Positionner les tooltips selon la position du chakra sur desktop
+                        if (rect.left > window.innerWidth / 2) {
+                            // Chakra à droite de l'écran
+                            tooltip.style.left = 'auto';
+                            tooltip.style.right = 'calc(100% + 20px)';
+                            tooltip.style.top = '50%';
+                            tooltip.style.transform = 'translateY(-50%)';
+                        } else if (rect.top < window.innerHeight / 3) {
+                            // Chakra en haut de l'arbre
+                            tooltip.style.left = '50%';
+                            tooltip.style.transform = 'translateX(-50%)';
+                            tooltip.style.top = 'calc(100% + 20px)';
+                        } else {
+                            // Chakra à gauche ou au centre
+                            tooltip.style.left = 'calc(100% + 20px)';
+                            tooltip.style.right = 'auto';
+                            tooltip.style.top = '50%';
+                            tooltip.style.transform = 'translateY(-50%)';
+                        }
 
-                    // Correction spécifique pour les chakras jaune (index 2), vert (index 3) et bleu clair (index 4)
-                    if (index === 2) { // Jaune
-                        tooltip.style.left = '50%';
-                        tooltip.style.right = 'auto';
-                        tooltip.style.top = 'calc(100% + 15px)'; // Afficher en-dessous du chakra au lieu d'au-dessus
-                        tooltip.style.bottom = 'auto';
-                        tooltip.style.transform = 'translateX(-50%)';
-                    } else if (index === 3) { // Vert
-                        tooltip.style.left = 'auto';
-                        tooltip.style.right = 'calc(100% + 10px)';
-                        tooltip.style.top = '50%';
-                        tooltip.style.transform = 'translateY(-50%)';
-                    } else if (index === 4) { // Bleu clair
-                        tooltip.style.left = 'auto';
-                        tooltip.style.right = 'calc(100% + 10px)';
-                        tooltip.style.top = '0';
-                        tooltip.style.transform = 'translateY(0)';
+                        // Correction spécifique pour les chakras jaune (index 2), vert (index 3) et bleu clair (index 4)
+                        if (index === 2) { // Jaune
+                            tooltip.style.left = '50%';
+                            tooltip.style.right = 'auto';
+                            tooltip.style.top = 'calc(100% + 15px)'; // Afficher en-dessous du chakra au lieu d'au-dessus
+                            tooltip.style.bottom = 'auto';
+                            tooltip.style.transform = 'translateX(-50%)';
+                        } else if (index === 3) { // Vert
+                            tooltip.style.left = 'auto';
+                            tooltip.style.right = 'calc(100% + 10px)';
+                            tooltip.style.top = '50%';
+                            tooltip.style.transform = 'translateY(-50%)';
+                        } else if (index === 4) { // Bleu clair
+                            tooltip.style.left = 'auto';
+                            tooltip.style.right = 'calc(100% + 10px)';
+                            tooltip.style.top = '0';
+                            tooltip.style.transform = 'translateY(0)';
+                        }
+                        tooltip.style.position = 'absolute';
                     }
 
                     // Assurer la visibilité du tooltip et le positionner au-dessus de tout
                     tooltip.style.opacity = '1';
                     tooltip.style.visibility = 'visible';
                     tooltip.style.display = 'block';
-                    tooltip.style.position = 'absolute';
 
                     // Ajouter un style important pour s'assurer que le tooltip est visible
                     tooltip.style.setProperty('z-index', '9999', 'important');

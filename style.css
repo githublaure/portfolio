@@ -940,7 +940,7 @@ hr {
 	.chakra-tree {
 		position: absolute;
 		left: 50%;
-		transform: translateX(-50%);
+		transform: translateX(-50%) scale(1.1) !important; /* Centrage parfait */
 		width: 100%;
 		height: 100%;
 		background-position: center;
@@ -961,13 +961,7 @@ hr {
 		flex-direction: column;
 	}
 
-	.chakra-tree {
-		background-position: center center;
-		transform: translateX(-50%) translateY(50px) scale(1.1) !important; /* Correction pour centrer et déplacer vers le bas */
-		position: absolute;
-		left: 40%; /* Décalage légèrement vers la gauche pour compenser l'arbre qui semble trop à droite */
-		transform-origin: center center;
-	}
+
 	#chakra-section {
 		padding-bottom: 50px; /* Espace réduit car la légende est maintenant en haut */
 		display: flex;
@@ -1280,11 +1274,13 @@ hr {
 		top: auto;
 		right: auto;
 		transform: none;
-		margin: 0 auto 120px auto; /* Marge inférieure encore plus augmentée pour la légende */
+		margin: 20px auto;
 		width: 90%;
 		max-width: 300px;
-		order: -1; /* Assure que la légende apparaît avant l'arbre */
-		z-index: 50; /* S'assurer que la légende est bien au-dessus */
+		background: rgba(248, 243, 233, 0.98);
+		z-index: 40;
+		order: -1; /* Placer la légende avant l'arbre dans le flex container */
+		margin-bottom: 30px;
 	}
 
 	/* Ajustement du conteneur pour s'assurer qu'il y a de l'espace pour tous les chakras */
