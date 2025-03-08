@@ -584,100 +584,33 @@ const initSocialAnimations = () => {
 }
 
 
-// Système de score et tri pour les images Laure
+// Version simplifiée pour les images Laure (sans effet hacker)
 const initLaureGallery = () => {
     const laureItems = document.querySelectorAll('.laure-item');
     if (!laureItems.length) return;
 
-    // Ajouter les événements de clic pour augmenter le score
+    // Assurons-nous simplement que les éléments sont visibles
     laureItems.forEach(item => {
-        item.addEventListener('click', () => {
-            // Augmenter le score
-            let score = parseInt(item.getAttribute('data-score')) + 1;
-            item.setAttribute('data-score', score);
-
-            // Mettre à jour l'affichage du score pour tous les éléments avec la même image
-            const imgSrc = item.querySelector('img').src;
-            // Extraire le nom du fichier de l'URL complète
-            const imgFileName = imgSrc.split('/').pop();
-
-            // Sélectionner tous les éléments avec la même image par nom de fichier
-            const allMatchingItems = document.querySelectorAll('.laure-item');
-
-            allMatchingItems.forEach(matchItem => {
-                const matchImg = matchItem.querySelector('img');
-                if (matchImg && matchImg.src.includes(imgFileName)) {
-                    matchItem.setAttribute('data-score', score);
-                    const scoreElement = matchItem.querySelector('.score');
-                    if (scoreElement) {
-                        scoreElement.textContent = score;
-                    }
-                }
-            });
-
-            // Trier les éléments en fonction du score
-            sortLaureItems();
-            sortNavbarLaureItems();
-        });
+        item.style.display = 'inline-block';
+        item.style.opacity = '1';
+        item.style.visibility = 'visible';
+        
+        // Masquer les scores qui ne seront plus utilisés
+        const scoreElement = item.querySelector('.score');
+        if (scoreElement) {
+            scoreElement.style.display = 'none';
+        }
     });
 };
 
-// Fonction pour trier les éléments Laure par score dans la section principale
+// Fonction simplifiée pour la section principale (sans tri)
 const sortLaureItems = () => {
-    const gallery = document.querySelector('.laure-gallery');
-    if (!gallery) return;
-
-    // Convertir NodeList en tableau pour le tri
-    const items = Array.from(gallery.querySelectorAll('.laure-item'));
-
-    // Trier par score décroissant
-    items.sort((a, b) => {
-        const scoreA = parseInt(a.getAttribute('data-score'));
-        const scoreB = parseInt(b.getAttribute('data-score'));
-        return scoreB - scoreA;
-    });
-
-    // Animation de tri
-    items.forEach((item, index) => {
-        // Appliquer une transition pour le déplacement
-        item.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-        item.style.opacity = '0.7';
-
-        // Repositionner après un court délai pour permettre l'animation
-        setTimeout(() => {
-            gallery.appendChild(item);
-            item.style.opacity = '1';
-        }, index * 100);
-    });
+    // Cette fonction ne fait plus rien car nous avons supprimé le tri
 };
 
-// Fonction pour trier les éléments Laure par score dans la navbar
+// Fonction simplifiée pour la navbar (sans tri)
 const sortNavbarLaureItems = () => {
-    const navbarGallery = document.querySelector('.navbar-laure-gallery');
-    if (!navbarGallery) return;
-
-    // Convertir NodeList en tableau pour le tri
-    const items = Array.from(navbarGallery.querySelectorAll('.laure-item'));
-
-    // Trier par score décroissant
-    items.sort((a, b) => {
-        const scoreA = parseInt(a.getAttribute('data-score'));
-        const scoreB = parseInt(b.getAttribute('data-score'));
-        return scoreB - scoreA;
-    });
-
-    // Animation de tri
-    items.forEach((item, index) => {
-        // Appliquer une transition pour le déplacement
-        item.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
-        item.style.opacity = '0.7';
-
-        // Repositionner après un court délai pour permettre l'animation
-        setTimeout(() => {
-            navbarGallery.appendChild(item);
-            item.style.opacity = '1';
-        }, index * 50);
-    });
+    // Cette fonction ne fait plus rien car nous avons supprimé le tri
 };
 
 

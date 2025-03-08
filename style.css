@@ -81,21 +81,7 @@ header:hover{
 }
 
 .navbar-laure-gallery .laure-item .score {
-	position: absolute;
-	bottom: -3px;
-	right: -3px;
-	background-color: var(--main-decor-color);
-	color: white;
-	border-radius: 50%;
-	width: 14px;
-	height: 14px;
-	font-size: 8px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-weight: bold;
-	opacity: 0.9;
-	z-index: 1;
+	display: none;
 }
 
 .nav-bar{
@@ -283,7 +269,6 @@ a.nav-link{
 		margin: 10px;
 		text-align: center;
 		cursor: pointer;
-		transition: transform 0.3s ease;
 		position: relative;
 		display: inline-block !important;
 		opacity: 1 !important;
@@ -303,32 +288,15 @@ a.nav-link{
 		visibility: visible !important;
 }
 
-.laure-item:hover {
-		transform: translateY(-5px);
-}
-
 .laure-item img {
 		width: 100%;
 		height: auto;
 		border-radius: 10px;
 		border: 2px solid transparent;
-		transition: border-color 0.3s ease;
-}
-
-.laure-item:hover img {
-		border-color: var(--main-decor-color);
 }
 
 .laure-item .score {
-		background-color: var(--main-decor-color);
-		color: white;
-		border-radius: 10px;
-		padding: 1px 6px;
-		font-size: 10px;
-		font-weight: bold;
-		margin-top: 3px;
-		display: inline-block;
-		opacity: 0.9;
+		display: none;
 }
 
 .intro p {
